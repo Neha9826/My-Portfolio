@@ -11,10 +11,10 @@ export const Projects = () => {
 
     const projects =[
         {
-            title: "Business Startup",
+            title: "Sri Durga Furnitures",
             description: "Design & Development",
             imgUrl: projImg1,
-            source: "#"
+            source: "https://github.com/Neha9826/Sridurga_furnitures"
           },
           {
             title: "Business Startup",

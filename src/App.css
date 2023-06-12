@@ -350,6 +350,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   position: relative;
   background-color: black;
 }
+
+.proj-col a .proj-imgbx .project-link .proj-txtx
+{
+  text-decoration: none;
+}
 .project h2 {
 	font-size: 45px;
 	font-weight: 700;
