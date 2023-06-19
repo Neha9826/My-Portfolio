@@ -1,8 +1,8 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
+import projImg1 from "../assets/img/sri1.png";
+import projImg2 from "../assets/img/port1.png";
+import projImg3 from "../assets/img/task-mngr.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -11,35 +11,22 @@ export const Projects = () => {
 
     const projects =[
         {
-            title: "Sri Durga Furnitures",
-            description: "Design & Development",
+            title: "Sri Durga Furnitures (Java)",
+            description: "Source",
             imgUrl: projImg1,
             source: "https://github.com/Neha9826/Sridurga_furnitures"
           },
           {
-            title: "Business Startup",
-            description: "Design & Development",
+            title: "My Portfolio (ReactJS)",
+            description: "Source",
             imgUrl: projImg2,
+            source: "https://github.com/Neha9826/My-Portfolio.git"
           },
           {
-            title: "Business Startup",
-            description: "Design & Development",
+            title: "Task Manager (PHP-Laravel)",
+            description: "Source",
             imgUrl: projImg3,
-          },
-          {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg1,
-          },
-          {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg2,
-          },
-          {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg3,
+            source: "https://github.com/Neha9826/task-manager.git"
           },
     ];
 
@@ -52,7 +39,7 @@ export const Projects = () => {
                     {({ isVisible }) =>
                     <div className={isVisible ? "animate__animated animate__bounce": ""}>
                         <h2>Journey so far..</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        {/* <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> */}
                         </div>
                     }
                     </TrackVisibility>
@@ -85,11 +72,17 @@ export const Projects = () => {
                                 }
                             </Row>
                             </Tab.Pane>
-                            <Tab.Pane eventKey="section">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
+                            <Tab.Pane eventKey="second">
+                            <p>The Ultimate MySQL Bootcamp: Udemy</p>
+                            <p>PHP OOP: Udemy</p>
+                            <p>PHP with Laravel: Udemy</p>
+                            <p>Java: SK InfoTech</p>
                             </Tab.Pane>
                             <Tab.Pane eventKey="third">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
+                            <p><h4>Freelancing: Software Designer & Developer (Present)</h4> 
+                              Freelancing using different technologies like PHP, JSP and React.js.</p>
+                            <p><h4>OMNICS Technologies Pvt. Ltd.:</h4> Jr. Software Developer (Intern)</p>
+                            <p><h4>Spice tech India: </h4> Internship in web designing & development.</p>
                             </Tab.Pane>
                         </Tab.Content>
                         </Tab.Container>
