@@ -87,13 +87,10 @@ export const Skills = () => {
                         <Carousel responsive={responsive} infinite={true} className="skill-slider">
                             {skills.map((s) => 
                                 <div className="item">
-                                {/* <img src={meter1} alt="Image" /> */}
                                 <CircularProgressWithLabel fontSize="50" value={s.progress} />
                                 <h5>{s.name}</h5>
                               </div>
                             )}
-                            
-                            
                         </Carousel>
                     </div>
                     </Col>
