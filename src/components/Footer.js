@@ -19,10 +19,10 @@ export const Footer = () => {
           </Col>
           <Col size={12} sm={6} className="text-center text-sm-end">
             <div className="social-icon">
-                <a target="_blank" href="tel:+918260320789"><img src={navIcon4} alt="" /></a>
-                <a target="_blank" href="https://nehapattnayak123@gmail.com"><img className="mail-icon" src={navIcon2} alt="" /></a>
-                <a target="_blank" href="https://www.linkedin.com/in/neha-pattnayak-8119b2188/"><img className="icon-li" src={navIcon1} alt="" /></a>
-                <a target="_blank" href="https://github.com/Neha9826"><img className="git-icon" src={navIcon3} alt="" /></a>
+                <a target="_blank" rel="noreferrer" href="tel:+918260320789"><img src={navIcon4} alt="" /></a>
+                <a target="_blank" rel="noreferrer" href="https://nehapattnayak123@gmail.com"><img className="mail-icon" src={navIcon2} alt="" /></a>
+                <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/neha-pattnayak-8119b2188/"><img className="icon-li" src={navIcon1} alt="" /></a>
+                <a target="_blank" rel="noreferrer" href="https://github.com/Neha9826"><img className="git-icon" src={navIcon3} alt="" /></a>
                 <p>Email id: nehapattnayak123@gmail.com</p>
                 <p>Call: +91-8260320789</p>
             </div>

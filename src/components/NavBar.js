@@ -50,10 +50,10 @@ export const NavBar = () => {
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
-                <a target="_blank" href="tel:+918260320789"><img src={navIcon4} alt="" /></a>
-                <a target="_blank" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJNqKgSGHKjMdKFnhWVCDCRnHfrrXWVSlwfgMZMbDmBdpSKHhvqdqMmrKTNchZPJbQVwKsV"><img src={navIcon1} alt="" /></a>
-                <a target="_blank" href="https://www.linkedin.com/in/neha-pattnayak-8119b2188/"><img src={navIcon2} alt="" /></a>
-                <a target="_blank" href="https://github.com/Neha9826"><img src={navIcon3} alt="" /></a>
+                <a target="_blank" rel="noreferrer" href="tel:+918260320789"><img src={navIcon4} alt="" /></a>
+                <a target="_blank" rel="noreferrer" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJNqKgSGHKjMdKFnhWVCDCRnHfrrXWVSlwfgMZMbDmBdpSKHhvqdqMmrKTNchZPJbQVwKsV"><img src={navIcon1} alt="" /></a>
+                <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/neha-pattnayak-8119b2188/"><img src={navIcon2} alt="" /></a>
+                <a target="_blank" rel="noreferrer" href="https://github.com/Neha9826"><img src={navIcon3} alt="" /></a>
               </div>
               {/* <HashLink to='#connect'> */}
                 <a href="#connect"><button className="vvd"><span>Let’s Connect</span></button></a>

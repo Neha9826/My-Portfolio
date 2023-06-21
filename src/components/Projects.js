@@ -76,7 +76,7 @@ export const Projects = () => {
                             <p>The Ultimate MySQL Bootcamp: Udemy</p>
                             <p>PHP OOP: Udemy</p>
                             <p>PHP with Laravel: Udemy</p>
-                            <p>Java: SK InfoTech</p>
+                            <p>Java: SK InfoTech, Berhampr, Odisha</p>
                             </Tab.Pane>
                             <Tab.Pane eventKey="third">
                             <p><h4>Freelancing: Software Designer & Developer (Present)</h4> 
