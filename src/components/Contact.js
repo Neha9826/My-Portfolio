@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
@@ -6,11 +6,12 @@ import TrackVisibility from 'react-on-screen';
 import emailjs from "emailjs-com";
 
   export const Contact = () => {
-    
+    const form = useRef();
+   
     const sendEmail = (e) => {
     e.preventDefault();
-
-    emailjs.sendForm('service_gcoyzjf', 'template_qcl9ylb', e.target, 'RNfcpnvKraL2pbsrr')
+   
+    emailjs.sendForm('service_gcoyzjf', 'template_qcl9ylb', form.current, 'aLaNQXgqPrTqc3o_X')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
@@ -37,7 +38,8 @@ import emailjs from "emailjs-com";
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <h2>Get In Touch</h2>
-                <form onSubmit={sendEmail}>
+
+                <form ref={form} onSubmit={sendEmail}>
                   <Row>
                     <Col size={12} sm={6} className="px-1">
                       <input type="text"  placeholder="First Name" name="firstName" />
@@ -55,12 +57,6 @@ import emailjs from "emailjs-com";
                       <textarea rows="6"  placeholder="Message" name="message"></textarea>
                       <button type="submit"><span>Send</span></button>
                     </Col>
-                    {/* {
-                      status.message &&
-                      <Col>
-                        <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
-                      </Col>
-                    } */}
                   </Row>
                 </form>
               </div>}

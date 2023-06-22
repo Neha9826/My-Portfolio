@@ -5,10 +5,6 @@ export const skills = [
     },
     {
         name : "LARAVEL",
-        progress : 60,
-    },
-    {
-        name : "JAVA",
         progress : 65,
     },
     {
@@ -25,14 +21,18 @@ export const skills = [
     },
     {
         name : "CSS3",
-        progress : 75,
+        progress : 80
     },
     {
         name : "ReactJs",
-        progress : 50,
+        progress : 60,
     },
     {
         name : "NodeJs",
         progress : 50,
+    },
+    {
+        name : "JAVA",
+        progress : 65,
     },
 ]

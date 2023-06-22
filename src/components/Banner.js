@@ -58,7 +58,7 @@ export const Banner = () => {
                 <span className="tagline">Welcome to my Portfolio</span>
                 <h1>{`Hi! I'm Neha Pattnayak`}<br/><span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI Designer" ]'><span className="wrap">{text}</span></span></h1>
                   <p>Detail-oriented individual with Bachelor's and Master's degrees in Computer Application, seeking a job opportunity as Software Engineer at a leading organization. I am a driven individual with skills and expertise in designing, planning, developing, and maintaining software programs.</p>
-                  <a target="_blank" rel="noreferrer" className="cv" href="https://drive.google.com/file/d/1K-2toI8OAZ37mLUjun4pNKFNViziTApq/view?usp=sharing" >Download CV <ArrowRightCircle size={25} /></a>
+                  <a target="_blank" rel="noreferrer" className="cv" href="https://drive.google.com/file/d/1x6pBX419q9nMuvtlFgNamRVKoWSzdjTJ/view?usp=sharing" >Download CV <ArrowRightCircle size={25} /></a>
               </div>}
             </TrackVisibility>
           </Col>
