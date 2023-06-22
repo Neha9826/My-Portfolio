@@ -4,9 +4,12 @@ import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import emailjs from "emailjs-com";
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 
   export const Contact = () => {
     const form = useRef();
+    const [status, setStatus] = useState({});
    
     const sendEmail = (e) => {
     e.preventDefault();
@@ -14,8 +17,10 @@ import emailjs from "emailjs-com";
     emailjs.sendForm('service_gcoyzjf', 'template_qcl9ylb', form.current, 'aLaNQXgqPrTqc3o_X')
       .then((result) => {
           console.log(result.text);
+          setStatus({ succes: true, message: 'Message sent successfully'});
       }, (error) => {
           console.log(error.text);
+          setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
       });
 
       e.target.reset()
@@ -58,6 +63,14 @@ import emailjs from "emailjs-com";
                       <button type="submit"><span>Send</span></button>
                     </Col>
                   </Row>
+                  <Stack paddingTop={5} sx={{ width: '100%' }} spacing={2}>
+                  {
+                      status.message &&
+                      <Alert severity="success">
+                        <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
+                      </Alert>
+                    }
+                  </Stack>
                 </form>
               </div>}
             </TrackVisibility>
