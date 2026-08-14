@@ -67,7 +67,7 @@ export const Banner = () => {
                 </div>
                 </h1>
                   <p>Innovative Full Stack Developer with approx 5 years of professional experience architecting scalable Single Page Applications (SPA), complex web platforms, and robust cloud infrastructures. Expert in the React.js, Next.js, and PHP (Laravel) ecosystems.</p>
-                  <a target="_blank" rel="noreferrer" className="cv" href="https://drive.google.com/file/d/1cfdmWuD5vuScJjyEP1r9ZPXLWo5Nzbdo/view?usp=drive_link" >Download CV <ArrowRightCircle size={25} /></a>
+                  <a target="_blank" rel="noreferrer" className="cv" href="https://drive.google.com/file/d/1n8vgiyW6mfv3FpCpXXJ6syc0BeIqpg0t/view?usp=drive_link" >Download CV <ArrowRightCircle size={25} /></a>
               </div>}
             </TrackVisibility>
           </Col>
