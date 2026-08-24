@@ -98,12 +98,12 @@ export const Projects = () => {
                             <p><strong>Corporate Training:</strong> PHP Laravel Framework & Advanced MySQL</p>
                             </Tab.Pane>
                             <Tab.Pane eventKey="third">
-                            <p><h4>RIA Catalyst (April 2026 – Present)</h4> Associate Front-End Engineer (Contract)</p>
-                            <p><h4>Romya Electronics (Dec 2025 – April 2026)</h4> IT Head & Full Stack Developer</p>
-                            <p><h4>CareMyTrip.com (Jul 2025 – Dec 2025)</h4> IT Head & Full Stack Developer</p>
-                            <p><h4>Freelance (Jan 2024 – Jan 2025)</h4> Full Stack Developer & Consultant</p>
-                            <p><h4>CTMS Application Project (Jun 2022 – Jan 2024)</h4> React Developer</p>
+                            <p><h4>RIA Catalyst (Apr 2026 – Present)</h4> Associate Front-End Engineer (Contract)</p>
+                            <p><h4>Independent Technical Consultant (Jul 2025 – Apr 2026)</h4> IT Head & Full Stack Developer</p>
+                            <p><h4>Freelance (Feb 2022 – Jul 2025)</h4> Full Stack Developer & Consultant</p>
+                            <p><h4>RGC Manager (Jun 2022 – Jan 2024)</h4> React Developer (Contract)</p>
                             <p><h4>RGC Manager (Jul 2021 – Jan 2022)</h4> Junior Software Developer (Intern)</p>
+                            <p><h4>SpiceTech (Sep 2018 – Dec 2018)</h4> Web Developer (Intern)</p>
                             </Tab.Pane>
                         </Tab.Content>
                         </Tab.Container>

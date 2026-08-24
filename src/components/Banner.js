@@ -9,10 +9,12 @@ export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
+  // Reduced initial typing delay for a much faster start
+  const [delta, setDelta] = useState(100 - Math.random() * 50); 
   const [index, setIndex] = useState(1);
-  const toRotate = [ "Full Stack Developer", "React.js Expert", "Laravel Specialist" ];
-  const period = 2000;
+  const toRotate = [ "Full Stack Developer", "Laravel Specialist", "React.js Expert" ];
+  // Reduced period so it moves to the next title much faster
+  const period = 800; 
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -30,7 +32,7 @@ export const Banner = () => {
     setText(updatedText);
 
     if (isDeleting) {
-      setDelta(prevDelta => prevDelta / 2);
+      setDelta(prevDelta => prevDelta / 2); // Deletes text extremely fast
     }
 
     if (!isDeleting && updatedText === fullText) {
@@ -41,7 +43,7 @@ export const Banner = () => {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
       setIndex(1);
-      setDelta(500);
+      setDelta(200); // Very short pause before typing the new word
     } else {
       setIndex(prevIndex => prevIndex + 1);
     }
@@ -59,15 +61,15 @@ export const Banner = () => {
                 <h1 >{`Hi! I'm Neha Pattnayak`}<br/>
                 <div className="glitch">
                   <h1>
-                  <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Full Stack Developer", "React.js Expert", "Laravel Specialist" ]'>
+                  <span className="txt-rotate" dataPeriod="800" data-rotate='[ "Full Stack Developer", "Laravel Specialist", "React.js Expert" ]'>
                     {text}
                   </span> {text}
                   <span className="wrap">{text}</span>
                   </h1>
                 </div>
                 </h1>
-                  <p>Innovative Full Stack Developer with approx 5 years of professional experience architecting scalable Single Page Applications (SPA), complex web platforms, and robust cloud infrastructures. Expert in the React.js, Next.js, and PHP (Laravel) ecosystems.</p>
-                  <a target="_blank" rel="noreferrer" className="cv" href="https://drive.google.com/file/d/1n8vgiyW6mfv3FpCpXXJ6syc0BeIqpg0t/view?usp=drive_link" >Download CV <ArrowRightCircle size={25} /></a>
+                  <p>Full Stack Software Engineer with over 5 years of rigorous enterprise experience, backed by a 7-year overall foundation in software architecture and full-cycle development. While highly proficient in modern UI engineering, my core expertise lies in architecting robust backend infrastructures, scalable RESTful APIs, and complex relational databases using PHP Laravel and MySQL.</p>
+                  <a target="_blank" rel="noreferrer" className="cv" href="https://drive.google.com/file/d/1gkqCaY_-yEe-vZj-7SVEu1y5l1YDsnKm/view?usp=drive_link" >Download CV <ArrowRightCircle size={25} /></a>
               </div>}
             </TrackVisibility>
           </Col>

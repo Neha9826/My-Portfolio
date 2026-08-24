@@ -1,38 +1,38 @@
 export const skills = [
     {
-        name : "React.js & Next.js",
+        name : "PHP 8+ & Laravel",
+        progress : 95,
+    },
+    {
+        name : "MySQL & PostgreSQL",
         progress : 90,
     },
     {
-        name : "PHP & Laravel",
+        name : "RESTful APIs & GraphQL",
+        progress : 90,
+    },
+    {
+        name : "React.js & Next.js",
         progress : 85,
     },
     {
-        name : "TypeScript/JS",
+        name : "System Design (HLD/LLD)",
         progress : 85,
+    },
+    {
+        name : "AWS, Docker & K8s",
+        progress : 80,
+    },
+    {
+        name : "TypeScript/JS",
+        progress : 80,
+    },
+    {
+        name : "Python & AI Pipelines",
+        progress : 75,
     },
     {
         name : "HTML/CSS/Tailwind",
         progress : 90,
-    },
-    {
-        name : "MySQL & MongoDB",
-        progress : 80,
-    },
-    {
-        name : "Node.js",
-        progress : 75,
-    },
-    {
-        name : "AWS & CI/CD",
-        progress : 75,
-    },
-    {
-        name : "Python",
-        progress : 60,
-    },
-    {
-        name : "Core Java",
-        progress : 65,
     },
 ]
