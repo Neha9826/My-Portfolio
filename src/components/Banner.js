@@ -69,7 +69,7 @@ export const Banner = () => {
                 </div>
                 </h1>
                   <p>Full Stack Software Engineer with over 5 years of rigorous enterprise experience, backed by a 7-year overall foundation in software architecture and full-cycle development. While highly proficient in modern UI engineering, my core expertise lies in architecting robust backend infrastructures, scalable RESTful APIs, and complex relational databases using PHP Laravel and MySQL.</p>
-                  <a target="_blank" rel="noreferrer" className="cv" href="https://drive.google.com/file/d/1gkqCaY_-yEe-vZj-7SVEu1y5l1YDsnKm/view?usp=drive_link" >Download CV <ArrowRightCircle size={25} /></a>
+                  <a target="_blank" rel="noreferrer" className="cv" href="https://drive.google.com/file/d/1jlnLKoBEz1z5cIg7OV6gA4chJF5TTasN/view?usp=drive_link" >Download CV <ArrowRightCircle size={25} /></a>
               </div>}
             </TrackVisibility>
           </Col>
