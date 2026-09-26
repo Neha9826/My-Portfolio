@@ -12,37 +12,37 @@ export const Projects = () => {
   const projects = [
     {
       title: "RIA Catalyst",
-      description: "Product experience and frontend engineering",
+      description: "Fintech market screener · UI architecture, GraphQL and gRPC integrations",
       imgUrl: RIA,
       source: "https://app.riacatalyst.com/",
     },
     {
       title: "SoilnWater",
-      description: "Multi-tenant e-commerce platform",
+      description: "Multi-tenant commerce platform · product flows and backend integration",
       imgUrl: soilnwater,
       source: "https://soilnwater.in/",
     },
     {
       title: "Shivoham Retreat",
-      description: "Website and digital experience",
+      description: "Hospitality website · responsive digital experience",
       imgUrl: shivoham_,
       source: "https://shivohamretreat.com/",
     },
     {
       title: "Yoga Teacher Training Courses",
-      description: "Training and course website",
+      description: "Education platform · course discovery and responsive UI",
       imgUrl: yttc,
       source: "https://yogateacherstrainingcourses.com/",
     },
     {
       title: "Yoga Bhawna Mission",
-      description: "Website and content experience",
+      description: "Mission-led organization · website and content experience",
       imgUrl: ybm,
       source: "https://yogbhawnamission.com/",
     },
     {
       title: "SatvaDig",
-      description: "A new project in progress",
+      description: "Product in development · full-stack engineering",
       imgUrl: Satvadig,
       source: "#",
     },
@@ -177,30 +177,48 @@ export const Projects = () => {
             </Tab.Pane>
 
             <Tab.Pane eventKey="third">
-              <div className="timeline-list">
-                <article className="timeline-item">
-                  <span>Apr 2026 — Present</span>
-                  <div><h3>RIA Catalyst</h3><p>Associate Front-End Engineer · Contract</p></div>
+              <div className="timeline-list experience-timeline">
+                <article className="timeline-item experience-current">
+                  <span>Nov 2022 — Present</span>
+                  <div>
+                    <div className="experience-role-heading">
+                      <h3>Dev Engine AI</h3>
+                      <span className="experience-current-badge">FOUNDER-LED</span>
+                    </div>
+                    <p className="experience-role">Founder & Lead Full Stack Engineer</p>
+                    <p>Leading end-to-end product engineering for client solutions and internal SaaS products—from architecture and data modeling to interfaces, APIs, testing, and delivery.</p>
+                    <div className="experience-projects-label">SELECTED PROJECTS</div>
+                    <div className="experience-project-chips">
+                      <span>Arch-OS · multi-tenant architecture SaaS</span>
+                      <span>RIA Catalyst · fintech screener</span>
+                      <span>Romya Electronics · Laravel platform</span>
+                      <span>CareMyTrip.com · booking platform</span>
+                      <span>SatvaDig & Cross-Tech SaaS</span>
+                    </div>
+                  </div>
                 </article>
                 <article className="timeline-item">
-                  <span>Jul 2025 — Apr 2026</span>
-                  <div><h3>Independent Technical Consultant</h3><p>IT Head & Full Stack Developer</p></div>
-                </article>
-                <article className="timeline-item">
-                  <span>Feb 2022 — Jul 2025</span>
-                  <div><h3>Freelance</h3><p>Full Stack Developer & Consultant</p></div>
-                </article>
-                <article className="timeline-item">
-                  <span>Jun 2022 — Jan 2024</span>
-                  <div><h3>RGC Manager</h3><p>React Developer · Contract</p></div>
+                  <span>Feb 2022 — Nov 2022</span>
+                  <div>
+                    <h3>RGC Manager</h3>
+                    <p className="experience-role">React Developer · Contract</p>
+                    <p>Developed and maintained React-based product interfaces.</p>
+                  </div>
                 </article>
                 <article className="timeline-item">
                   <span>Jul 2021 — Jan 2022</span>
-                  <div><h3>RGC Manager</h3><p>Junior Software Developer · Intern</p></div>
+                  <div>
+                    <h3>RGC Manager</h3>
+                    <p className="experience-role">Junior Software Developer · Intern · Remote, Germany</p>
+                    <p>Contributed to software development tasks as part of the engineering team.</p>
+                  </div>
                 </article>
                 <article className="timeline-item">
                   <span>Sep 2018 — Dec 2018</span>
-                  <div><h3>SpiceTech</h3><p>Web Developer · Intern</p></div>
+                  <div>
+                    <h3>SpiceTech India</h3>
+                    <p className="experience-role">Web Developer · Intern</p>
+                  </div>
                 </article>
               </div>
             </Tab.Pane>
