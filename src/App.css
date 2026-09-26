@@ -1169,3 +1169,25 @@ section { scroll-margin-top: 80px; }
   color: #d9d5e8;
   font-weight: 600;
 }
+
+
+/* Prevent the final glyph in gradient/monogram text from being clipped. */
+.hero-copy { max-width: 100%; }
+.hero h1 {
+  max-width: 100%;
+  font-size: clamp(48px, 5.35vw, 74px);
+  letter-spacing: -3.8px;
+}
+.hero-emphasis {
+  padding-right: .09em;
+  margin-right: -.09em;
+}
+.art-core span {
+  display: inline-block;
+  padding-right: .14em;
+  margin-right: -.14em;
+  letter-spacing: -3.5px;
+}
+@media (max-width: 575px) {
+  .hero h1 { letter-spacing: -2.5px; }
+}
