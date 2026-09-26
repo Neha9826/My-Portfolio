@@ -1,5 +1,6 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
+import { SkillsVisual } from "./SkillsVisual";
 import RIA from "../assets/img/RIA.jpg";
 import soilnwater from "../assets/img/soilnwater_banner.png";
 import shivoham_ from "../assets/img/shivoham_.png";
@@ -51,6 +52,7 @@ export const Projects = () => {
 
   return (
     <section className="project" id="project">
+      <div className="project-network-backdrop" aria-hidden="true"><SkillsVisual /></div>
       <Container>
         <div className="section-heading project-heading">
           <span className="section-eyebrow">SELECTED WORK</span>
