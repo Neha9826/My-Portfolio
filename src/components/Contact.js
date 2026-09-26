@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { ArrowUpRight, Mail } from "react-bootstrap-icons";
+import { ArrowUpRight, Envelope } from "react-bootstrap-icons";
 import contactImg from "../assets/img/contact-img.svg";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
@@ -57,7 +57,7 @@ export const Contact = () => {
                     what you’re working on.
                   </p>
                   <a className="contact-direct-link" href="mailto:nehapattnayak123@gmail.com">
-                    <Mail size={17} /> nehapattnayak123@gmail.com <ArrowUpRight size={16} />
+                    <Envelope size={17} /> nehapattnayak123@gmail.com <ArrowUpRight size={16} />
                   </a>
                   <img className="contact-illustration" src={contactImg} alt="" aria-hidden="true" />
                 </div>
