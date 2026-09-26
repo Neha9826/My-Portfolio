@@ -32,14 +32,14 @@ export const ProjectCityVisual = () => {
       ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
 
       const random = seededRandom(92817);
-      const count = Math.max(34, Math.min(90, Math.round(width / 16)));
+      const count = Math.max(48, Math.min(130, Math.round(width / 10)));
       const horizon = height * 0.53;
       buildings = Array.from({ length: count }, (_, i) => {
         const depth = random();
-        const baseY = horizon + Math.pow(depth, 0.72) * height * 0.5;
-        const scale = 0.28 + depth * 1.15;
-        const w = (14 + random() * 38) * scale;
-        const h = (24 + random() * 145) * scale;
+        const baseY = horizon + Math.pow(depth, 0.62) * height * 0.48;
+        const scale = 0.42 + depth * 1.55;
+        const w = (17 + random() * 44) * scale;
+        const h = (32 + random() * 190) * scale;
         return {
           x: random() * width,
           baseY,
@@ -61,32 +61,35 @@ export const ProjectCityVisual = () => {
     const stroke = (points, alpha, lineWidth = 0.7) => {
       ctx.beginPath();
       points.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
-      ctx.strokeStyle = `rgba(70, 207, 255, ${alpha})`;
+      ctx.strokeStyle = `rgba(78, 218, 255, ${alpha})`;
       ctx.lineWidth = lineWidth;
+      ctx.shadowBlur = alpha > 0.22 ? 5 : 1.5;
+      ctx.shadowColor = "rgba(28, 203, 255, .7)";
       ctx.stroke();
+      ctx.shadowBlur = 0;
     };
 
     const drawBuilding = (b) => {
       const { x, baseY, w, h, depth, phase, bright } = b;
       const skew = w * (0.2 + depth * 0.16);
       const topY = baseY - h;
-      const alpha = 0.07 + depth * 0.19 + (bright ? 0.07 : 0);
+      const alpha = 0.15 + depth * 0.24 + (bright ? 0.13 : 0);
       const front = [[x, topY], [x + w, topY], [x + w, baseY], [x, baseY], [x, topY]];
       const side = [[x + w, topY], [x + w + skew, topY - skew * 0.42], [x + w + skew, baseY - skew * 0.42], [x + w, baseY]];
       const roof = [[x, topY], [x + skew, topY - skew * 0.42], [x + w + skew, topY - skew * 0.42], [x + w, topY]];
-      stroke(front, alpha);
-      stroke(side, alpha * 0.9);
-      stroke(roof, alpha * 1.35);
+      stroke(front, alpha, depth > 0.7 ? 1.05 : 0.8);
+      stroke(side, alpha * 0.85, 0.8);
+      stroke(roof, alpha * 1.5, 1);
 
       // Fine floor lines and a few bright service columns.
       const floors = Math.max(2, Math.floor(h / 17));
       for (let i = 1; i < floors; i += 1) {
         const y = topY + (h / floors) * i;
-        stroke([[x, y], [x + w, y]], alpha * 0.55, 0.45);
+        stroke([[x, y], [x + w, y]], alpha * 0.7, 0.6);
       }
       if (bright || depth > 0.72) {
         const columnX = x + w * (0.25 + (Math.sin(phase) + 1) * 0.2);
-        stroke([[columnX, topY + 3], [columnX, baseY - 2]], alpha * 1.9, 0.65);
+        stroke([[columnX, topY + 3], [columnX, baseY - 2]], Math.min(0.85, alpha * 2.1), 0.9);
       }
     };
 
@@ -98,12 +101,12 @@ export const ProjectCityVisual = () => {
       // Perspective floor grid, converging into the city.
       for (let i = 0; i <= 22; i += 1) {
         const x = (i / 22) * width;
-        stroke([[width * 0.5, horizon], [x, height]], 0.055 + (i % 4 === 0 ? 0.035 : 0), 0.6);
+        stroke([[width * 0.5, horizon], [x, height]], 0.09 + (i % 4 === 0 ? 0.055 : 0), 0.75);
       }
       for (let i = 0; i < 14; i += 1) {
         const t = i / 13;
         const y = horizon + Math.pow(t, 1.8) * (height - horizon);
-        stroke([[0, y], [width, y]], 0.035 + t * 0.055, 0.55);
+        stroke([[0, y], [width, y]], 0.055 + t * 0.085, 0.7);
       }
 
       // Distant skyline first, foreground structures last.
@@ -111,13 +114,13 @@ export const ProjectCityVisual = () => {
 
       particles.forEach((p, i) => {
         const drift = reducedMotion ? 0 : Math.sin(time * p.speed + p.phase) * 5;
-        const pulse = 0.2 + (Math.sin(time * 1.5 + p.phase) + 1) * 0.22;
+        const pulse = 0.38 + (Math.sin(time * 1.5 + p.phase) + 1) * 0.28;
         const x = p.x + drift;
         const y = p.y;
         ctx.beginPath();
-        ctx.arc(x, y, i % 7 === 0 ? 1.8 : 1.1, 0, Math.PI * 2);
+        ctx.arc(x, y, i % 5 === 0 ? 2.2 : 1.45, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(37, 220, 255, ${pulse})`;
-        ctx.shadowBlur = i % 7 === 0 ? 12 : 5;
+        ctx.shadowBlur = i % 5 === 0 ? 18 : 8;
         ctx.shadowColor = "rgba(30, 211, 255, .8)";
         ctx.fill();
       });
@@ -126,7 +129,7 @@ export const ProjectCityVisual = () => {
       // A restrained luminous horizon, like a live infrastructure bus.
       const glow = ctx.createLinearGradient(0, horizon, width, horizon);
       glow.addColorStop(0, "rgba(30, 211, 255, 0)");
-      glow.addColorStop(0.5, "rgba(30, 211, 255, .16)");
+      glow.addColorStop(0.5, "rgba(30, 211, 255, .3)");
       glow.addColorStop(1, "rgba(30, 211, 255, 0)");
       ctx.fillStyle = glow;
       ctx.fillRect(0, horizon - 1, width, 2);
