@@ -7,7 +7,7 @@ import yttc from "../assets/img/yogateacherstrainingcourses.png";
 import ybm from "../assets/img/ybm.png";
 import Satvadig from "../assets/img/Satvadig_.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
-import { ArrowUpRight, GitBranch, Boxes, Bot, Code2, Layers3 } from "lucide-react";
+import { ArrowUpRight, Git, BoxSeam, Robot, CodeSlash, Layers } from "react-bootstrap-icons";
 
 export const Projects = () => {
   const projects = [
@@ -81,7 +81,7 @@ export const Projects = () => {
 
             <div className="archos-actions">
               <a className="archos-primary-link" href="https://github.com/Neha9826/arch-os" target="_blank" rel="noreferrer">
-                <GitBranch size={17} /> Explore on GitHub <ArrowUpRight size={17} />
+                <Git size={17} /> Explore on GitHub <ArrowUpRight size={17} />
               </a>
               <span className="archos-status"><span /> Actively building</span>
             </div>
@@ -89,8 +89,8 @@ export const Projects = () => {
 
           <div className="archos-visual" aria-label="Illustration of the Arch-OS architecture canvas">
             <div className="archos-windowbar">
-              <div className="archos-brand"><span className="archos-brand-icon"><Code2 size={17} /></span><strong>arch-os</strong><span className="archos-workspace">Enterprise Workspace</span></div>
-              <div className="archos-window-actions"><span><Bot size={14} /> AI Review</span><span><Code2 size={14} /> Export Code</span></div>
+              <div className="archos-brand"><span className="archos-brand-icon"><CodeSlash size={17} /></span><strong>arch-os</strong><span className="archos-workspace">Enterprise Workspace</span></div>
+              <div className="archos-window-actions"><span><Robot size={14} /> AI Review</span><span><CodeSlash size={14} /> Export Code</span></div>
             </div>
             <div className="archos-canvas">
               <div className="archos-canvas-grid" />
@@ -106,11 +106,11 @@ export const Projects = () => {
               <div className="archos-node archos-node-redis"><span className="archos-redis-dot" /><span><small>CACHE</small><strong>Redis Cache</strong></span></div>
               <div className="archos-node archos-node-db"><span className="archos-node-icon">▰</span><span><small>DATABASE</small><strong>PostgreSQL</strong></span></div>
               <div className="archos-mini-panel">
-                <div><Code2 size={13} /><strong>Generated docker-compose.yml</strong><span>↗</span></div>
+                <div><CodeSlash size={13} /><strong>Generated docker-compose.yml</strong><span>↗</span></div>
                 <code>services:<br />&nbsp; client_ui:<br />&nbsp;&nbsp; build: ./client_ui<br />&nbsp; api_service:<br />&nbsp;&nbsp; ports: ["8080:8080"]</code>
               </div>
               <div className="archos-review-panel">
-                <div><Bot size={15} /><strong>AI Architecture Review</strong></div>
+                <div><Robot size={15} /><strong>AI Architecture Review</strong></div>
                 <p>Review system design and explore improvement suggestions.</p>
                 <span className="archos-review-lines" /><span className="archos-review-lines short" />
               </div>
@@ -119,10 +119,10 @@ export const Projects = () => {
           </div>
 
           <div className="archos-capabilities">
-            <div><span className="archos-cap-icon violet"><Boxes size={19} /></span><section><strong>Visual architecture canvas</strong><p>Design cloud-native systems with React Flow.</p></section></div>
-            <div><span className="archos-cap-icon ember"><Bot size={19} /></span><section><strong>AI architecture review</strong><p>Get structured feedback on your design.</p></section></div>
-            <div><span className="archos-cap-icon blue"><Code2 size={19} /></span><section><strong>Infrastructure export</strong><p>Generate foundational Docker Compose files.</p></section></div>
-            <div><span className="archos-cap-icon mint"><Layers3 size={19} /></span><section><strong>Multi-tenant workspace</strong><p>Keep architecture projects organized.</p></section></div>
+            <div><span className="archos-cap-icon violet"><BoxSeam size={19} /></span><section><strong>Visual architecture canvas</strong><p>Design cloud-native systems with React Flow.</p></section></div>
+            <div><span className="archos-cap-icon ember"><Robot size={19} /></span><section><strong>AI architecture review</strong><p>Get structured feedback on your design.</p></section></div>
+            <div><span className="archos-cap-icon blue"><CodeSlash size={19} /></span><section><strong>Infrastructure export</strong><p>Generate foundational Docker Compose files.</p></section></div>
+            <div><span className="archos-cap-icon mint"><Layers size={19} /></span><section><strong>Multi-tenant workspace</strong><p>Keep architecture projects organized.</p></section></div>
           </div>
         </article>
 
