@@ -246,7 +246,8 @@
   transform: rotate(45deg);
   pointer-events: none;
 }
-.skill .skills-network-canvas { display: none !important; }
+/* The original animated constellation belongs to Skills only. */
+.skill .skills-network-canvas { display: block; }
 .skill .skill-card {
   background: linear-gradient(145deg, rgba(20,22,32,.96), rgba(12,13,20,.96));
   border-color: rgba(180,177,218,.2);
