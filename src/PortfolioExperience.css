@@ -530,3 +530,34 @@
 .footer {
   background: linear-gradient(180deg, #090a10 0%, #08090d 100%) !important;
 }
+
+
+/* About metric: make the number meaningful, with a restrained ambient pulse. */
+.about-aside-number {
+  display: inline-flex;
+  align-items: flex-start;
+  color: #b9a7ff;
+  text-shadow: 0 0 34px rgba(185,167,255,.13);
+  animation: experience-glow 4.8s ease-in-out infinite;
+}
+.about-aside-plus {
+  margin: .08em 0 0 .08em;
+  color: var(--ember);
+  font-size: .42em;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+.about-aside-caption {
+  max-width: 190px;
+  color: #9293a3;
+  font-size: 9px;
+  line-height: 1.9;
+  letter-spacing: 1.7px;
+}
+@keyframes experience-glow {
+  0%, 100% { text-shadow: 0 0 24px rgba(185,167,255,.08); }
+  50% { text-shadow: 0 0 38px rgba(185,167,255,.22); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-aside-number { animation: none; }
+}
