@@ -241,6 +241,19 @@ export const Projects = () => {
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>
+
+        <aside className="project-confidentiality-note">
+          <span className="project-confidentiality-mark" aria-hidden="true">↗</span>
+          <div>
+            <strong>Client confidentiality</strong>
+            <p>
+              Some client projects are covered by confidentiality agreements or NDAs,
+              so their source code and private repositories aren’t publicly available.
+              I’m happy to discuss my role, technical decisions, and contributions
+              where permitted.
+            </p>
+          </div>
+        </aside>
       </Container>
     </section>
   );
