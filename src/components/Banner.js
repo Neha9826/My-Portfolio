@@ -1,5 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { ArrowUpRight, ArrowDown, Github, Linkedin, Mail, Stars } from "react-bootstrap-icons";
+import { ArrowUpRight, ArrowDown, Stars } from "react-bootstrap-icons";
+import { SystemVisual } from "./SystemVisual";
 
 export const Banner = () => {
   return (
@@ -31,7 +32,8 @@ export const Banner = () => {
             </div>
           </Col>
           <Col lg={5}>
-            <div className="hero-art" aria-label="Abstract interactive architecture illustration">
+            <div className="hero-art" aria-label="Interactive constellation representing Neha’s engineering universe">
+              <SystemVisual />
               <div className="art-orbit orbit-one" />
               <div className="art-orbit orbit-two" />
               <div className="art-orbit orbit-three" />
