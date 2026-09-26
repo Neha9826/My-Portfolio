@@ -963,3 +963,92 @@ section { scroll-margin-top: 80px; }
   .project-card, .project-card-image img, .project-card-image-grid, .project-card-image-action { transition: none !important; }
   .project-card:hover { transform: none; }
 }
+
+
+/* Projects + contact: carry the constellation language beyond Skills */
+.project {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(255,107,69,.075), transparent 34%),
+    radial-gradient(ellipse at 88% 54%, rgba(116,91,205,.11), transparent 38%),
+    linear-gradient(180deg, #090a10 0%, #0b0c13 52%, #08090d 100%);
+}
+.project-network-backdrop {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: .66;
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 76%, transparent 100%);
+}
+.project-network-backdrop .skills-network-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .82;
+  mix-blend-mode: screen;
+}
+.project > .container {
+  position: relative;
+  z-index: 1;
+}
+.project .archos-feature {
+  border-color: rgba(178,164,255,.19);
+  background: linear-gradient(125deg, rgba(18,20,30,.92), rgba(10,11,17,.84));
+  box-shadow: 0 24px 90px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.035);
+}
+.project .archos-visual {
+  border-color: rgba(163,139,255,.23);
+  box-shadow: 0 0 70px rgba(120,95,220,.09);
+}
+.project .project-card {
+  border: 1px solid rgba(178,164,255,.16);
+  background: linear-gradient(145deg, rgba(19,21,31,.94), rgba(10,11,16,.94));
+  backdrop-filter: blur(8px);
+}
+.project .project-card-image {
+  background: #10121b;
+}
+.project .more-projects-heading,
+.project .project-tabs,
+.project .project-tab-content {
+  position: relative;
+}
+.contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 5% 35%, rgba(255,107,69,.09), transparent 35%),
+    radial-gradient(ellipse at 92% 68%, rgba(127,105,232,.1), transparent 38%),
+    linear-gradient(180deg, #08090d, #0b0c12 52%, #08090d);
+}
+.contact::before,
+.contact::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(163,139,255,.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.contact::before {
+  top: 8%;
+  right: -170px;
+  box-shadow: 0 0 0 42px rgba(163,139,255,.025), 0 0 0 84px rgba(163,139,255,.018);
+}
+.contact::after {
+  bottom: -230px;
+  left: -130px;
+  border-color: rgba(255,107,69,.12);
+  box-shadow: 0 0 0 42px rgba(255,107,69,.025), 0 0 0 84px rgba(255,107,69,.018);
+}
+@media (max-width: 767px) {
+  .project-network-backdrop { opacity: .42; }
+}
