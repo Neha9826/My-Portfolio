@@ -23,10 +23,10 @@ export const About = () => (
             <span><i /> Make complexity feel clear</span>
           </div>
         </div>
-        <div className="about-aside" aria-hidden="true">
-          <span className="about-aside-number">02</span>
+        <div className="about-aside" aria-label="Over seven years in software engineering">
+          <span className="about-aside-number">7<span className="about-aside-plus">+</span></span>
           <span className="about-aside-rule" />
-          <span className="about-aside-caption">ENGINEERING<br />WITH INTENTION</span>
+          <span className="about-aside-caption">YEARS IN SOFTWARE<br />ENGINEERING</span>
         </div>
       </div>
     </Container>
