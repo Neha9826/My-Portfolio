@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { ArrowUpRight, ArrowDown, Stars } from "react-bootstrap-icons";
+import { ArrowUpRight, ArrowDown } from "react-bootstrap-icons";
 import { SystemVisual } from "./SystemVisual";
 
 export const Banner = () => {
@@ -33,16 +33,14 @@ export const Banner = () => {
           </Col>
           <Col lg={5}>
             <div className="hero-art" aria-label="Interactive constellation representing Neha’s engineering universe">
-              <SystemVisual />
-              <div className="art-orbit orbit-one" />
-              <div className="art-orbit orbit-two" />
-              <div className="art-orbit orbit-three" />
-              <div className="art-core"><span>NP</span><i /></div>
-              <div className="art-node node-top"><span className="node-dot" /><div><small>BUILD MODE</small><strong>ON</strong></div><Stars /></div>
-              <div className="art-node node-left"><span className="node-icon">{"</>"}</span><div><small>ENGINEERING</small><strong>Full-stack</strong></div></div>
-              <div className="art-node node-right"><span className="node-icon">✳</span><div><small>STUDIO</small><strong>Dev Engine AI</strong></div></div>
-              <div className="art-caption"><span className="caption-line" /> SYSTEMS THINKING <span>×</span> CREATIVE BUILDING</div>
-              <div className="art-coordinate">30°19' N<br />78°02' E</div>
+              <div className="hero-globe-shell">
+                <SystemVisual />
+                <span className="hero-globe-ring" />
+              </div>
+              <div className="hero-globe-label label-top">SYSTEMS IN MOTION</div>
+              <div className="hero-globe-label label-right">DEV ENGINE AI</div>
+              <div className="hero-globe-label label-bottom">FULL-STACK ENGINEERING</div>
+              <div className="hero-globe-caption">IDEAS IN ORBIT · BUILT TO CONNECT</div>
             </div>
           </Col>
         </Row>
