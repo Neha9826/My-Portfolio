@@ -46,12 +46,12 @@ export const SkillsVisual = () => {
 
     const draw = () => {
       context.clearRect(0, 0, width, height);
-      if (!reducedMotion) time += 0.006;
+      if (!reducedMotion) time += 0.012;
       const visibleCount = Math.ceil(points.length * (0.18 + reveal * 0.82));
       const active = points.slice(0, visibleCount).map((p) => ({
         ...p,
-        x: p.x + (reducedMotion ? 0 : Math.sin(time + p.phase) * 8),
-        y: p.y + (reducedMotion ? 0 : Math.cos(time * 0.8 + p.phase) * 6),
+        x: p.x + (reducedMotion ? 0 : Math.sin(time + p.phase) * 11),
+        y: p.y + (reducedMotion ? 0 : Math.cos(time * 0.8 + p.phase) * 8),
       }));
 
       for (let i = 0; i < active.length; i += 1) {
