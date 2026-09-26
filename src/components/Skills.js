@@ -1,97 +1,64 @@
 import { Col, Container, Row } from "react-bootstrap";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import colorSharp from "../assets/img/color-sharp.png";
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import CircularProgress from '@mui/material/CircularProgress';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import { skills } from "./util";
+import { SkillsVisual } from "./SkillsVisual";
 
-export const Skills = () => {
+const skillGroups = [
+  {
+    number: "01",
+    title: "Frontend & Product UI",
+    description: "Building responsive, maintainable interfaces and product experiences.",
+    skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML & CSS", "Bootstrap"],
+  },
+  {
+    number: "02",
+    title: "Backend & APIs",
+    description: "Designing application logic, integrations, and service boundaries.",
+    skills: ["Node.js", "Express", "PHP", "Laravel", "REST APIs", "GraphQL", "gRPC"],
+  },
+  {
+    number: "03",
+    title: "Data & Architecture",
+    description: "Structuring reliable data models and multi-tenant applications.",
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "Multi-tenancy", "System Design"],
+  },
+  {
+    number: "04",
+    title: "Delivery & Tooling",
+    description: "Taking features from local development through testing and delivery.",
+    skills: ["Git", "Docker", "CI/CD fundamentals", "Jest", "Firebase"],
+  },
+];
 
-    function CircularProgressWithLabel(props) {
-        return (
-          <Box sx={{ fontSize:'20', position: 'relative', display: 'inline-flex' }}>
-            <CircularProgress size="9rem" className="circle" variant="determinate" {...props} />
-            <Box
-              sx={{
-                top: 0,
-                left: 0,
-                bottom: 0,
-                right: 0,
-                position: 'absolute',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <Typography className="rate-text" variant="caption" component="div" fontSize={40} color="text.white">
-                {`${Math.round(props.value)}%`}
-              </Typography>
-            </Box>
-          </Box>
-        );
-      }
-      
-      CircularProgressWithLabel.propTypes = {
-        value: PropTypes.number.isRequired,
-      };
-
-        const [progress, setProgress] = React.useState(10);
-        React.useEffect(() => {
-          const timer = setInterval(() => {
-            setProgress((prevProgress) => (prevProgress >= 75 ? 75 : prevProgress + 5));
-          }, 100);
-          return () => {
-            clearInterval(timer);
-          };
-        }, []);
-
-    const responsive = {
-        superLargeDesktop: {
-          breakpoint: { max: 4000, min: 3000 },
-          items: 5
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 3
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1
-        }
-      };
-
-      return (
-        <section className="skill" id="skills">
-            <Container>
-                <Row>
-                    <Col>
-                    <div className="skill-bx">
-                        <h2>
-                            Skills
-                        </h2>
-                        <p>Here's my Tech-stack with skill ratings.</p>
-                        <Carousel responsive={responsive} infinite={true} className="skill-slider">
-                            {skills.map((s, index) => 
-                                <div className="item" key={index}>
-                                <CircularProgressWithLabel value={s.progress} />
-                                <h5>{s.name}</h5>
-                              </div>
-                            )}
-                        </Carousel>
-                    </div>
-                    </Col>
-                </Row>
-            </Container>
-            <img className="background-image-left" src={colorSharp} alt="Background left" />
-        </section>
-      )
-
-}
+export const Skills = () => (
+  <section className="skill" id="skills">
+    <SkillsVisual />
+    <Container>
+      <div className="section-heading">
+        <span className="section-eyebrow">THE TOOLKIT</span>
+        <h2>Built across the stack<span>.</span></h2>
+        <p>
+          A practical mix of product engineering, backend systems, and the
+          architecture that connects them.
+        </p>
+      </div>
+      <Row className="g-3 skill-groups">
+        {skillGroups.map((group) => (
+          <Col key={group.number} xs={12} md={6}>
+            <article className="skill-card">
+              <div className="skill-card-top">
+                <span className="skill-number">{group.number}</span>
+                <span className="skill-card-mark" aria-hidden="true">↗</span>
+              </div>
+              <h3>{group.title}</h3>
+              <p>{group.description}</p>
+              <div className="skill-tags">
+                {group.skills.map((skill) => (
+                  <span key={skill}>{skill}</span>
+                ))}
+              </div>
+            </article>
+          </Col>
+        ))}
+      </Row>
+    </Container>
+  </section>
+);

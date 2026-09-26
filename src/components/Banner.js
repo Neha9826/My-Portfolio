@@ -1,88 +1,53 @@
-import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headerImg from "../assets/img/header-img.svg";
-import { ArrowRightCircle } from 'react-bootstrap-icons';
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import { ArrowUpRight, ArrowDown, Stars } from "react-bootstrap-icons";
+import { SystemVisual } from "./SystemVisual";
 
 export const Banner = () => {
-  const [loopNum, setLoopNum] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState('');
-  // Reduced initial typing delay for a much faster start
-  const [delta, setDelta] = useState(100 - Math.random() * 50); 
-  const [index, setIndex] = useState(1);
-  const toRotate = [ "Full Stack Developer", "Laravel Specialist", "React.js Expert" ];
-  // Reduced period so it moves to the next title much faster
-  const period = 800; 
-
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => { clearInterval(ticker) };
-  }, [text])
-
-  const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
-
-    setText(updatedText);
-
-    if (isDeleting) {
-      setDelta(prevDelta => prevDelta / 2); // Deletes text extremely fast
-    }
-
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setIndex(prevIndex => prevIndex - 1);
-      setDelta(period);
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setIndex(1);
-      setDelta(200); // Very short pause before typing the new word
-    } else {
-      setIndex(prevIndex => prevIndex + 1);
-    }
-  }
-
   return (
-    <section className="banner" id="home">
-      <Container>
-        <Row className="aligh-items-center">
-          <Col xs={12} md={6} xl={7}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                <span className="tagline">Welcome to my Portfolio</span>
-                <h1 >{`Hi! I'm Neha Pattnayak`}<br/>
-                <div className="glitch">
-                  <h1>
-                  <span className="txt-rotate" dataPeriod="800" data-rotate='[ "Full Stack Developer", "Laravel Specialist", "React.js Expert" ]'>
-                    {text}
-                  </span> {text}
-                  <span className="wrap">{text}</span>
-                  </h1>
-                </div>
-                </h1>
-                  <p>Full Stack Software Engineer with over 5 years of rigorous enterprise experience, backed by a 7-year overall foundation in software architecture and full-cycle development. While highly proficient in modern UI engineering, my core expertise lies in architecting robust backend infrastructures, scalable RESTful APIs, and complex relational databases using PHP Laravel and MySQL.</p>
-                  <a target="_blank" rel="noreferrer" className="cv" href="https://drive.google.com/file/d/1jlnLKoBEz1z5cIg7OV6gA4chJF5TTasN/view?usp=drive_link" >Download CV <ArrowRightCircle size={25} /></a>
-              </div>}
-            </TrackVisibility>
+    <section className="hero" id="home">
+      <div className="hero-grid" aria-hidden="true" />
+      <div className="hero-glow hero-glow-one" aria-hidden="true" />
+      <div className="hero-glow hero-glow-two" aria-hidden="true" />
+      <Container className="hero-container">
+        <Row className="align-items-center gy-5">
+          <Col lg={7}>
+            <div className="hero-copy">
+              <div className="eyebrow"><span className="eyebrow-pulse" /> INDEPENDENT ENGINEER · FOUNDER AT DEV ENGINE AI</div>
+              <p className="hero-kicker">HELLO, I'M NEHA <span>↗</span></p>
+              <h1>I build <span className="hero-emphasis">bold ideas</span><br />into real software.</h1>
+              <p className="hero-description">
+                Senior full-stack engineer and product builder working across thoughtful interfaces,
+                scalable systems, and AI-powered tools. I like the hard problems—and making the
+                solutions feel effortless.
+              </p>
+              <div className="hero-actions">
+                <a className="button-primary" href="#project">Explore my work <ArrowUpRight /></a>
+                <a className="button-quiet" href="#connect">Let's talk <span>↗</span></a>
+              </div>
+              <div className="hero-proof">
+                <div><strong>5+ years</strong><span>Enterprise engineering</span></div>
+                <div className="proof-divider" />
+                <div><strong>Full-stack</strong><span>From idea to deployment</span></div>
+              </div>
+            </div>
           </Col>
-          <Col xs={12} md={6} xl={5}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  <img src={headerImg} alt="Header Img"/>
-                </div>}
-            </TrackVisibility>
+          <Col lg={5}>
+            <div className="hero-art" aria-label="Interactive globe representing Neha’s engineering systems">
+              <SystemVisual />
+              <div className="art-orbit orbit-one" />
+              <div className="art-orbit orbit-two" />
+              <div className="art-orbit orbit-three" />
+              <div className="art-core"><span>NP</span><i /></div>
+              <div className="art-node node-top"><span className="node-dot" /><div><small>BUILD MODE</small><strong>ON</strong></div><Stars /></div>
+              <div className="art-node node-left"><span className="node-icon">{"</>"}</span><div><small>ENGINEERING</small><strong>Full-stack</strong></div></div>
+              <div className="art-node node-right"><span className="node-icon">✳</span><div><small>STUDIO</small><strong>Dev Engine AI</strong></div></div>
+              <div className="art-caption"><span className="caption-line" /> SYSTEMS THINKING <span>×</span> CREATIVE BUILDING</div>
+              <div className="art-coordinate">30°19' N<br />78°02' E</div>
+            </div>
           </Col>
         </Row>
+        <a className="hero-scroll" href="#skills"><span>SCROLL TO EXPLORE</span><ArrowDown /></a>
       </Container>
     </section>
-  )
-}
+  );
+};

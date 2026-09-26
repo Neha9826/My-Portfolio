@@ -6,112 +6,255 @@ import shivoham_ from "../assets/img/shivoham_.png";
 import yttc from "../assets/img/yogateacherstrainingcourses.png";
 import ybm from "../assets/img/ybm.png";
 import Satvadig from "../assets/img/Satvadig_.png";
-import colorSharp2 from "../assets/img/color-sharp2.png";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import { ArrowUpRight, Git, BoxSeam, Robot, CodeSlash, Layers } from "react-bootstrap-icons";
 
 export const Projects = () => {
+  const projects = [
+    {
+      title: "RIA Catalyst",
+      description: "Fintech market screener · UI architecture, GraphQL and gRPC integrations",
+      imgUrl: RIA,
+      source: "https://app.riacatalyst.com/",
+    },
+    {
+      title: "SoilnWater",
+      description: "Multi-tenant commerce platform · product flows and backend integration",
+      imgUrl: soilnwater,
+      source: "https://soilnwater.in/",
+    },
+    {
+      title: "Shivoham Retreat",
+      description: "Hospitality website · responsive digital experience",
+      imgUrl: shivoham_,
+      source: "https://shivohamretreat.com/",
+    },
+    {
+      title: "Yoga Teacher Training Courses",
+      description: "Education platform · course discovery and responsive UI",
+      imgUrl: yttc,
+      source: "https://yogateacherstrainingcourses.com/",
+    },
+    {
+      title: "Yoga Bhawna Mission",
+      description: "Mission-led organization · website and content experience",
+      imgUrl: ybm,
+      source: "https://yogbhawnamission.com/",
+    },
+    {
+      title: "SatvaDig",
+      description: "Product in development · full-stack engineering",
+      imgUrl: Satvadig,
+      source: "#",
+    },
+  ];
 
-    const projects =[
-          {
-            title: "RIA Catalyst",
-            description: "Visit RIA Catalyst",
-            imgUrl: RIA,
-            source: "https://app.riacatalyst.com/"
-          },
-          {
-            title: "SoilnWater",
-            description: "Visit SoilnWater",
-            imgUrl: soilnwater,
-            source: "https://soilnwater.in/"
-          },
-          {
-            title: "Shivoham Retreat",
-            description: "Visit Shivoham Retreat",
-            imgUrl: shivoham_,
-            source: "https://shivohamretreat.com/"
-          },
-          {
-            title: "Yoga Teacher Training Courses",
-            description: "Visit Yoga Teacher Training Courses",
-            imgUrl: yttc,
-            source: "https://yogateacherstrainingcourses.com/"
-          },
-          {
-            title: "Yoga Bhawna Mission",
-            description: "Visit Yoga Bhawna Mission",
-            imgUrl: ybm,
-            source: "https://yogbhawnamission.com/"
-          },
-          {
-            title: "SatvaDig ",
-            description: "Coming Soon",
-            imgUrl: Satvadig,
-            source: "#"
-          },
-          
-    ];
+  return (
+    <section className="project" id="project">
+      <Container>
+        <div className="section-heading project-heading">
+          <span className="section-eyebrow">SELECTED WORK</span>
+          <h2>Some things I've built<span>.</span></h2>
+          <p>
+            A selection of products and digital experiences across engineering,
+            commerce, and the web.
+          </p>
+        </div>
 
-    return(
-        <section className="project" id="project">
-            <Container>
-                <Row>
-                <Col size={12}>
-                    <TrackVisibility>
-                    {({ isVisible }) =>
-                    <div className={isVisible ? "animate__animated animate__bounce": ""}>
-                        <h2>Journey so far..</h2>
-                        </div>
-                    }
-                    </TrackVisibility>
-                        <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                          <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                            <Nav.Item>
-                              <Nav.Link eventKey="first">Projects</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                              <Nav.Link eventKey="second">Education & Training</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                              <Nav.Link eventKey="third">Experience</Nav.Link>
-                            </Nav.Item>
-                          </Nav>
-                        <Tab.Content id="slideInUp" >
-                            <Tab.Pane eventKey="first">
-                            <Row>
-                                {
-                                projects.map((project, index) => {
-                                    return (
-                                    <ProjectCard
-                                        key={index}
-                                        {...project}
-                                        />
-                                    )
-                                })
-                                }
-                            </Row>
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="second">
-                            <p><strong>Master of Computer Applications (MCA)</strong> - Khallikote Autonomous College (2019-2021)</p>
-                            <p><strong>Bachelor of Computer Applications (BCA)</strong> - Roland Institute (2016-2019)</p>
-                            <p><strong>Professional Certificate:</strong> Advanced Java, Core PHP & MySQL</p>
-                            <p><strong>Corporate Training:</strong> PHP Laravel Framework & Advanced MySQL</p>
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="third">
-                            <p><h4>RIA Catalyst (Apr 2026 – Present)</h4> Associate Front-End Engineer (Contract)</p>
-                            <p><h4>Independent Technical Consultant (Jul 2025 – Apr 2026)</h4> IT Head & Full Stack Developer</p>
-                            <p><h4>Freelance (Feb 2022 – Jul 2025)</h4> Full Stack Developer & Consultant</p>
-                            <p><h4>RGC Manager (Jun 2022 – Jan 2024)</h4> React Developer (Contract)</p>
-                            <p><h4>RGC Manager (Jul 2021 – Jan 2022)</h4> Junior Software Developer (Intern)</p>
-                            <p><h4>SpiceTech (Sep 2018 – Dec 2018)</h4> Web Developer (Intern)</p>
-                            </Tab.Pane>
-                        </Tab.Content>
-                        </Tab.Container>
-                    
-                </Col>
-                </Row>
-            </Container>
-            <img className="background-image-right" src={colorSharp2} alt="Background right" />
-        </section>
-    )
-}
+        <article className="archos-feature">
+          <div className="archos-copy">
+            <span className="archos-eyebrow"><span /> FEATURED PROJECT · IN DEVELOPMENT</span>
+            <h3>Arch-<span>OS</span></h3>
+            <h4>The workspace for system architecture.</h4>
+            <p className="archos-description">
+              If Git helps engineers manage code, Arch-OS helps them design the
+              systems behind it. Design cloud architectures on an interactive
+              canvas, get AI-assisted reviews, and export foundational
+              infrastructure such as Docker Compose—all in one workspace.
+            </p>
+
+            <div className="archos-tags" aria-label="Technologies">
+              {["Next.js", "TypeScript", "React Flow", "Node.js", "PostgreSQL", "AI Review", "Docker Compose", "GraphQL"].map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+
+            <div className="archos-actions">
+              <a className="archos-primary-link" href="https://github.com/Neha9826/arch-os" target="_blank" rel="noreferrer">
+                <Git size={17} /> Explore on GitHub <ArrowUpRight size={17} />
+              </a>
+              <span className="archos-status"><span /> Actively building</span>
+            </div>
+          </div>
+
+          <div className="archos-visual" aria-label="Illustration of the Arch-OS architecture canvas">
+            <div className="archos-windowbar">
+              <div className="archos-brand"><span className="archos-brand-icon"><CodeSlash size={17} /></span><strong>arch-os</strong><span className="archos-workspace">Enterprise Workspace</span></div>
+              <div className="archos-window-actions"><span><Robot size={14} /> AI Review</span><span><CodeSlash size={14} /> Export Code</span></div>
+            </div>
+            <div className="archos-canvas">
+              <div className="archos-canvas-grid" />
+              <svg className="archos-connectors" viewBox="0 0 600 350" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M145 76 C145 120 190 115 190 158" />
+                <path d="M440 76 C440 120 400 115 400 158" className="archos-line-blue" />
+                <path d="M190 207 C190 258 300 240 300 285" className="archos-line-blue" />
+                <path d="M400 207 C400 258 300 240 300 285" className="archos-line-violet" />
+              </svg>
+              <div className="archos-node archos-node-client"><span className="archos-node-icon">▣</span><span><small>FRONTEND</small><strong>Client / UI</strong></span></div>
+              <div className="archos-node archos-node-next"><span className="archos-node-icon">▣</span><span><small>WEB APP</small><strong>Next.js Client</strong></span></div>
+              <div className="archos-node archos-node-api"><span className="archos-node-icon">⚙</span><span><small>SERVICE</small><strong>API Service</strong></span></div>
+              <div className="archos-node archos-node-redis"><span className="archos-redis-dot" /><span><small>CACHE</small><strong>Redis Cache</strong></span></div>
+              <div className="archos-node archos-node-db"><span className="archos-node-icon">▰</span><span><small>DATABASE</small><strong>PostgreSQL</strong></span></div>
+              <div className="archos-mini-panel">
+                <div><CodeSlash size={13} /><strong>Generated docker-compose.yml</strong><span>↗</span></div>
+                <code>services:<br />&nbsp; client_ui:<br />&nbsp;&nbsp; build: ./client_ui<br />&nbsp; api_service:<br />&nbsp;&nbsp; ports: ["8080:8080"]</code>
+              </div>
+              <div className="archos-review-panel">
+                <div><Robot size={15} /><strong>AI Architecture Review</strong></div>
+                <p>Review system design and explore improvement suggestions.</p>
+                <span className="archos-review-lines" /><span className="archos-review-lines short" />
+              </div>
+              <span className="archos-canvas-label"><span /> VISUAL ARCHITECTURE CANVAS</span>
+            </div>
+          </div>
+
+          <div className="archos-capabilities">
+            <div><span className="archos-cap-icon violet"><BoxSeam size={19} /></span><section><strong>Visual architecture canvas</strong><p>Design cloud-native systems with React Flow.</p></section></div>
+            <div><span className="archos-cap-icon ember"><Robot size={19} /></span><section><strong>AI architecture review</strong><p>Get structured feedback on your design.</p></section></div>
+            <div><span className="archos-cap-icon blue"><CodeSlash size={19} /></span><section><strong>Infrastructure export</strong><p>Generate foundational Docker Compose files.</p></section></div>
+            <div><span className="archos-cap-icon mint"><Layers size={19} /></span><section><strong>Multi-tenant workspace</strong><p>Keep architecture projects organized.</p></section></div>
+          </div>
+        </article>
+
+        <div className="more-projects-heading">
+          <div><span className="section-eyebrow">THE REST OF THE WORK</span><h3>More projects<span>.</span></h3></div>
+          <span className="more-projects-note">CLIENT WORK · WEB PRODUCTS · EXPERIMENTS</span>
+        </div>
+
+        <Tab.Container id="projects-tabs" defaultActiveKey="first">
+          <Nav
+            variant="pills"
+            className="nav-pills project-tabs justify-content-center align-items-center"
+            id="pills-tab"
+          >
+            <Nav.Item><Nav.Link eventKey="first">Projects</Nav.Link></Nav.Item>
+            <Nav.Item><Nav.Link eventKey="second">Education</Nav.Link></Nav.Item>
+            <Nav.Item><Nav.Link eventKey="third">Experience</Nav.Link></Nav.Item>
+          </Nav>
+
+          <Tab.Content className="project-tab-content">
+            <Tab.Pane eventKey="first">
+              <Row className="g-4">
+                {projects.map((project, index) => (
+                  <ProjectCard key={project.title} index={index} {...project} />
+                ))}
+              </Row>
+            </Tab.Pane>
+
+            <Tab.Pane eventKey="second">
+              <div className="timeline-list">
+                <article className="timeline-item">
+                  <span>2019 — 2021</span>
+                  <div>
+                    <h3>Master of Computer Applications (MCA)</h3>
+                    <p>Khallikote Autonomous College</p>
+                  </div>
+                </article>
+                <article className="timeline-item">
+                  <span>2016 — 2019</span>
+                  <div>
+                    <h3>Bachelor of Computer Applications (BCA)</h3>
+                    <p>Roland Institute</p>
+                  </div>
+                </article>
+                <article className="timeline-item">
+                  <span>Training</span>
+                  <div>
+                    <h3>Advanced Java, Core PHP & MySQL</h3>
+                    <p>Professional certificate and corporate training in Laravel and advanced MySQL.</p>
+                  </div>
+                </article>
+              </div>
+            </Tab.Pane>
+
+            <Tab.Pane eventKey="third">
+              <div className="timeline-list experience-timeline">
+                <article className="timeline-item experience-current">
+                  <span>Founder · Current</span>
+                  <div>
+                    <div className="experience-role-heading">
+                      <h3>Dev Engine AI</h3>
+                      <span className="experience-current-badge">DEV ENGINE AI</span>
+                    </div>
+                    <p className="experience-role">Founder & Lead Full Stack Engineer</p>
+                    <p>Leading end-to-end product engineering for client solutions and internal SaaS products—from architecture and data modeling to interfaces, APIs, testing, and delivery.</p>
+                    <div className="experience-projects-label">SELECTED PROJECTS</div>
+                    <div className="experience-project-chips">
+                      <span>Arch-OS · architecture SaaS</span>
+                      <span>ArcOS · collaborative SaaS</span>
+                      <span>RIA Catalyst</span>
+                      <span>CareMyTrip.com</span>
+                      <span>soilnwater.in · multi-tenant marketplace</span>
+                      <span>YBM CMS & yoga platforms</span>
+                      <span>Hotel management & itinerary CRM</span>
+                    </div>
+                  </div>
+                </article>
+                <article className="timeline-item">
+                  <span>Jul 2025 — Apr 2026</span>
+                  <div>
+                    <h3>Independent Technical Consultant</h3>
+                    <p className="experience-role">IT Head & Full Stack Developer</p>
+                  </div>
+                </article>
+                <article className="timeline-item">
+                  <span>Feb 2022 — Jul 2025</span>
+                  <div>
+                    <h3>Freelance</h3>
+                    <p className="experience-role">Full Stack Developer & Consultant</p>
+                    <p>End-to-end development across client websites, platforms, and full-stack applications.</p>
+                  </div>
+                </article>
+                <article className="timeline-item">
+                  <span>Jun 2022 — Jan 2024</span>
+                  <div>
+                    <h3>RGC Manager</h3>
+                    <p className="experience-role">React Developer · Contract</p>
+                    <p>Developed and maintained React-based product interfaces.</p>
+                  </div>
+                </article>
+                <article className="timeline-item">
+                  <span>Jul 2021 — Jan 2022</span>
+                  <div>
+                    <h3>RGC Manager</h3>
+                    <p className="experience-role">Junior Software Developer · Intern · Remote, Germany</p>
+                    <p>Contributed to software development tasks as part of the engineering team.</p>
+                  </div>
+                </article>
+                <article className="timeline-item">
+                  <span>Sep 2018 — Dec 2018</span>
+                  <div>
+                    <h3>SpiceTech India</h3>
+                    <p className="experience-role">Web Developer · Intern</p>
+                  </div>
+                </article>
+              </div>
+            </Tab.Pane>
+          </Tab.Content>
+        </Tab.Container>
+
+        <aside className="project-confidentiality-note">
+          <span className="project-confidentiality-mark" aria-hidden="true">↗</span>
+          <div>
+            <strong>Client confidentiality</strong>
+            <p>
+              Some client projects are covered by confidentiality agreements or NDAs,
+              so their source code and private repositories aren’t publicly available.
+              I’m happy to discuss my role, technical decisions, and contributions
+              where permitted.
+            </p>
+          </div>
+        </aside>
+      </Container>
+    </section>
+  );
+};
