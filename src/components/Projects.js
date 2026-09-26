@@ -6,7 +6,6 @@ import shivoham_ from "../assets/img/shivoham_.png";
 import yttc from "../assets/img/yogateacherstrainingcourses.png";
 import ybm from "../assets/img/ybm.png";
 import Satvadig from "../assets/img/Satvadig_.png";
-import selectedWork from "../assets/img/selected_work.jpg";
 import { ArrowUpRight, Git, BoxSeam, Robot, CodeSlash, Layers } from "react-bootstrap-icons";
 
 export const Projects = () => {
@@ -51,9 +50,6 @@ export const Projects = () => {
 
   return (
     <section className="project" id="project">
-      <div className="project-background" aria-hidden="true">
-        <img src={selectedWork} alt="" />
-      </div>
       <Container>
         <div className="section-heading project-heading">
           <span className="section-eyebrow">SELECTED WORK</span>
