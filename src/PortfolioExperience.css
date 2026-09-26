@@ -626,3 +626,16 @@
     letter-spacing: 1.2px;
   }
 }
+
+
+/* Tighten About section's vertical breathing room to match the rest of the page. */
+.about-section {
+  padding-top: clamp(62px, 6vw, 86px);
+  padding-bottom: clamp(62px, 6vw, 86px);
+}
+@media (max-width: 575px) {
+  .about-section {
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+}
