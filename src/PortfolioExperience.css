@@ -383,3 +383,130 @@
 @media (max-width: 575px) {
   .hero { padding-top: 94px; }
 }
+
+
+/* Refinement pass: a tighter hero and one continuous warm, architectural palette. */
+.hero {
+  min-height: 620px;
+  padding: 76px 0 34px;
+}
+@media (max-width: 991px) {
+  .hero { min-height: auto; padding: 94px 0 54px; }
+}
+@media (max-width: 575px) {
+  .hero { padding: 88px 0 48px; }
+}
+
+/* Keep the section transitions tonal; remove the leftover cyan/city treatment. */
+.project {
+  background-color: #0a0b11 !important;
+  background-image:
+    radial-gradient(ellipse at 14% 14%, rgba(255,107,69,.075), transparent 34%),
+    radial-gradient(ellipse at 86% 40%, rgba(142,119,220,.095), transparent 38%),
+    linear-gradient(180deg, #0a0b11 0%, #0d0d15 46%, #0b0b12 100%) !important;
+  background-size: auto !important;
+}
+.project::before {
+  content: "" !important;
+  background: linear-gradient(110deg, transparent 20%, rgba(163,139,255,.035), transparent 80%);
+}
+.project::after {
+  background: linear-gradient(180deg, rgba(10,11,17,.02), rgba(10,11,17,.12)) !important;
+}
+.project .archos-feature {
+  border-color: rgba(178,164,255,.2);
+  background: linear-gradient(125deg, rgba(19,19,29,.96), rgba(11,12,19,.94));
+}
+.project .archos-visual,
+.project .archos-capabilities > div {
+  background-color: rgba(14,15,23,.92);
+}
+.project .project-card {
+  border-color: rgba(178,164,255,.15);
+  background: linear-gradient(145deg, #15151f, #0d0e15);
+}
+.project .project-tabs .nav-link {
+  color: #b9bac6 !important;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(18,19,28,.72) !important;
+  border-radius: 5px !important;
+  padding: 11px 24px;
+  transition: color .2s ease, border-color .2s ease, background .2s ease;
+}
+.project .project-tabs .nav-link:hover {
+  color: #fff !important;
+  border-color: rgba(255,143,98,.38);
+}
+.project .project-tabs .nav-link.active {
+  color: #160d0a !important;
+  border-color: var(--ember) !important;
+  background: var(--ember) !important;
+  box-shadow: 0 8px 26px rgba(255,107,69,.13);
+}
+.project .more-projects-heading {
+  margin-top: clamp(56px, 8vw, 96px);
+  padding-top: 26px;
+  border-top: 1px solid rgba(255,255,255,.09);
+}
+.project .project-card {
+  overflow: hidden;
+}
+.project .project-card::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ember), rgba(163,139,255,.8), transparent 85%);
+  opacity: .7;
+  pointer-events: none;
+}
+.experience-timeline .timeline-item > div { min-width: 0; }
+.experience-role {
+  color: #f0b29b !important;
+  font-weight: 500;
+}
+.experience-role-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.experience-current-badge {
+  padding: 5px 8px;
+  border: 1px solid rgba(255,143,98,.3);
+  border-radius: 3px;
+  color: #ffb08a;
+  font-size: 9px;
+  letter-spacing: 1.1px;
+}
+.experience-projects-label {
+  margin: 20px 0 10px;
+  color: #9295a6;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+.experience-project-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.experience-project-chips span {
+  padding: 8px 10px;
+  border: 1px solid rgba(178,164,255,.16);
+  border-radius: 4px;
+  background: rgba(163,139,255,.045);
+  color: #d4d0e4;
+  font-size: 11px;
+  line-height: 1.4;
+}
+@media (max-width: 575px) {
+  .project .project-tabs .nav-link { padding: 10px 14px; }
+  .experience-project-chips span { font-size: 10px; }
+}
+
+/* Active navigation labels stay clean; no floating section dot. */
+.site-nav .navbar-nav .navbar-link.active::after { display: none !important; content: none !important; }
