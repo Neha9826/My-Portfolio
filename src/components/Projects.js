@@ -65,12 +65,12 @@ export const Projects = () => {
           <div className="archos-copy">
             <span className="archos-eyebrow"><span /> FEATURED PROJECT · IN DEVELOPMENT</span>
             <h3>Arch-<span>OS</span></h3>
-            <h4>Cloud architecture platform for engineers</h4>
+            <h4>The workspace for system architecture.</h4>
             <p className="archos-description">
-              A multi-tenant SaaS for designing, visualizing, and exporting cloud
-              architectures. Build system diagrams on an interactive canvas, get
-              AI-assisted architecture reviews, and generate foundational
-              infrastructure such as Docker Compose.
+              If Git helps engineers manage code, Arch-OS helps them design the
+              systems behind it. Design cloud architectures on an interactive
+              canvas, get AI-assisted reviews, and export foundational
+              infrastructure such as Docker Compose—all in one workspace.
             </p>
 
             <div className="archos-tags" aria-label="Technologies">
