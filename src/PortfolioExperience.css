@@ -355,3 +355,47 @@
     );
   }
 }
+
+
+/* Selected Work: render the image as a real, naturally scaled layer.
+   This avoids background-size/background-position conflicts from older rules. */
+.project {
+  background: #03070d !important;
+}
+.project .project-background {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.project .project-background img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: top center;
+}
+.project .project-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 7, 13, .08) 0%,
+    rgba(3, 7, 13, .16) 34%,
+    rgba(3, 7, 13, .72) 64%,
+    #03070d 88%
+  );
+}
+.project > .container {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 767px) {
+  .project .project-background img {
+    width: 100%;
+    height: auto;
+  }
+}
