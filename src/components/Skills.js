@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
+import { SkillsVisual } from "./SkillsVisual";
 
 const skillGroups = [
   {
@@ -29,6 +30,7 @@ const skillGroups = [
 
 export const Skills = () => (
   <section className="skill" id="skills">
+    <SkillsVisual />
     <Container>
       <div className="section-heading">
         <span className="section-eyebrow">THE TOOLKIT</span>
