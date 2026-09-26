@@ -200,7 +200,22 @@ export const Projects = () => {
                   </div>
                 </article>
                 <article className="timeline-item">
-                  <span>Feb 2022 — Nov 2022</span>
+                  <span>Jul 2025 — Apr 2026</span>
+                  <div>
+                    <h3>Independent Technical Consultant</h3>
+                    <p className="experience-role">IT Head & Full Stack Developer</p>
+                  </div>
+                </article>
+                <article className="timeline-item">
+                  <span>Feb 2022 — Jul 2025</span>
+                  <div>
+                    <h3>Freelance</h3>
+                    <p className="experience-role">Full Stack Developer & Consultant</p>
+                    <p>End-to-end development across client websites, platforms, and full-stack applications.</p>
+                  </div>
+                </article>
+                <article className="timeline-item">
+                  <span>Jun 2022 — Jan 2024</span>
                   <div>
                     <h3>RGC Manager</h3>
                     <p className="experience-role">React Developer · Contract</p>
