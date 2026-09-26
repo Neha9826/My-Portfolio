@@ -318,3 +318,38 @@
   .project::before { top: 180px; height: 300px; }
   .about-section::before { right: -8vw; font-size: 28vw; }
 }
+
+
+/* Selected Work image must be declared after this file's .project background shorthand. */
+.project {
+  background-image:
+    linear-gradient(180deg, rgba(3, 7, 13, .34) 0%, rgba(3, 7, 13, .22) 38%, rgba(3, 7, 13, .54) 100%),
+    var(--selected-work-bg) !important;
+  background-position: center, center 42%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.project .archos-feature {
+  background: linear-gradient(
+    125deg,
+    rgba(7, 12, 21, .72),
+    rgba(5, 9, 16, .64)
+  );
+  backdrop-filter: blur(2px);
+}
+.project .archos-visual,
+.project .archos-capabilities > div {
+  background-color: rgba(7, 11, 19, .70);
+}
+@media (max-width: 767px) {
+  .project {
+    background-position: center, 56% center;
+  }
+  .project .archos-feature {
+    background: linear-gradient(
+      145deg,
+      rgba(7, 12, 21, .82),
+      rgba(5, 9, 16, .76)
+    );
+  }
+}
