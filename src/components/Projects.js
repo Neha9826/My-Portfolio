@@ -50,7 +50,10 @@ export const Projects = () => {
   ];
 
   return (
-    <section className="project" id="project" style={{ "--selected-work-bg": `url(${selectedWork})` }}>
+    <section className="project" id="project">
+      <div className="project-background" aria-hidden="true">
+        <img src={selectedWork} alt="" />
+      </div>
       <Container>
         <div className="section-heading project-heading">
           <span className="section-eyebrow">SELECTED WORK</span>
