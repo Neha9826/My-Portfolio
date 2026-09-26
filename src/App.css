@@ -792,3 +792,53 @@ section { scroll-margin-top: 80px; }
 @media (prefers-reduced-motion: reduce) {
   .skills-network-canvas { opacity: .5; }
 }
+
+
+/* Skills network visibility pass: keep the canvas above the section backdrop
+   but below all readable content, with translucent glass cards. */
+.skill {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(91,72,145,.075), transparent 58%),
+    transparent;
+}
+.skill .skills-network-canvas {
+  z-index: 0;
+  opacity: 1;
+  mix-blend-mode: screen;
+}
+.skill > .container {
+  position: relative;
+  z-index: 1;
+}
+.skill .skill-card {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(17,19,29,.70),
+    rgba(10,11,17,.66)
+  );
+  border-color: rgba(183,181,255,.15);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 12px 34px rgba(0,0,0,.12);
+}
+.skill .skill-card:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(20,21,33,.78),
+    rgba(12,13,20,.74)
+  );
+  border-color: rgba(255,143,98,.32);
+}
+@media (max-width: 767px) {
+  .skill .skill-card {
+    background: linear-gradient(
+      135deg,
+      rgba(17,19,29,.78),
+      rgba(10,11,17,.75)
+    );
+  }
+}
