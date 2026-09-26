@@ -561,3 +561,53 @@
 @media (prefers-reduced-motion: reduce) {
   .about-aside-number { animation: none; }
 }
+
+
+/* Discreet context for client work that cannot be shared as public source. */
+.project-confidentiality-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 860px;
+  margin: 42px auto 0;
+  padding: 20px 22px;
+  border: 1px solid rgba(178,164,255,.14);
+  border-left: 2px solid rgba(255,107,69,.72);
+  border-radius: 6px;
+  background: linear-gradient(110deg, rgba(255,107,69,.035), rgba(163,139,255,.035));
+}
+.project-confidentiality-mark {
+  display: inline-flex;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,143,98,.25);
+  border-radius: 4px;
+  color: #ff9a77;
+  font-size: 17px;
+}
+.project-confidentiality-note strong {
+  display: block;
+  margin: 1px 0 6px;
+  color: #e9e6ef;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: .35px;
+}
+.project-confidentiality-note p {
+  max-width: 720px;
+  margin: 0;
+  color: #9295a6;
+  font-size: 12px;
+  line-height: 1.8;
+}
+@media (max-width: 575px) {
+  .project-confidentiality-note {
+    gap: 12px;
+    margin-top: 30px;
+    padding: 16px;
+  }
+  .project-confidentiality-note p { font-size: 11px; }
+}
