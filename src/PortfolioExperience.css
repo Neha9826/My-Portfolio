@@ -320,82 +320,56 @@
 }
 
 
-/* Selected Work image must be declared after this file's .project background shorthand. */
+/* Selected Work: code-inspired architectural atmosphere; no external image asset. */
 .project {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #070a11 !important;
   background-image:
-    linear-gradient(180deg, rgba(3, 7, 13, .34) 0%, rgba(3, 7, 13, .22) 38%, rgba(3, 7, 13, .54) 100%),
-    var(--selected-work-bg) !important;
-  background-position: center, center top;
-  background-repeat: no-repeat;
-  /* Keep the full city image visible horizontally instead of cropping it with cover. */
-  background-size: 100% 100%, 100% auto;
+    radial-gradient(ellipse at 76% 24%, rgba(0, 210, 230, .13), transparent 34%),
+    radial-gradient(ellipse at 18% 70%, rgba(99, 82, 190, .13), transparent 38%),
+    linear-gradient(rgba(104, 178, 205, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(104, 178, 205, .055) 1px, transparent 1px),
+    linear-gradient(135deg, #070a11 0%, #0a111c 52%, #080b13 100%) !important;
+  background-size: auto, auto, 44px 44px, 44px 44px, auto;
+}
+.project::before {
+  content: "const systems = {\\A  architecture: \"intentional\",\\A  scale: \"thoughtful\",\\A  delivery: \"reliable\"\\A};";
+  white-space: pre;
+  position: absolute;
+  z-index: -1;
+  top: 18%;
+  right: -2%;
+  color: rgba(133, 221, 235, .10);
+  font: 500 clamp(14px, 1.6vw, 22px)/2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .02em;
+  transform: rotate(-7deg);
+  pointer-events: none;
+}
+.project::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 0 57%, rgba(66, 196, 218, .06) 57.1%, transparent 57.3%),
+    linear-gradient(180deg, transparent 45%, rgba(3, 7, 13, .34) 100%);
+  pointer-events: none;
 }
 .project .archos-feature {
-  background: linear-gradient(
-    125deg,
-    rgba(7, 12, 21, .72),
-    rgba(5, 9, 16, .64)
-  );
-  backdrop-filter: blur(2px);
+  background: linear-gradient(125deg, rgba(8, 15, 25, .88), rgba(5, 10, 18, .84));
+  border-color: rgba(105, 204, 225, .24);
+  backdrop-filter: blur(8px);
 }
 .project .archos-visual,
 .project .archos-capabilities > div {
-  background-color: rgba(7, 11, 19, .70);
+  background-color: rgba(7, 11, 19, .78);
 }
 @media (max-width: 767px) {
-  .project {
-    background-position: center, 56% top;
-    background-size: 100% 100%, auto 62%;
-  }
-  .project .archos-feature {
-    background: linear-gradient(
-      145deg,
-      rgba(7, 12, 21, .82),
-      rgba(5, 9, 16, .76)
-    );
-  }
-}
-
-
-/* Selected Work: render the image as a real, naturally scaled layer.
-   This avoids background-size/background-position conflicts from older rules. */
-.project {
-  background: #03070d !important;
-}
-.project .project-background {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-.project .project-background img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: none;
-  object-fit: contain;
-  object-position: top center;
-}
-.project .project-background::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(3, 7, 13, .08) 0%,
-    rgba(3, 7, 13, .16) 34%,
-    rgba(3, 7, 13, .72) 64%,
-    #03070d 88%
-  );
-}
-.project > .container {
-  position: relative;
-  z-index: 2;
-}
-@media (max-width: 767px) {
-  .project .project-background img {
-    width: 100%;
-    height: auto;
+  .project::before {
+    top: 12%;
+    right: -18%;
+    font-size: 12px;
   }
 }
