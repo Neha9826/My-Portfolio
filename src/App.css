@@ -719,3 +719,37 @@ section { scroll-margin-top: 80px; }
   .footer-brand { flex-wrap: wrap; gap: 15px; }
   .footer-nav { grid-template-columns: 1fr 1fr; }
 }
+
+
+/* Interactive constellation prototype */
+.hero { padding-top: 118px; }
+.hero-art { isolation: isolate; }
+.hero-art > .system-visual-canvas {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  touch-action: pan-y;
+}
+.hero-art .art-orbit { z-index: 1; pointer-events: none; }
+.hero-art .art-core { z-index: 2; }
+.hero-art .art-node,
+.hero-art .art-caption,
+.hero-art .art-coordinate { z-index: 3; }
+.hero-art .art-core {
+  border-color: rgba(255,255,255,.3);
+  background: radial-gradient(circle at 35% 25%, rgba(56,43,57,.92), rgba(12,13,20,.94) 72%);
+  box-shadow: 0 0 90px rgba(255,107,69,.18), 0 0 145px rgba(135,104,255,.12), inset 0 0 35px rgba(255,255,255,.06);
+}
+.hero-art .orbit-one { border-color: rgba(255,255,255,.14); }
+.hero-art .orbit-two { border-color: rgba(255,107,69,.32); }
+.hero-art .orbit-three { border-color: rgba(163,139,255,.4); }
+@media (max-width: 991px) {
+  .hero { padding-top: 112px; }
+}
+@media (max-width: 575px) {
+  .hero { padding-top: 105px; }
+}
