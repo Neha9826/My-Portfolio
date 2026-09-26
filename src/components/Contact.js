@@ -5,16 +5,21 @@ import contactImg from "../assets/img/contact-img.svg";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import emailjs from "emailjs-com";
+import ReCAPTCHA from "react-google-recaptcha";
 import Alert from "@mui/material/Alert";
+
+const RECAPTCHA_SITE_KEY = "6LfJctAtAAAAAGFhNhex0kJu3rqtPBnGKKdRmyCj";
 
 export const Contact = () => {
   const form = useRef();
+  const captchaRef = useRef(null);
+  const [captchaToken, setCaptchaToken] = useState(null);
   const [status, setStatus] = useState(null);
   const [isSending, setIsSending] = useState(false);
 
   const sendEmail = async (e) => {
     e.preventDefault();
-    if (isSending) return;
+    if (isSending || !captchaToken) return;
 
     setIsSending(true);
     setStatus(null);
@@ -31,11 +36,15 @@ export const Contact = () => {
         message: "Thanks for reaching out. Your message has been sent.",
       });
       form.current.reset();
+      captchaRef.current?.reset();
+      setCaptchaToken(null);
     } catch (error) {
       setStatus({
         success: false,
         message: "Your message couldn't be sent. Please try again or email me directly.",
       });
+      captchaRef.current?.reset();
+      setCaptchaToken(null);
     } finally {
       setIsSending(false);
     }
@@ -95,7 +104,18 @@ export const Contact = () => {
                         <textarea id="contact-message" rows="5" placeholder="A little about your project, idea, or challenge..." name="message" required />
                       </Col>
                       <Col xs={12}>
-                        <button type="submit" disabled={isSending}>
+                        <div className="contact-recaptcha">
+                          <ReCAPTCHA
+                            ref={captchaRef}
+                            sitekey={RECAPTCHA_SITE_KEY}
+                            onChange={(token) => setCaptchaToken(token)}
+                            onExpired={() => setCaptchaToken(null)}
+                            onErrored={() => setCaptchaToken(null)}
+                          />
+                        </div>
+                      </Col>
+                      <Col xs={12}>
+                        <button type="submit" disabled={isSending || !captchaToken}>
                           {isSending ? "Sending…" : "Send your message"} <ArrowUpRight size={17} />
                         </button>
                       </Col>
