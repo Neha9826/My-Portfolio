@@ -325,9 +325,10 @@
   background-image:
     linear-gradient(180deg, rgba(3, 7, 13, .34) 0%, rgba(3, 7, 13, .22) 38%, rgba(3, 7, 13, .54) 100%),
     var(--selected-work-bg) !important;
-  background-position: center, center 42%;
+  background-position: center, center top;
   background-repeat: no-repeat;
-  background-size: cover;
+  /* Keep the full city image visible horizontally instead of cropping it with cover. */
+  background-size: 100% 100%, 100% auto;
 }
 .project .archos-feature {
   background: linear-gradient(
@@ -343,7 +344,8 @@
 }
 @media (max-width: 767px) {
   .project {
-    background-position: center, 56% center;
+    background-position: center, 56% top;
+    background-size: 100% 100%, auto 62%;
   }
   .project .archos-feature {
     background: linear-gradient(
