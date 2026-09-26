@@ -41,7 +41,7 @@ export const SkillsVisual = () => {
     const updateReveal = () => {
       const bounds = canvas.getBoundingClientRect();
       const viewport = window.innerHeight || 1;
-      reveal = Math.max(0, Math.min(1, (viewport - bounds.top) / Math.max(bounds.height * 0.72, 1)));
+      reveal = Math.max(0, Math.min(1, (viewport - bounds.top) / Math.max(viewport * 0.78, 1)));
     };
 
     const draw = () => {
@@ -60,7 +60,7 @@ export const SkillsVisual = () => {
           const dx = a.x - b.x, dy = a.y - b.y;
           const distance = Math.hypot(dx, dy);
           if (distance < 115) {
-            const alpha = (1 - distance / 115) * 0.2 * reveal;
+            const alpha = (1 - distance / 115) * 0.62 * reveal;
             context.beginPath();
             context.moveTo(a.x, a.y);
             context.lineTo(b.x, b.y);
@@ -74,13 +74,13 @@ export const SkillsVisual = () => {
       }
 
       active.forEach((p) => {
-        const alpha = (0.16 + (Math.sin(time + p.phase) + 1) * 0.12) * reveal;
+        const alpha = (0.34 + (Math.sin(time + p.phase) + 1) * 0.2) * reveal;
         context.beginPath();
-        context.arc(p.x, p.y, p.warm ? 2 : 1.2, 0, Math.PI * 2);
+        context.arc(p.x, p.y, p.warm ? 2.8 : 1.7, 0, Math.PI * 2);
         context.fillStyle = p.warm
-          ? `rgba(255,143,98,${alpha + 0.12})`
+          ? `rgba(255,143,98,${Math.min(1, alpha + 0.2)})`
           : `rgba(183,181,255,${alpha})`;
-        context.shadowBlur = p.warm ? 12 : 6;
+        context.shadowBlur = p.warm ? 19 : 10;
         context.shadowColor = p.warm ? "rgba(255,107,69,.65)" : "rgba(143,126,255,.5)";
         context.fill();
       });
