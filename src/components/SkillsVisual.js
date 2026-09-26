@@ -46,7 +46,7 @@ export const SkillsVisual = () => {
 
     const draw = () => {
       context.clearRect(0, 0, width, height);
-      if (!reducedMotion) time += 0.012;
+      if (!reducedMotion) time += 0.016;
       const visibleCount = Math.ceil(points.length * (0.18 + reveal * 0.82));
       const active = points.slice(0, visibleCount).map((p) => ({
         ...p,
