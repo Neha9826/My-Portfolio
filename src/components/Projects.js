@@ -179,21 +179,23 @@ export const Projects = () => {
             <Tab.Pane eventKey="third">
               <div className="timeline-list experience-timeline">
                 <article className="timeline-item experience-current">
-                  <span>Nov 2022 — Present</span>
+                  <span>Founder · Current</span>
                   <div>
                     <div className="experience-role-heading">
                       <h3>Dev Engine AI</h3>
-                      <span className="experience-current-badge">FOUNDER-LED</span>
+                      <span className="experience-current-badge">DEV ENGINE AI</span>
                     </div>
                     <p className="experience-role">Founder & Lead Full Stack Engineer</p>
                     <p>Leading end-to-end product engineering for client solutions and internal SaaS products—from architecture and data modeling to interfaces, APIs, testing, and delivery.</p>
                     <div className="experience-projects-label">SELECTED PROJECTS</div>
                     <div className="experience-project-chips">
-                      <span>Arch-OS · multi-tenant architecture SaaS</span>
-                      <span>RIA Catalyst · fintech screener</span>
-                      <span>Romya Electronics · Laravel platform</span>
-                      <span>CareMyTrip.com · booking platform</span>
-                      <span>SatvaDig & Cross-Tech SaaS</span>
+                      <span>Arch-OS · architecture SaaS</span>
+                      <span>ArcOS · collaborative SaaS</span>
+                      <span>RIA Catalyst</span>
+                      <span>CareMyTrip.com</span>
+                      <span>soilnwater.in · multi-tenant marketplace</span>
+                      <span>YBM CMS & yoga platforms</span>
+                      <span>Hotel management & itinerary CRM</span>
                     </div>
                   </div>
                 </article>
