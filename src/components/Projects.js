@@ -6,7 +6,7 @@ import shivoham_ from "../assets/img/shivoham_.png";
 import yttc from "../assets/img/yogateacherstrainingcourses.png";
 import ybm from "../assets/img/ybm.png";
 import Satvadig from "../assets/img/Satvadig_.png";
-import colorSharp2 from "../assets/img/color-sharp2.png";
+import { ProjectCityVisual } from "./ProjectCityVisual";
 import { ArrowUpRight, Git, BoxSeam, Robot, CodeSlash, Layers } from "react-bootstrap-icons";
 
 export const Projects = () => {
@@ -51,6 +51,8 @@ export const Projects = () => {
 
   return (
     <section className="project" id="project">
+      <ProjectCityVisual />
+      <div className="project-city-shade" aria-hidden="true" />
       <Container>
         <div className="section-heading project-heading">
           <span className="section-eyebrow">SELECTED WORK</span>
@@ -208,7 +210,6 @@ export const Projects = () => {
           </Tab.Content>
         </Tab.Container>
       </Container>
-      <img className="background-image-right" src={colorSharp2} alt="" aria-hidden="true" />
     </section>
   );
 };
