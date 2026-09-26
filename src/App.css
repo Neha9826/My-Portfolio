@@ -1136,3 +1136,36 @@ section { scroll-margin-top: 80px; }
     );
   }
 }
+
+
+/* Final spacing and identity refinements */
+.hero {
+  min-height: 700px;
+  padding: 108px 0 48px;
+}
+.signature-word {
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-weight: 500;
+  letter-spacing: -1.4px;
+  line-height: 1.05;
+}
+@media (max-width: 991px) {
+  .hero { min-height: auto; padding: 116px 0 64px; }
+}
+@media (max-width: 575px) {
+  .hero { padding: 104px 0 58px; }
+  .signature-word { font-size: 29px; }
+}
+.footer-company-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 13px;
+  color: #858998;
+  font-size: 11px;
+  letter-spacing: .15px;
+}
+.footer-company-credit strong {
+  color: #d9d5e8;
+  font-weight: 600;
+}
