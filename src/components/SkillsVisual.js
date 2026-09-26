@@ -45,15 +45,14 @@ export const SkillsVisual = () => {
         [0.69, 0.29], [0.85, 0.36],
       ];
       upperRightNodes.forEach(([x, y], index) => {
-        const pointIndex = count - upperRightNodes.length + index;
-        if (pointIndex >= 0) {
-          points[pointIndex] = {
-            x: width * x,
-            y: height * y,
-            phase: random() * Math.PI * 2,
-            warm: index === 2 || index === 6,
-          };
-        }
+        // Keep these nodes near the start of the list so they appear during
+        // the section's gradual reveal, not only when every point is visible.
+        points[index] = {
+          x: width * x,
+          y: height * y,
+          phase: random() * Math.PI * 2,
+          warm: index === 2 || index === 6,
+        };
       });
     };
 
