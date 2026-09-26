@@ -215,3 +215,105 @@
   .about-aside { min-height: 0; padding: 24px 0 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.1); }
   .about-aside-number { font-size: 76px; }
 }
+
+
+/* Restore the original Hero globe composition; keep its identity local to Hero. */
+.hero-art { position: relative; width: min(100%, 560px); aspect-ratio: 1; }
+.hero-globe-shell, .hero-globe-ring, .hero-globe-label, .hero-globe-caption { display: none; }
+.hero-art .art-orbit, .hero-art .art-core, .hero-art .art-node,
+.hero-art .art-caption, .hero-art .art-coordinate { display: flex; }
+.hero-art .art-core { display: grid; }
+.hero-art .art-coordinate { display: block; }
+
+/* Skills: restrained technical blueprint, not a second galaxy. */
+.skill {
+  background-color: #0b0c12;
+  background-image:
+    linear-gradient(rgba(160,154,198,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160,154,198,.035) 1px, transparent 1px),
+    radial-gradient(ellipse at 78% 18%, rgba(94,116,176,.09), transparent 38%);
+  background-size: 48px 48px, 48px 48px, auto;
+}
+.skill::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 16%;
+  right: -150px;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(153,145,204,.09);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.skill .skills-network-canvas { display: none !important; }
+.skill .skill-card {
+  background: linear-gradient(145deg, rgba(20,22,32,.96), rgba(12,13,20,.96));
+  border-color: rgba(180,177,218,.2);
+  backdrop-filter: none;
+}
+.skill .skill-card:hover {
+  border-color: rgba(255,143,98,.52);
+  box-shadow: 0 18px 46px rgba(0,0,0,.24), 0 0 26px rgba(255,107,69,.045);
+}
+
+/* Projects: architectural drafting grid and layered system illumination. */
+.project {
+  background-color: #090a10;
+  background-image:
+    linear-gradient(rgba(140,151,190,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140,151,190,.035) 1px, transparent 1px),
+    radial-gradient(ellipse at 50% 30%, rgba(91,72,162,.14), transparent 48%);
+  background-size: 56px 56px, 56px 56px, auto;
+}
+.project::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 260px;
+  left: -12%;
+  width: 124%;
+  height: 430px;
+  border-top: 1px solid rgba(153,145,204,.1);
+  border-bottom: 1px solid rgba(153,145,204,.07);
+  transform: skewY(-8deg);
+  pointer-events: none;
+}
+.project .archos-feature {
+  background: linear-gradient(125deg, rgba(18,20,30,.96), rgba(10,11,17,.92));
+  border-color: rgba(178,164,255,.25);
+}
+
+/* About: editorial geometry and a quiet technical coordinate motif. */
+.about-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #0d0e15;
+  background-image:
+    linear-gradient(135deg, transparent 49.85%, rgba(160,154,198,.055) 50%, transparent 50.15%),
+    linear-gradient(45deg, transparent 49.85%, rgba(160,154,198,.035) 50%, transparent 50.15%);
+  background-size: 180px 180px, 260px 260px;
+}
+.about-section::before {
+  content: "ABOUT";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: -2vw;
+  color: rgba(255,255,255,.018);
+  font-size: clamp(100px, 20vw, 300px);
+  font-weight: 800;
+  letter-spacing: -.08em;
+  line-height: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.about-aside {
+  background: linear-gradient(180deg, transparent, rgba(163,139,255,.035), transparent);
+}
+@media (max-width: 767px) {
+  .skill::before { width: 220px; height: 220px; right: -120px; }
+  .project::before { top: 180px; height: 300px; }
+  .about-section::before { right: -8vw; font-size: 28vw; }
+}
