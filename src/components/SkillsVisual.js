@@ -88,16 +88,20 @@ export const SkillsVisual = () => {
       if (!reducedMotion) frame = window.requestAnimationFrame(draw);
     };
 
+    const onScroll = () => {
+      updateReveal();
+      if (reducedMotion) draw();
+    };
     const observer = new ResizeObserver(resize);
     observer.observe(canvas);
-    window.addEventListener("scroll", updateReveal, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     resize();
     updateReveal();
     draw();
 
     return () => {
       observer.disconnect();
-      window.removeEventListener("scroll", updateReveal);
+      window.removeEventListener("scroll", onScroll);
       window.cancelAnimationFrame(frame);
     };
   }, []);
