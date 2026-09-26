@@ -36,6 +36,25 @@ export const SkillsVisual = () => {
         phase: random() * Math.PI * 2,
         warm: i % 9 === 0,
       }));
+
+      // Add a small, deliberate network cluster in the upper-right to balance
+      // the naturally randomized canvas without making the pattern look uniform.
+      const upperRightNodes = [
+        [0.73, 0.10], [0.84, 0.08], [0.94, 0.15],
+        [0.79, 0.20], [0.90, 0.27], [0.98, 0.32],
+        [0.69, 0.29], [0.85, 0.36],
+      ];
+      upperRightNodes.forEach(([x, y], index) => {
+        const pointIndex = count - upperRightNodes.length + index;
+        if (pointIndex >= 0) {
+          points[pointIndex] = {
+            x: width * x,
+            y: height * y,
+            phase: random() * Math.PI * 2,
+            warm: index === 2 || index === 6,
+          };
+        }
+      });
     };
 
     const updateReveal = () => {
