@@ -8,18 +8,19 @@ export const About = () => (
           <span className="section-eyebrow">A LITTLE ABOUT ME</span>
           <h2>Curiosity turns<br /><span>into systems.</span></h2>
           <p>
-            I’m Neha — a full-stack engineer and founder at Dev Engine AI, with
-            7+ years across software development, from early professional work
-            and client projects to building production systems. The 5+ years
-            highlighted above refers specifically to my enterprise engineering experience.
+            I’m Neha, Founder & Lead Full Stack Engineer at Dev Engine AI. I
+            bring 7+ years of software development experience, including 5+
+            years in enterprise engineering, combining product thinking with
+            hands-on technical leadership to turn complex requirements into
+            reliable, production-ready software.
           </p>
           <p>
-            I work across the full software development lifecycle: shaping ideas
-            into requirements and roadmaps, planning product flows and UI,
-            designing system architecture and data models, then building the
-            frontend, backend services, and APIs. I also handle testing,
-            deployment, and iteration—so I can take a product from concept
-            through delivery, not just write a piece of the code.
+            I lead delivery across the full product lifecycle—from defining
+            scope and roadmaps to shaping user experiences, architecting
+            systems, and engineering frontend applications, backend services,
+            APIs, and data layers. I drive the work through testing, deployment,
+            and continuous improvement, connecting product decisions with
+            sound engineering execution from first principles to production.
           </p>
           <div className="about-principles">
             <span><i /> Think in systems</span>
