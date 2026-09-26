@@ -611,3 +611,18 @@
   }
   .project-confidentiality-note p { font-size: 11px; }
 }
+
+
+/* Make the About experience caption readable at a glance. */
+.about-aside-caption {
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 1.45px;
+  color: #a4a5b3;
+}
+@media (max-width: 575px) {
+  .about-aside-caption {
+    font-size: 11px;
+    letter-spacing: 1.2px;
+  }
+}
