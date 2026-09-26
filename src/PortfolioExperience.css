@@ -510,3 +510,23 @@
 
 /* Active navigation labels stay clean; no floating section dot. */
 .site-nav .navbar-nav .navbar-link.active::after { display: none !important; content: none !important; }
+
+
+/* Continue the same warm charcoal / muted-violet atmosphere through About and Contact. */
+.about-section {
+  background-color: #0b0b12 !important;
+  background-image:
+    radial-gradient(ellipse at 12% 18%, rgba(255,107,69,.055), transparent 36%),
+    radial-gradient(ellipse at 88% 68%, rgba(142,119,220,.075), transparent 40%),
+    linear-gradient(180deg, #0b0b12 0%, #0d0d15 48%, #0a0b11 100%) !important;
+}
+.contact {
+  background-color: #0a0b11 !important;
+  background-image:
+    radial-gradient(ellipse at 8% 24%, rgba(255,107,69,.065), transparent 36%),
+    radial-gradient(ellipse at 92% 70%, rgba(142,119,220,.075), transparent 40%),
+    linear-gradient(180deg, #0a0b11 0%, #0d0d15 52%, #090a10 100%) !important;
+}
+.footer {
+  background: linear-gradient(180deg, #090a10 0%, #08090d 100%) !important;
+}
