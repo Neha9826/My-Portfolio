@@ -157,3 +157,61 @@
   .about-orbit-three,.archos-connectors path { animation: none !important; }
   .skills-map-node,.archos-visual { transition: none !important; }
 }
+
+
+/* Keep the visual language section-specific: no galaxy canvas outside the Hero. */
+.about-section {
+  padding: clamp(76px, 9vw, 124px) 0;
+  background: #0b0c12;
+  border-top: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.about-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(180px, .65fr);
+  align-items: center;
+  gap: clamp(40px, 9vw, 140px);
+}
+.about-copy { max-width: 720px; }
+.about-copy h2 {
+  margin: 16px 0 26px;
+  font-size: clamp(40px, 5vw, 66px);
+  line-height: 1.02;
+  letter-spacing: -2.8px;
+}
+.about-copy h2 span { color: #b9a7ff; }
+.about-copy p {
+  max-width: 720px;
+  margin: 0 0 16px;
+  color: #a3a6b2;
+  font-size: 15px;
+  line-height: 1.9;
+}
+.about-principles { display: flex; flex-wrap: wrap; gap: 12px 22px; margin-top: 28px; }
+.about-principles span { display: inline-flex; align-items: center; gap: 9px; color: #d8d5e1; font-size: 12px; }
+.about-principles i { width: 5px; height: 5px; border-radius: 50%; background: var(--ember); }
+.about-aside {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: clamp(24px, 4vw, 58px);
+  border-left: 1px solid rgba(255,255,255,.1);
+}
+.about-aside-number { color: rgba(185,167,255,.85); font-size: clamp(80px, 11vw, 150px); font-weight: 600; line-height: .9; letter-spacing: -.09em; }
+.about-aside-rule { width: 52px; height: 2px; margin: 26px 0 15px; background: var(--ember); }
+.about-aside-caption { color: #777b88; font-size: 9px; line-height: 1.8; letter-spacing: 2px; }
+.project {
+  background: linear-gradient(180deg, #090a10 0%, #0b0c13 52%, #08090d 100%);
+}
+.contact {
+  background: linear-gradient(180deg, #08090d 0%, #0b0c12 100%);
+}
+.contact::before, .contact::after { display: none; }
+@media (max-width: 767px) {
+  .about-inner { grid-template-columns: 1fr; gap: 32px; }
+  .about-copy h2 { letter-spacing: -1.8px; }
+  .about-aside { min-height: 0; padding: 24px 0 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.1); }
+  .about-aside-number { font-size: 76px; }
+}
