@@ -1054,8 +1054,13 @@ section { scroll-margin-top: 80px; }
 }
 
 
-/* Selected Work: procedural cyan wireframe city, drawn on canvas. */
-.project { background-color: #03070d; }
+/* Selected Work: make the procedural cyan city visible, with content layered above it. */
+.project {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #03070d;
+}
 .project .project-city-canvas {
   position: absolute;
   z-index: 0;
@@ -1063,32 +1068,36 @@ section { scroll-margin-top: 80px; }
   display: block;
   width: 100%;
   height: 100%;
-  opacity: .88;
+  opacity: 1;
+  mix-blend-mode: screen;
   pointer-events: none;
 }
 .project .project-city-shade {
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(3,7,13,.35) 0%, rgba(3,7,13,.12) 26%, rgba(3,7,13,.58) 66%, rgba(3,7,13,.94) 100%),
-    linear-gradient(90deg, rgba(3,7,13,.38), transparent 24%, transparent 76%, rgba(3,7,13,.38));
+    linear-gradient(180deg, rgba(3,7,13,.12) 0%, rgba(3,7,13,.04) 28%, rgba(3,7,13,.24) 68%, rgba(3,7,13,.58) 100%),
+    linear-gradient(90deg, rgba(3,7,13,.12), transparent 22%, transparent 78%, rgba(3,7,13,.12));
 }
-.project > .container { position: relative; z-index: 1; }
+.project > .container {
+  position: relative;
+  z-index: 2;
+}
 .project .archos-feature {
-  background: linear-gradient(125deg, rgba(7,12,21,.91), rgba(5,9,16,.82));
+  background: linear-gradient(125deg, rgba(7,12,21,.84), rgba(5,9,16,.72));
   backdrop-filter: blur(2px);
 }
 .project .project-card {
-  background: linear-gradient(145deg, rgba(9,15,24,.96), rgba(5,9,15,.96));
+  background: linear-gradient(145deg, rgba(9,15,24,.92), rgba(5,9,15,.91));
 }
 @media (max-width: 767px) {
-  .project .project-city-canvas { opacity: .65; }
+  .project .project-city-canvas { opacity: .92; }
   .project .project-city-shade {
-    background: linear-gradient(180deg, rgba(3,7,13,.48), rgba(3,7,13,.82) 62%, rgba(3,7,13,.97));
+    background: linear-gradient(180deg, rgba(3,7,13,.24), rgba(3,7,13,.48) 62%, rgba(3,7,13,.78));
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .project .project-city-canvas { opacity: .62; }
+  .project .project-city-canvas { opacity: .88; }
 }
