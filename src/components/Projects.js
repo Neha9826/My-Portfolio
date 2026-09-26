@@ -145,8 +145,8 @@ export const Projects = () => {
           <Tab.Content className="project-tab-content">
             <Tab.Pane eventKey="first">
               <Row className="g-4">
-                {projects.map((project) => (
-                  <ProjectCard key={project.title} {...project} />
+                {projects.map((project, index) => (
+                  <ProjectCard key={project.title} index={index} {...project} />
                 ))}
               </Row>
             </Tab.Pane>
