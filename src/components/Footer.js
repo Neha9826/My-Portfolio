@@ -13,7 +13,10 @@ export const Footer = () => (
             <span className="signature-word">Neha<span className="signature-period">.</span></span>
             <span className="signature-surname">PATTNAYAK</span>
           </a>
-          <p>Thoughtful engineering.<br />Useful things, built well.</p>
+          <div className="footer-brand-copy">
+            <p>Thoughtful engineering.<br />Useful things, built well.</p>
+            <span className="footer-company-credit">A product of <strong>Dev Engine AI</strong></span>
+          </div>
         </div>
 
         <nav className="footer-nav" aria-label="Footer navigation">
