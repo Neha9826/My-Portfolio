@@ -373,3 +373,13 @@
     font-size: 12px;
   }
 }
+
+
+/* Final override: reduce the fixed-nav-to-hero dead space at every breakpoint. */
+.hero { min-height: 700px; padding-top: 88px; }
+@media (max-width: 991px) {
+  .hero { min-height: auto; padding-top: 100px; }
+}
+@media (max-width: 575px) {
+  .hero { padding-top: 94px; }
+}
