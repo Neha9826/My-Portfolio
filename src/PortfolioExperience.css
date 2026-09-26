@@ -1,0 +1,159 @@
+/* Portfolio experience: distinct visual worlds for each section */
+.hero-art {
+  width: min(100%, 560px);
+  aspect-ratio: 1;
+  isolation: isolate;
+}
+.hero-globe-shell {
+  position: absolute;
+  inset: 4%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(100,82,174,.1), transparent 67%);
+}
+.hero-globe-shell::before,
+.hero-globe-shell::after {
+  content: "";
+  position: absolute;
+  width: 78%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(164,151,255,.2);
+  border-radius: 50%;
+  box-shadow: 0 0 70px rgba(119,94,235,.08), inset 0 0 50px rgba(119,94,235,.04);
+}
+.hero-globe-shell::after {
+  width: 96%;
+  border-color: rgba(255,130,91,.17);
+  transform: rotateX(68deg) rotateZ(-24deg);
+}
+.hero-globe-shell .system-visual-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 25px rgba(130,105,255,.15));
+}
+.hero-globe-ring {
+  position: absolute;
+  width: 112%;
+  height: 35%;
+  border: 1px solid rgba(255,134,94,.24);
+  border-radius: 50%;
+  transform: rotate(-24deg);
+  pointer-events: none;
+}
+.hero-globe-label {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 13px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 4px;
+  background: rgba(12,13,20,.82);
+  color: #d8d5e7;
+  font-size: 9px;
+  letter-spacing: 1.15px;
+  backdrop-filter: blur(12px);
+}
+.hero-globe-label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 12px var(--ember); }
+.hero-globe-label.label-top { top: 12%; left: 2%; }
+.hero-globe-label.label-right { right: -1%; top: 47%; }
+.hero-globe-label.label-bottom { bottom: 12%; left: 10%; }
+.hero-globe-caption {
+  position: absolute;
+  bottom: 1%;
+  left: 50%;
+  width: max-content;
+  color: #777b88;
+  font-size: 8px;
+  letter-spacing: 2px;
+  transform: translateX(-50%);
+}
+.hero-art .art-orbit, .hero-art .art-core, .hero-art .art-node,
+.hero-art .art-caption, .hero-art .art-coordinate { display: none; }
+
+/* 02 — About: the globe's points become a connected field */
+.about-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 120px 0;
+  border-top: 1px solid rgba(255,255,255,.045);
+  background: linear-gradient(180deg,#0a0b11 0%,#10101a 50%,#0a0b11 100%);
+}
+.about-network { position: absolute; z-index: -1; inset: 0; opacity: .42; pointer-events: none; }
+.about-network .skills-network-canvas { width: 100%; height: 100%; }
+.about-inner { display: grid; grid-template-columns: minmax(280px,.9fr) minmax(0,1.1fr); align-items: center; gap: clamp(40px,8vw,120px); }
+.about-visual { position: relative; display: grid; place-items: center; width: min(100%,430px); aspect-ratio: 1; margin: auto; }
+.about-orbit { position: absolute; border: 1px solid rgba(163,139,255,.2); border-radius: 50%; }
+.about-orbit-one { inset: 8%; transform: rotateX(66deg) rotateZ(-28deg); }
+.about-orbit-two { inset: 17%; transform: rotateY(62deg) rotateZ(22deg); border-color: rgba(255,107,69,.23); }
+.about-orbit-three { inset: 28%; border-style: dashed; animation: orbit-spin 48s linear infinite; }
+.about-core { display: grid; place-items: center; width: 105px; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; background: radial-gradient(circle at 35% 25%,#393044,#11121a 72%); box-shadow: 0 0 65px rgba(163,139,255,.16); color: #f5e9ff; font-size: 30px; font-weight: 700; letter-spacing: -2px; }
+.about-node { position: absolute; width: 12px; height: 12px; border: 1px solid #d1c5ff; border-radius: 3px; background: #8f7aff; box-shadow: 0 0 22px rgba(143,122,255,.8); }
+.about-node-a { top: 20%; left: 25%; }
+.about-node-b { top: 42%; right: 12%; background: var(--ember); border-color: #ffc0a6; box-shadow: 0 0 22px rgba(255,107,69,.8); }
+.about-node-c { bottom: 19%; left: 32%; }
+.about-visual-label { position: absolute; bottom: 4%; color: #858393; font-size: 8px; letter-spacing: 2px; }
+.about-copy { max-width: 590px; }
+.about-copy h2 { margin: 0 0 25px; font-size: clamp(38px,5vw,64px); line-height: 1.02; letter-spacing: -2.7px; }
+.about-copy h2 span { color: #b9a7ff; }
+.about-copy p { margin: 0 0 17px; color: var(--muted); font-size: 15px; line-height: 1.9; }
+.about-principles { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 27px; }
+.about-principles span { display: inline-flex; align-items: center; gap: 8px; color: #d8d5e1; font-size: 11px; }
+.about-principles i { width: 5px; height: 5px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 10px rgba(255,107,69,.7); }
+
+/* 03 — Skills: a connected technical landscape */
+.skills-landscape { position: relative; margin: 12px auto 0; padding: 24px; border: 1px solid rgba(255,255,255,.1); border-radius: 8px; background: radial-gradient(ellipse at 50% 45%,rgba(112,91,196,.12),transparent 65%),rgba(12,13,20,.76); }
+.skills-map { position: relative; min-height: 390px; }
+.skills-map-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.skills-map-lines path { fill: none; stroke: rgba(153,139,235,.23); stroke-width: 1.2; transition: stroke .25s ease,stroke-width .25s ease,opacity .25s ease; }
+.skills-map-lines path.is-active { stroke: #ff9c78; stroke-width: 2.3; filter: drop-shadow(0 0 5px rgba(255,107,69,.7)); }
+.skills-map-node { position: absolute; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; gap: 7px; min-width: 142px; padding: 15px 17px; border: 1px solid rgba(255,255,255,.13); border-radius: 5px; background: rgba(19,20,31,.94); color: var(--text); text-align: left; cursor: pointer; transition: border-color .25s ease,transform .25s ease,box-shadow .25s ease; }
+.skills-map-node:hover,.skills-map-node:focus-visible,.skills-map-node.is-active { z-index: 3; border-color: rgba(255,151,111,.7); box-shadow: 0 0 28px rgba(255,107,69,.12); transform: translateY(-3px); outline: none; }
+.skills-map-node small { color: #8d8e9e; font-size: 8px; letter-spacing: 1.4px; }
+.skills-map-node strong { font-size: 14px; font-weight: 500; }
+.skills-map-node span { color: #aaa4d9; font-size: 10px; }
+.skills-map-node.node-frontend { left: 4%; top: 12%; }
+.skills-map-node.node-api { left: 38%; top: 3%; }
+.skills-map-node.node-data { right: 4%; top: 20%; }
+.skills-map-node.node-architecture { left: 34%; top: 42%; }
+.skills-map-node.node-delivery { left: 8%; bottom: 7%; }
+.skills-map-node.node-ai { right: 8%; bottom: 8%; }
+.skills-map-detail { display: flex; align-items: center; justify-content: space-between; gap: 22px; margin-top: 14px; padding: 18px 20px; border-top: 1px solid rgba(255,255,255,.08); }
+.skills-map-detail strong { display: block; margin-bottom: 5px; color: #f5f0ff; font-size: 14px; }
+.skills-map-detail p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.skills-map-detail .skill-detail-index { flex: 0 0 auto; color: var(--ember-light); font-size: 11px; letter-spacing: 1.5px; }
+.skill .skill-groups { margin-top: 28px; }
+
+/* 04 — Selected work: its own architecture world, never the Skills backdrop */
+.project { background: radial-gradient(ellipse at 50% 38%,rgba(91,72,162,.09),transparent 38%),linear-gradient(180deg,#08090d,#0c0d14 50%,#08090d); }
+.project-network-backdrop { display: none !important; }
+.archos-feature { position: relative; }
+.archos-visual { transition: transform .45s ease,border-color .3s ease,box-shadow .3s ease; }
+.archos-feature:hover .archos-visual { transform: perspective(1200px) rotateX(1.2deg) rotateY(-1.2deg) translateY(-3px); border-color: rgba(180,158,255,.45); box-shadow: 0 28px 100px rgba(80,60,180,.13); }
+.archos-node { cursor: default; transition: transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
+.archos-node:hover { z-index: 4; transform: translateY(-4px) scale(1.035); border-color: rgba(255,153,112,.8); box-shadow: 0 0 24px rgba(255,107,69,.16); }
+.archos-connectors path { stroke-dasharray: 7 8; animation: architecture-flow 18s linear infinite; }
+@keyframes architecture-flow { to { stroke-dashoffset: -240; } }
+
+@media (max-width: 767px) {
+  .hero-art { max-width: 420px; margin-top: 12px; }
+  .hero-globe-label { font-size: 7px; padding: 8px; letter-spacing: .6px; }
+  .about-section { padding: 78px 0; }
+  .about-inner { grid-template-columns: 1fr; gap: 30px; }
+  .about-visual { width: min(82%,340px); }
+  .about-copy h2 { letter-spacing: -1.6px; }
+  .skills-landscape { padding: 12px; }
+  .skills-map { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; min-height: 0; }
+  .skills-map-lines { display: none; }
+  .skills-map-node.skills-map-node { position: static; min-width: 0; padding: 13px 12px; }
+  .skills-map-detail { align-items: flex-start; padding: 15px 4px 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-orbit-three,.archos-connectors path { animation: none !important; }
+  .skills-map-node,.archos-visual { transition: none !important; }
+}
