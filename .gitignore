@@ -7,6 +7,8 @@ node_modules
 
 # misc
 .env
+.env.*
+!.env.example
 public/.env
 .DS_Store
 *.pem
