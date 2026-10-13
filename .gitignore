@@ -6,6 +6,8 @@ node_modules
 /build
 
 # misc
+.env
+public/.env
 .DS_Store
 *.pem
 
