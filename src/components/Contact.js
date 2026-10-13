@@ -8,7 +8,7 @@ import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 import Alert from "@mui/material/Alert";
 
-const RECAPTCHA_SITE_KEY = "6LfJctAtAAAAAGFhNhex0kJu3rqtPBnGKKdRmyCj";
+const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY || "6LfJctAtAAAAAGFhNhex0kJu3rqtPBnGKKdRmyCj";
 
 export const Contact = () => {
   const form = useRef();
