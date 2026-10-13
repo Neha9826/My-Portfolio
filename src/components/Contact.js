@@ -21,16 +21,23 @@ export const Contact = () => {
     e.preventDefault();
     if (isSending || !captchaToken) return;
 
+    const serviceId = process.env.REACT_APP_SERVICE_ID;
+    const templateId = process.env.REACT_APP_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus({
+        success: false,
+        message: "The contact form is temporarily unavailable. Please email me directly.",
+      });
+      return;
+    }
+
     setIsSending(true);
     setStatus(null);
 
     try {
-      await emailjs.sendForm(
-        "service_gcoyzjf",
-        "template_qcl9ylb",
-        form.current,
-        "aLaNQXgqPrTqc3o_X"
-      );
+      await emailjs.sendForm(serviceId, templateId, form.current, publicKey);
       setStatus({
         success: true,
         message: "Thanks for reaching out. Your message has been sent.",
