@@ -1,13 +1,13 @@
 import { Col } from "react-bootstrap";
 import { ArrowUpRight } from "react-bootstrap-icons";
 
-export const ProjectCard = ({ title, description, imgUrl, source, index = 0 }) => {
+export const ProjectCard = ({ title, description, imgUrl, source, index = 0, cardClassName = "" }) => {
   const isComingSoon = !source || source === "#";
   const number = String(index + 1).padStart(2, "0");
 
   return (
     <Col className="proj-col" xs={12} sm={6} lg={4}>
-      <article className="project-card">
+      <article className={`project-card ${cardClassName}`.trim()}>
         <div className="project-card-image">
           <img src={imgUrl} alt={title} loading="lazy" />
           <span className="project-card-index" aria-hidden="true">CASE / {number}</span>
