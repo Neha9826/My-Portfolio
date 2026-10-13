@@ -6,10 +6,18 @@ import shivoham_ from "../assets/img/shivoham_.png";
 import yttc from "../assets/img/yogateacherstrainingcourses.png";
 import ybm from "../assets/img/ybm.png";
 import Satvadig from "../assets/img/Satvadig_.png";
+import documentAssistantPreview from "../assets/img/document-assistant-preview.svg";
 import { ArrowUpRight, Git, BoxSeam, Robot, CodeSlash, Layers } from "react-bootstrap-icons";
 
 export const Projects = () => {
   const projects = [
+    {
+      title: "Multi-Workspace Document Assistant",
+      description: "AI-powered document Q&A · Next.js, Supabase, PostgreSQL/pgvector, RAG",
+      imgUrl: documentAssistantPreview,
+      source: "https://github.com/Neha9826/Multi-Workspace-Document-Assistant",
+      cardClassName: "document-assistant-card",
+    },
     {
       title: "RIA Catalyst",
       description: "Fintech market screener · UI architecture, GraphQL and gRPC integrations",
