@@ -639,3 +639,100 @@
     padding-bottom: 54px;
   }
 }
+
+
+/* Liquid-glass refinement — first pass. Preserve the dark editorial identity. */
+:root {
+  --glass-fill: rgba(20, 22, 32, .58);
+  --glass-edge: rgba(230, 226, 255, .15);
+  --glass-highlight: rgba(255, 255, 255, .09);
+}
+.site-nav.scrolled {
+  background: rgba(9, 10, 16, .74) !important;
+  border-bottom-color: rgba(220, 216, 255, .14) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .18);
+  -webkit-backdrop-filter: blur(22px) saturate(135%);
+  backdrop-filter: blur(22px) saturate(135%);
+}
+.hero-copy { position: relative; z-index: 2; }
+.hero-art {
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, .14));
+  transform: translateZ(0);
+}
+.hero-art::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 11%;
+  border: 1px solid rgba(207, 195, 255, .1);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.055), transparent 34%), radial-gradient(circle at 70% 78%, rgba(163,139,255,.09), transparent 43%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.045), 0 0 90px rgba(133,109,220,.07);
+  pointer-events: none;
+}
+.hero-art .art-node {
+  border: 1px solid var(--glass-edge) !important;
+  background: linear-gradient(145deg, rgba(30,31,45,.76), rgba(12,13,21,.78)) !important;
+  box-shadow: inset 0 1px 0 var(--glass-highlight), 0 18px 42px rgba(0,0,0,.22) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+  backdrop-filter: blur(18px) saturate(130%);
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s ease, box-shadow .35s ease;
+}
+.hero-art .art-node:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,176,138,.42) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 22px 50px rgba(0,0,0,.3) !important;
+}
+.hero-art .art-core {
+  box-shadow: 0 0 0 8px rgba(163,139,255,.035), 0 0 52px rgba(163,139,255,.22), inset 0 1px 0 rgba(255,255,255,.15);
+}
+.skill .skill-card, .project .project-card, .project .archos-feature, .project .archos-capabilities > div {
+  border-color: var(--glass-edge);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 16px 48px rgba(0,0,0,.12);
+}
+.skill .skill-card, .project .project-card, .project .archos-capabilities > div {
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  backdrop-filter: blur(14px) saturate(120%);
+  transition: transform .28s cubic-bezier(.2,.7,.2,1), border-color .28s ease, box-shadow .28s ease;
+}
+.project .project-card {
+  background: linear-gradient(145deg, rgba(24,24,36,.88), rgba(13,14,22,.9)) !important;
+}
+.project .project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(185,167,255,.38);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 24px 54px rgba(0,0,0,.28);
+}
+.project .archos-feature { box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 26px 76px rgba(0,0,0,.2); }
+.project .archos-capabilities > div { background: linear-gradient(145deg, rgba(25,26,38,.72), rgba(12,13,21,.78)); }
+.about-aside {
+  border: 1px solid rgba(185,167,255,.14);
+  border-radius: 18px;
+  padding: clamp(26px, 4vw, 52px);
+  background: radial-gradient(circle at 80% 10%, rgba(163,139,255,.11), transparent 48%), linear-gradient(145deg, rgba(25,25,38,.54), rgba(12,13,21,.38));
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+.project .document-assistant-card .project-card-image {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 72% 18%, rgba(163,139,255,.24), transparent 38%), radial-gradient(ellipse at 12% 82%, rgba(255,107,69,.12), transparent 36%), #0b0d15;
+}
+.project .document-assistant-card .project-card-image img { width: 100%; height: 100%; object-fit: cover; }
+.project .document-assistant-card .project-card-content { background: linear-gradient(145deg, rgba(23,24,37,.96), rgba(12,13,21,.96)); }
+.project .document-assistant-card .project-card-status { color: #c7baff; }
+.site-nav .navbar-nav .navbar-link:focus-visible, .site-nav .nav-cta:focus-visible, .hero a:focus-visible, .project a:focus-visible, .project .project-tabs .nav-link:focus-visible, .back-to-top:focus-visible {
+  outline: 2px solid var(--ember-light);
+  outline-offset: 4px;
+}
+@media (hover: hover) and (pointer: fine) { .skill .skill-card:hover { transform: translateY(-3px); } }
+@media (max-width: 767px) {
+  .hero-art::before { inset: 8%; }
+  .hero-art .art-node { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  .about-aside { padding: 24px; border-radius: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-art .art-node, .skill .skill-card, .project .project-card, .project .archos-capabilities > div { transition: none !important; }
+  .hero-art .art-node:hover, .project .project-card:hover, .skill .skill-card:hover { transform: none !important; }
+}
