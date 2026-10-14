@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowUpRight, ArrowDown } from "react-bootstrap-icons";
-import { SystemVisual } from "./SystemVisual";
+import { HeroHorizon } from "./HeroHorizon";
 import heroPortrait from "../assets/img/NP_DP_2.png";
 
 export const Banner = () => {
@@ -9,7 +9,7 @@ export const Banner = () => {
       <div className="hero-grid" aria-hidden="true" />
       <div className="hero-glow hero-glow-one" aria-hidden="true" />
       <div className="hero-glow hero-glow-two" aria-hidden="true" />
-
+      <HeroHorizon />
       <Container className="hero-container">
         <Row className="align-items-center gy-5">
           <Col lg={7}>
@@ -34,7 +34,7 @@ export const Banner = () => {
             </div>
           </Col>
           <Col lg={5}>
-            <div className="hero-art" aria-label="Portrait of Neha Pattnayak surrounded by an animated orbital constellation">\n              <SystemVisual />\n              <div className="art-orbit orbit-one" />\n              <div className="art-orbit orbit-two" />\n              <div className="art-orbit orbit-three" />
+            <div className="hero-art" aria-label="Portrait of Neha Pattnayak">
               <div className="hero-portrait-frame">
                 <img className="hero-portrait" src={heroPortrait} alt="Neha Pattnayak, full-stack engineer and founder of Dev Engine AI" />
                 <span className="hero-portrait-tag"><span /> BUILDER · FOUNDER</span>
