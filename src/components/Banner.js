@@ -42,7 +42,6 @@ export const Banner = () => {
               <div className="art-orbit orbit-one" />
               <div className="art-orbit orbit-two" />
               <div className="art-orbit orbit-three" />
-              <div className="art-core"><span>NP</span><i /></div>
               <div className="art-node node-top"><span className="node-dot" /><div><small>BUILD MODE</small><strong>ON</strong></div><Stars /></div>
               <div className="art-node node-left"><span className="node-icon">{"</>"}</span><div><small>ENGINEERING</small><strong>Full-stack</strong></div></div>
               <div className="art-node node-right"><span className="node-icon">✳</span><div><small>STUDIO</small><strong>Dev Engine AI</strong></div></div>
