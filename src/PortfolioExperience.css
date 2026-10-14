@@ -736,3 +736,74 @@
   .hero-art .art-node, .skill .skill-card, .project .project-card, .project .archos-capabilities > div { transition: none !important; }
   .hero-art .art-node:hover, .project .project-card:hover, .skill .skill-card:hover { transform: none !important; }
 }
+
+
+/* Personal portraits: let the orbital system frame the person, not compete with her. */
+.hero-art { isolation: isolate; }
+.hero-art .system-visual-canvas { z-index: 0; }
+.hero-portrait-frame {
+  position: absolute; z-index: 2; left: 50%; top: 48%;
+  width: clamp(154px, 19vw, 236px); aspect-ratio: .78; padding: 7px; overflow: hidden;
+  border: 1px solid rgba(224,216,255,.26); border-radius: 46% 46% 24px 24px;
+  background: linear-gradient(145deg, rgba(255,255,255,.16), rgba(163,139,255,.08) 48%, rgba(10,11,18,.78));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 24px 70px rgba(0,0,0,.42), 0 0 48px rgba(163,139,255,.13);
+  transform: translate(-50%, -46%) rotate(-2deg);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+.hero-portrait-frame::after {
+  content: ""; position: absolute; inset: 7px; border-radius: inherit;
+  background: linear-gradient(180deg, rgba(8,9,13,0) 48%, rgba(8,9,13,.36) 100%); pointer-events: none;
+}
+.hero-portrait {
+  display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 24%;
+  border-radius: inherit; filter: saturate(.9) contrast(1.02);
+}
+.hero-portrait-tag {
+  position: absolute; z-index: 3; left: 50%; bottom: 15px;
+  display: inline-flex; align-items: center; gap: 7px; width: max-content; max-width: calc(100% - 18px);
+  padding: 7px 9px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px;
+  background: rgba(12,13,21,.7); color: #f1edf9; font-size: 7px; letter-spacing: 1.15px;
+  white-space: nowrap; transform: translateX(-50%);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+.hero-portrait-tag span, .about-portrait-dot {
+  width: 5px; height: 5px; flex: 0 0 5px; border-radius: 50%;
+  background: var(--mint); box-shadow: 0 0 10px rgba(165,243,210,.7);
+}
+.hero-art .art-core { z-index: 3; }
+.hero-art .art-node { z-index: 4; }
+.about-aside {
+  display: flex; flex-direction: column; align-items: stretch; justify-content: center;
+  gap: 26px; min-width: 0;
+}
+.about-portrait-frame {
+  position: relative; width: 100%; max-width: 310px; margin: 0 auto; padding: 7px;
+  border: 1px solid rgba(185,167,255,.22); border-radius: 18px;
+  background: linear-gradient(145deg, rgba(255,255,255,.1), rgba(163,139,255,.045));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 20px 52px rgba(0,0,0,.22);
+}
+.about-portrait-frame img {
+  display: block; width: 100%; aspect-ratio: 4 / 4.6; object-fit: cover; object-position: center 24%;
+  border-radius: 12px; filter: saturate(.88);
+}
+.about-portrait-frame figcaption {
+  position: absolute; left: 17px; bottom: 17px; display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 10px; border: 1px solid rgba(255,255,255,.15); border-radius: 999px;
+  background: rgba(10,11,18,.72); color: #f1edf9; font-size: 8px; letter-spacing: 1.3px;
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+.about-experience-stat {
+  display: flex; flex-direction: column; align-items: flex-start; padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.about-experience-stat .about-aside-number { font-size: clamp(72px, 8vw, 112px); }
+.about-experience-stat .about-aside-rule { margin: 18px 0 12px; }
+@media (min-width: 768px) { .about-aside { padding: 24px; } }
+@media (max-width: 767px) {
+  .hero-portrait-frame { width: clamp(138px, 42vw, 190px); top: 49%; }
+  .hero-art .art-node { max-width: 46%; }
+  .about-aside { gap: 20px; padding: 20px !important; }
+  .about-portrait-frame { max-width: 280px; }
+  .about-experience-stat .about-aside-number { font-size: 76px; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-portrait-frame, .hero-portrait { transition: none !important; } }
