@@ -807,3 +807,24 @@
   .about-experience-stat .about-aside-number { font-size: 76px; }
 }
 @media (prefers-reduced-motion: reduce) { .hero-portrait-frame, .hero-portrait { transition: none !important; } }
+
+
+/* Hero composition correction: keep the portrait unobstructed and hover transforms stable. */
+.hero-art .hero-portrait-frame { z-index: 3; }
+.hero-art .art-core { display: none !important; }
+.hero-art .node-top { top: 9%; }
+.hero-art .node-left { left: -2%; top: 70%; }
+.hero-art .node-right { right: -2%; top: 70%; }
+.hero-art .art-node { z-index: 4; }
+.hero-art .art-node:hover { transform: translateY(-2px); }
+.hero-art .node-top:hover { transform: translateX(-50%) translateY(-2px); }
+@media (max-width: 767px) {
+  .hero-art .node-left { left: 0; top: 70%; }
+  .hero-art .node-right { right: 0; top: 70%; }
+  .hero-art .art-caption { bottom: 3%; max-width: 88%; justify-content: center; text-align: center; }
+}
+@media (max-width: 420px) {
+  .hero-art .art-node { gap: 6px; padding: 8px; }
+  .hero-art .node-left { left: -1%; }
+  .hero-art .node-right { right: -1%; }
+}
