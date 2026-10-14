@@ -726,7 +726,7 @@
   outline: 2px solid var(--ember-light);
   outline-offset: 4px;
 }
-@media (hover: hover) and (pointer: fine) { .skill .skill-card:hover { transform: translateY(-3px); } }
+/* Keep toolkit card hover behavior aligned with the live site: glow/border only. */
 @media (max-width: 767px) {
   .hero-art::before { inset: 8%; }
   .hero-art .art-node { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
