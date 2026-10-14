@@ -828,3 +828,39 @@
   .hero-art .node-left { left: -1%; }
   .hero-art .node-right { right: -1%; }
 }
+
+
+/* Separate the animated galaxy from the portrait: a low, centered hero backdrop. */
+.hero-container { z-index: 1; }
+.hero-galaxy {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: -43%;
+  width: min(76vw, 790px);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  opacity: .72;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 23%, #000 76%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 23%, #000 76%, transparent 100%);
+}
+.hero-galaxy .system-visual-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero-art .system-visual-canvas { display: none; }
+@media (min-width: 992px) {
+  .hero-galaxy { bottom: -54%; width: min(66vw, 820px); }
+}
+@media (max-width: 767px) {
+  .hero-galaxy { bottom: -28%; width: min(112vw, 560px); opacity: .48; }
+}
+@media (max-width: 575px) {
+  .hero-galaxy { bottom: -22%; width: 125vw; opacity: .4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-galaxy { opacity: .4; }
+}
