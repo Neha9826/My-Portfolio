@@ -864,3 +864,113 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-galaxy { opacity: .4; }
 }
+
+
+/* Hero correction: restore the animated orbital composition without letting it overwhelm the copy. */
+.hero { position: relative; isolation: isolate; overflow: hidden; }
+.hero-grid { opacity: .22; }
+.hero-galaxy { display: none !important; }
+.hero-horizon { display: none !important; }
+.hero-container { position: relative; z-index: 2; }
+.hero-art {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 560px);
+  aspect-ratio: 1;
+  isolation: isolate;
+}
+.hero-art > .system-visual-canvas {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: .78;
+  pointer-events: none;
+}
+.hero-art .art-orbit {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 49%;
+  width: 88%;
+  height: 34%;
+  border: 1px solid rgba(163,139,255,.26);
+  border-radius: 50%;
+  transform: translate(-50%,-50%) rotate(-28deg);
+  pointer-events: none;
+}
+.hero-art .orbit-two { width: 108%; height: 43%; border-color: rgba(255,107,69,.22); transform: translate(-50%,-50%) rotate(24deg); }
+.hero-art .orbit-three { width: 74%; height: 68%; border-color: rgba(195,190,255,.15); transform: translate(-50%,-50%) rotate(54deg); }
+.hero-portrait-frame { z-index: 2; }
+.hero-art .art-node {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 13px;
+  border: 1px solid rgba(220,216,255,.18);
+  border-radius: 10px;
+  background: linear-gradient(135deg,rgba(23,24,37,.82),rgba(10,11,18,.68));
+  box-shadow: 0 12px 32px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.07);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  animation: hero-node-float 7.5s ease-in-out infinite;
+  transition: border-color .25s ease, background .25s ease;
+  will-change: transform;
+}
+.hero-art .art-node:hover { border-color: rgba(255,176,138,.5); background: rgba(24,22,34,.88); }
+.hero-art .node-top { top: 12%; left: 50%; transform: translateX(-50%); animation-name: hero-node-top-float; animation-delay: -1.8s; }
+.hero-art .node-left { left: -1%; top: 51%; animation-delay: -4.2s; }
+.hero-art .node-right { right: -1%; top: 65%; animation-delay: -2.7s; }
+.hero-art .art-node small { display: block; color: #a4a4b6; font-size: 8px; letter-spacing: 1.3px; }
+.hero-art .art-node strong { display: block; color: #f4f1eb; font-size: 12px; font-weight: 500; white-space: nowrap; }
+.hero-art .node-dot { width: 7px; height: 7px; flex: 0 0 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 12px rgba(165,243,210,.65); }
+.hero-art .node-icon { display: grid; place-items: center; width: 30px; height: 30px; flex: 0 0 30px; border-radius: 7px; background: rgba(163,139,255,.13); color: #c6b8ff; font-size: 12px; }
+.hero-art .node-right .node-icon { background: rgba(255,107,69,.12); color: var(--ember-light); font-size: 19px; }
+.hero-art .art-caption { position: absolute; z-index: 3; left: 50%; bottom: 8%; display: flex; align-items: center; gap: 9px; width: max-content; max-width: 88%; color: #858393; font-size: 8px; letter-spacing: 1.5px; transform: translateX(-50%); }
+.hero-art .art-caption span:not(.caption-line) { color: var(--ember); }
+.hero-art .caption-line { width: 22px; height: 1px; background: var(--ember); }
+.hero-art .art-coordinate { display: none !important; }
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: -52%;
+  width: min(110vw, 1450px);
+  height: 76%;
+  border: 1px solid rgba(83,196,224,.18);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 -12px 70px rgba(40,165,210,.055), inset 0 20px 70px rgba(70,94,190,.035);
+  pointer-events: none;
+}
+@keyframes hero-node-float {
+  0%,100% { translate: 0 0; }
+  50% { translate: 0 -9px; }
+}
+@keyframes hero-node-top-float {
+  0%,100% { translate: -50% 0; }
+  50% { translate: -50% -8px; }
+}
+@media (max-width: 767px) {
+  .hero-art { max-width: 420px; margin: 12px auto 0; }
+  .hero-art .art-node { gap: 7px; padding: 9px 10px; }
+  .hero-art .art-node strong { font-size: 10px; }
+  .hero-art .art-node small { font-size: 7px; }
+  .hero-art .node-left { left: 0; top: 51%; }
+  .hero-art .node-right { right: 0; top: 65%; }
+  .hero-art .art-caption { bottom: 4%; font-size: 7px; letter-spacing: 1px; }
+  .hero::after { bottom: -24%; width: 140vw; height: 45%; opacity: .6; }
+}
+@media (max-width: 420px) {
+  .hero-art .art-node { gap: 6px; padding: 8px; }
+  .hero-art .node-left { left: -1%; }
+  .hero-art .node-right { right: -1%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-art .art-node { animation: none !important; }
+}
