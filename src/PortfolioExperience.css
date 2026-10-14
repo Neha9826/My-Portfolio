@@ -903,8 +903,7 @@
 }
 
 
-/* Restore the live Toolkit hover: translucent glass on hover, not just a border glow.
-   This override lives after the base card styles so it wins the cascade. */
+/* Match the live Toolkit card hover: let the animated network show through the glass. */
 .skill .skill-card {
   transition:
     background .3s ease,
@@ -916,20 +915,20 @@
 .skill .skill-card:hover {
   background: linear-gradient(
     135deg,
-    rgba(20,21,33,.52),
-    rgba(12,13,20,.46)
+    rgba(20,21,33,.19),
+    rgba(12,13,20,.14)
   );
   border-color: rgba(255,143,98,.55);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 18px 46px rgba(0,0,0,.24), 0 0 26px rgba(255,107,69,.045);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 18px 46px rgba(0,0,0,.2), 0 0 26px rgba(255,107,69,.06);
 }
 @media (max-width: 767px) {
   .skill .skill-card:hover {
     background: linear-gradient(
       135deg,
-      rgba(20,21,33,.62),
-      rgba(12,13,20,.56)
+      rgba(20,21,33,.3),
+      rgba(12,13,20,.24)
     );
   }
 }
