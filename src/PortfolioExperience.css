@@ -807,3 +807,97 @@
   .about-experience-stat .about-aside-number { font-size: 76px; }
 }
 @media (prefers-reduced-motion: reduce) { .hero-portrait-frame, .hero-portrait { transition: none !important; } }
+
+
+/* Hero motion pass: enlarge the orbital field so floating cards orbit outside the portrait. */
+.hero-art {
+  width: min(116%, 570px);
+  margin-left: -8%;
+  overflow: visible;
+}
+.hero-art > .system-visual-canvas {
+  inset: -7%;
+  width: 114%;
+  height: 114%;
+  opacity: .82;
+}
+.hero-art .art-orbit {
+  width: 100%;
+  height: 39%;
+}
+.hero-art .orbit-one {
+  width: 108%;
+  height: 108%;
+  animation: orbit-spin 64s linear infinite;
+}
+.hero-art .orbit-two {
+  width: 121%;
+  height: 47%;
+  animation: orbit-spin-reverse 78s linear infinite;
+}
+.hero-art .orbit-three {
+  width: 84%;
+  height: 82%;
+  animation: orbit-spin 92s linear infinite;
+}
+.hero-portrait-frame {
+  width: clamp(154px, 18vw, 226px);
+}
+.hero-art .art-node {
+  z-index: 5;
+  animation: hero-node-drift 8s ease-in-out infinite;
+  transition: border-color .3s ease, box-shadow .3s ease;
+  will-change: translate;
+}
+.hero-art .art-node:hover {
+  border-color: rgba(255,176,138,.48);
+  box-shadow: 0 16px 42px rgba(0,0,0,.32), 0 0 22px rgba(163,139,255,.08);
+}
+.hero-art .node-top {
+  top: 5%;
+  animation-delay: -2.2s;
+}
+.hero-art .node-left {
+  left: -7%;
+  top: 48%;
+  animation-delay: -5.4s;
+}
+.hero-art .node-right {
+  right: -7%;
+  top: 65%;
+  animation-delay: -3.1s;
+}
+.hero-art .art-caption { bottom: 3%; }
+.hero-art .art-coordinate { right: 1%; }
+@keyframes orbit-spin-reverse {
+  from { transform: translate(-50%,-50%) rotate(24deg); }
+  to { transform: translate(-50%,-50%) rotate(-336deg); }
+}
+@keyframes hero-node-drift {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -8px; }
+}
+@media (max-width: 1199px) {
+  .hero-art { width: min(112%, 530px); margin-left: -6%; }
+  .hero-art .node-left { left: -4%; }
+  .hero-art .node-right { right: -4%; }
+}
+@media (max-width: 991px) {
+  .hero-art { width: min(100%, 510px); margin: 4px auto 0; }
+  .hero-art > .system-visual-canvas { inset: -5%; width: 110%; height: 110%; }
+  .hero-art .node-left { left: -2%; }
+  .hero-art .node-right { right: -2%; }
+}
+@media (max-width: 575px) {
+  .hero-art { width: 100%; margin: 0 auto; }
+  .hero-art .node-left { left: -1%; }
+  .hero-art .node-right { right: -1%; }
+  .hero-art .art-node { padding: 10px; gap: 7px; }
+  .hero-art .art-caption { bottom: 1%; max-width: 94%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-art .orbit-one,
+  .hero-art .orbit-two,
+  .hero-art .orbit-three,
+  .hero-art .art-node { animation: none !important; }
+}
