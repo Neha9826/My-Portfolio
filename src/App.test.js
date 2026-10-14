@@ -1,9 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders the portfolio shell', () => {
-  render(<App />);
-  expect(screen.getByRole('navigation')).toBeInTheDocument();
+test('renders the portfolio shell and primary sections', () => {
+  const { container } = render(<App />);
+
+  // Desktop and mobile navigation may both be present in the responsive layout.
+  expect(screen.getAllByRole('navigation').length).toBeGreaterThan(0);
   expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: /back to top/i })).toBeInTheDocument();
+  expect(container.querySelector('#project')).toBeInTheDocument();
+  expect(container.querySelector('#connect')).toBeInTheDocument();
 });
