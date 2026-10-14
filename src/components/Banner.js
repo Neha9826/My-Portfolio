@@ -1,6 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowUpRight, ArrowDown, Stars } from "react-bootstrap-icons";
 import { SystemVisual } from "./SystemVisual";
+import heroPortrait from "../assets/img/NP_DP_2.png";
 
 export const Banner = () => {
   return (
@@ -32,12 +33,15 @@ export const Banner = () => {
             </div>
           </Col>
           <Col lg={5}>
-            <div className="hero-art" aria-label="Interactive globe representing Neha’s engineering systems">
+            <div className="hero-art" aria-label="Neha’s portrait surrounded by an interactive engineering systems globe">
               <SystemVisual />
+              <div className="hero-portrait-frame">
+                <img className="hero-portrait" src={heroPortrait} alt="Neha Pattnayak, full-stack engineer and founder of Dev Engine AI" />
+                <span className="hero-portrait-tag"><span /> BUILDER · FOUNDER</span>
+              </div>
               <div className="art-orbit orbit-one" />
               <div className="art-orbit orbit-two" />
               <div className="art-orbit orbit-three" />
-              <div className="art-core"><span>NP</span><i /></div>
               <div className="art-node node-top"><span className="node-dot" /><div><small>BUILD MODE</small><strong>ON</strong></div><Stars /></div>
               <div className="art-node node-left"><span className="node-icon">{"</>"}</span><div><small>ENGINEERING</small><strong>Full-stack</strong></div></div>
               <div className="art-node node-right"><span className="node-icon">✳</span><div><small>STUDIO</small><strong>Dev Engine AI</strong></div></div>

@@ -1,4 +1,5 @@
 import { Container } from "react-bootstrap";
+import aboutPortrait from "../assets/img/NP_DP.png";
 
 export const About = () => (
   <section className="about-section" id="about">
@@ -28,10 +29,16 @@ export const About = () => (
             <span><i /> Make complexity feel clear</span>
           </div>
         </div>
-        <div className="about-aside" aria-label="Over seven years in software engineering">
+        <div className="about-aside">
+          <figure className="about-portrait-frame">
+            <img src={aboutPortrait} alt="Neha in a relaxed portrait" loading="lazy" />
+            <figcaption><span className="about-portrait-dot" /> BEHIND THE BUILDS</figcaption>
+          </figure>
+          <div className="about-experience-stat" aria-label="Over seven years in software engineering">
           <span className="about-aside-number">7<span className="about-aside-plus">+</span></span>
           <span className="about-aside-rule" />
           <span className="about-aside-caption">YEARS IN SOFTWARE<br />ENGINEERING</span>
+          </div>
         </div>
       </div>
     </Container>
