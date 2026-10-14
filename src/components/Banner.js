@@ -1,6 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowUpRight, ArrowDown, Stars } from "react-bootstrap-icons";
 import { SystemVisual } from "./SystemVisual";
+import heroPortrait from "../assets/img/NP_DP_2.png";
 
 export const Banner = () => {
   return (
@@ -32,8 +33,12 @@ export const Banner = () => {
             </div>
           </Col>
           <Col lg={5}>
-            <div className="hero-art" aria-label="Interactive globe representing Neha’s engineering systems">
+            <div className="hero-art" aria-label="Neha’s portrait surrounded by an interactive engineering systems globe">
               <SystemVisual />
+              <div className="hero-portrait-frame">
+                <img className="hero-portrait" src={heroPortrait} alt="Neha Pattnayak, full-stack engineer and founder of Dev Engine AI" />
+                <span className="hero-portrait-tag"><span /> BUILDER · FOUNDER</span>
+              </div>
               <div className="art-orbit orbit-one" />
               <div className="art-orbit orbit-two" />
               <div className="art-orbit orbit-three" />
