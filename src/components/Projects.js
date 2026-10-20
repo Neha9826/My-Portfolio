@@ -1,4 +1,4 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+import { Container, Row, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import RIA from "../assets/img/RIA.jpg";
 import soilnwater from "../assets/img/soilnwater_banner.png";
