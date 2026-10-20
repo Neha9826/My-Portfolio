@@ -935,3 +935,72 @@
 @media (prefers-reduced-motion: reduce) {
   .skill .skill-card { transition: none !important; }
 }
+
+
+
+/* Dual-action case studies: lead with the live experience, keep source one click away. */
+.project .document-assistant-card .project-card-content,
+.project .docs-studio-card .project-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  min-height: 0;
+}
+.project .document-assistant-card .project-card-copy,
+.project .docs-studio-card .project-card-copy {
+  width: 100%;
+}
+.project .project-card-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: 8px;
+  width: 100%;
+  margin-top: 1px;
+}
+.project .project-card-actions .project-card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  min-height: 38px;
+  padding: 9px 10px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background .22s ease, border-color .22s ease, color .22s ease;
+}
+.project .project-card-actions .project-card-link svg {
+  flex: 0 0 auto;
+}
+.project .project-card-actions .project-card-link-primary {
+  color: #fff0e9 !important;
+  border-color: rgba(255,107,69,.38);
+  background: rgba(255,107,69,.095);
+}
+.project .project-card-actions .project-card-link-primary:hover {
+  color: #fff !important;
+  border-color: rgba(255,143,98,.72);
+  background: rgba(255,107,69,.17);
+}
+.project .project-card-actions .project-card-link-secondary {
+  color: #ded9f1 !important;
+  border-color: rgba(183,170,255,.22);
+  background: rgba(183,170,255,.045);
+}
+.project .project-card-actions .project-card-link-secondary:hover {
+  color: #fff !important;
+  border-color: rgba(183,170,255,.5);
+  background: rgba(183,170,255,.1);
+}
+@media (max-width: 767px) {
+  .project .project-card-actions { gap: 9px; }
+  .project .project-card-actions .project-card-link { min-height: 42px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project .project-card-actions .project-card-link { transition: none !important; }
+}
