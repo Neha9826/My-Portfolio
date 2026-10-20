@@ -1004,3 +1004,10 @@
 @media (prefers-reduced-motion: reduce) {
   .project .project-card-actions .project-card-link { transition: none !important; }
 }
+
+
+/* Keep the supplied full-width product screenshots legible in their case-study cards. */
+.project .document-assistant-card .project-card-image,
+.project .docs-studio-card .project-card-image {
+  aspect-ratio: 2.16 / 1;
+}
