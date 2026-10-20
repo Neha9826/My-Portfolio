@@ -46,6 +46,13 @@ export const Contact = () => {
       captchaRef.current?.reset();
       setCaptchaToken(null);
     } catch (error) {
+      // Keep provider details available for debugging without exposing them to visitors.
+      console.error("EmailJS contact form submission failed:", {
+        status: error?.status,
+        text: error?.text,
+        message: error?.message,
+      });
+
       setStatus({
         success: false,
         message: "Your message couldn't be sent. Please try again or email me directly.",
