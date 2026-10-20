@@ -152,7 +152,7 @@ export const Contact = () => {
                       <Col xs={12}>
                         <button
                           type="submit"
-                          disabled={isSending || !captchaToken || !CONTACT_FORM_CONFIGURED}
+                          disabled={isSending || !captchaToken}
                         >
                           {isSending ? "Sending…" : "Send your message"} <ArrowUpRight size={17} />
                         </button>
