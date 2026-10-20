@@ -8,7 +8,17 @@ import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 import Alert from "@mui/material/Alert";
 
-const RECAPTCHA_SITE_KEY = "6LfJctAtAAAAAGFhNhex0kJu3rqtPBnGKKdRmyCj";
+const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+const EMAILJS_SERVICE_ID = process.env.REACT_APP_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY;
+
+const CONTACT_FORM_CONFIGURED = Boolean(
+  RECAPTCHA_SITE_KEY &&
+    EMAILJS_SERVICE_ID &&
+    EMAILJS_TEMPLATE_ID &&
+    EMAILJS_PUBLIC_KEY
+);
 
 export const Contact = () => {
   const form = useRef();
@@ -19,17 +29,28 @@ export const Contact = () => {
 
   const sendEmail = async (e) => {
     e.preventDefault();
-    if (isSending || !captchaToken) return;
+    if (isSending) return;
+
+    if (!CONTACT_FORM_CONFIGURED) {
+      setStatus({
+        success: false,
+        message:
+          "The contact form is temporarily unavailable. Please email me directly.",
+      });
+      return;
+    }
+
+    if (!captchaToken) return;
 
     setIsSending(true);
     setStatus(null);
 
     try {
       await emailjs.sendForm(
-        "service_gcoyzjf",
-        "template_qcl9ylb",
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         form.current,
-        "aLaNQXgqPrTqc3o_X"
+        EMAILJS_PUBLIC_KEY
       );
       setStatus({
         success: true,
@@ -39,6 +60,14 @@ export const Contact = () => {
       captchaRef.current?.reset();
       setCaptchaToken(null);
     } catch (error) {
+      // Keep provider details in the browser console for troubleshooting.
+      // Do not expose provider responses to visitors.
+      console.error("EmailJS contact form submission failed:", {
+        status: error?.status,
+        text: error?.text,
+        message: error?.message,
+      });
+
       setStatus({
         success: false,
         message: "Your message couldn't be sent. Please try again or email me directly.",
@@ -105,17 +134,26 @@ export const Contact = () => {
                       </Col>
                       <Col xs={12}>
                         <div className="contact-recaptcha">
-                          <ReCAPTCHA
-                            ref={captchaRef}
-                            sitekey={RECAPTCHA_SITE_KEY}
-                            onChange={(token) => setCaptchaToken(token)}
-                            onExpired={() => setCaptchaToken(null)}
-                            onErrored={() => setCaptchaToken(null)}
-                          />
+                          {RECAPTCHA_SITE_KEY ? (
+                            <ReCAPTCHA
+                              ref={captchaRef}
+                              sitekey={RECAPTCHA_SITE_KEY}
+                              onChange={(token) => setCaptchaToken(token)}
+                              onExpired={() => setCaptchaToken(null)}
+                              onErrored={() => setCaptchaToken(null)}
+                            />
+                          ) : (
+                            <p role="alert">
+                              The contact form is temporarily unavailable. Please email me directly.
+                            </p>
+                          )}
                         </div>
                       </Col>
                       <Col xs={12}>
-                        <button type="submit" disabled={isSending || !captchaToken}>
+                        <button
+                          type="submit"
+                          disabled={isSending || !captchaToken || !CONTACT_FORM_CONFIGURED}
+                        >
                           {isSending ? "Sending…" : "Send your message"} <ArrowUpRight size={17} />
                         </button>
                       </Col>
