@@ -7,16 +7,26 @@ import yttc from "../assets/img/yogateacherstrainingcourses.png";
 import ybm from "../assets/img/ybm.png";
 import Satvadig from "../assets/img/Satvadig_.png";
 import documentAssistantPreview from "../assets/img/document-assistant-preview.svg";
+import docsStudioPreview from "../assets/img/docs-studio-preview.svg";
 import { ArrowUpRight, Git, BoxSeam, Robot, CodeSlash, Layers } from "react-bootstrap-icons";
 
 export const Projects = () => {
   const projects = [
     {
       title: "Multi-Workspace Document Assistant",
-      description: "AI-powered document Q&A · Next.js, Supabase, PostgreSQL/pgvector, RAG",
+      description: "Workspace-isolated document AI · RAG, citations, tool calling & persistent chat",
       imgUrl: documentAssistantPreview,
-      source: "https://github.com/Neha9826/Multi-Workspace-Document-Assistant",
+      demoUrl: "https://multi-workspace-document-assistant-dev-engine-ai.vercel.app/",
+      repoUrl: "https://github.com/Neha9826/Multi-Workspace-Document-Assistant",
       cardClassName: "document-assistant-card",
+    },
+    {
+      title: "Docs Studio",
+      description: "AI-assisted document workspace · rich editing, sharing, version history & export",
+      imgUrl: docsStudioPreview,
+      demoUrl: "https://doc-studio.onrender.com/",
+      repoUrl: "https://github.com/Neha9826/Doc-Studio",
+      cardClassName: "docs-studio-card",
     },
     {
       title: "RIA Catalyst",
