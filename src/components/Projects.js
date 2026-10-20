@@ -6,8 +6,8 @@ import shivoham_ from "../assets/img/shivoham_.png";
 import yttc from "../assets/img/yogateacherstrainingcourses.png";
 import ybm from "../assets/img/ybm.png";
 import Satvadig from "../assets/img/Satvadig_.png";
-import documentAssistantPreview from "../assets/img/document-assistant-preview.svg";
-import docsStudioPreview from "../assets/img/docs-studio-preview.svg";
+import documentAssistantPreview from "../assets/img/multi-workspace-doc-assistant.webp";
+import docsStudioPreview from "../assets/img/docs-studio-preview.webp";
 import { ArrowUpRight, Git, BoxSeam, Robot, CodeSlash, Layers } from "react-bootstrap-icons";
 
 export const Projects = () => {
