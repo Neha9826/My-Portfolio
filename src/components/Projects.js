@@ -1,4 +1,4 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+import { Container, Row, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import RIA from "../assets/img/RIA.jpg";
 import soilnwater from "../assets/img/soilnwater_banner.png";
@@ -6,10 +6,28 @@ import shivoham_ from "../assets/img/shivoham_.png";
 import yttc from "../assets/img/yogateacherstrainingcourses.png";
 import ybm from "../assets/img/ybm.png";
 import Satvadig from "../assets/img/Satvadig_.png";
+import documentAssistantPreview from "../assets/img/multi-workspace-doc-assistant.webp";
+import docsStudioPreview from "../assets/img/docs-studio-preview.webp";
 import { ArrowUpRight, Git, BoxSeam, Robot, CodeSlash, Layers } from "react-bootstrap-icons";
 
 export const Projects = () => {
   const projects = [
+    {
+      title: "Multi-Workspace Document Assistant",
+      description: "Workspace-isolated document AI · RAG, citations, tool calling & persistent chat",
+      imgUrl: documentAssistantPreview,
+      demoUrl: "https://multi-workspace-document-assistant-dev-engine-ai.vercel.app/",
+      repoUrl: "https://github.com/Neha9826/Multi-Workspace-Document-Assistant",
+      cardClassName: "document-assistant-card",
+    },
+    {
+      title: "Docs Studio",
+      description: "AI-assisted document workspace · rich editing, sharing, version history & export",
+      imgUrl: docsStudioPreview,
+      demoUrl: "https://doc-studio.onrender.com/",
+      repoUrl: "https://github.com/Neha9826/Doc-Studio",
+      cardClassName: "docs-studio-card",
+    },
     {
       title: "RIA Catalyst",
       description: "Fintech market screener · UI architecture, GraphQL and gRPC integrations",

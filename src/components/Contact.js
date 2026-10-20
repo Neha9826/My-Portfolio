@@ -8,7 +8,7 @@ import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 import Alert from "@mui/material/Alert";
 
-const RECAPTCHA_SITE_KEY = "6LfJctAtAAAAAGFhNhex0kJu3rqtPBnGKKdRmyCj";
+const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
 
 export const Contact = () => {
   const form = useRef();
@@ -21,16 +21,23 @@ export const Contact = () => {
     e.preventDefault();
     if (isSending || !captchaToken) return;
 
+    const serviceId = process.env.REACT_APP_SERVICE_ID;
+    const templateId = process.env.REACT_APP_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus({
+        success: false,
+        message: "The contact form is temporarily unavailable. Please email me directly.",
+      });
+      return;
+    }
+
     setIsSending(true);
     setStatus(null);
 
     try {
-      await emailjs.sendForm(
-        "service_gcoyzjf",
-        "template_qcl9ylb",
-        form.current,
-        "aLaNQXgqPrTqc3o_X"
-      );
+      await emailjs.sendForm(serviceId, templateId, form.current, publicKey);
       setStatus({
         success: true,
         message: "Thanks for reaching out. Your message has been sent.",
@@ -105,17 +112,23 @@ export const Contact = () => {
                       </Col>
                       <Col xs={12}>
                         <div className="contact-recaptcha">
-                          <ReCAPTCHA
-                            ref={captchaRef}
-                            sitekey={RECAPTCHA_SITE_KEY}
-                            onChange={(token) => setCaptchaToken(token)}
-                            onExpired={() => setCaptchaToken(null)}
-                            onErrored={() => setCaptchaToken(null)}
-                          />
+                          {RECAPTCHA_SITE_KEY ? (
+                            <ReCAPTCHA
+                              ref={captchaRef}
+                              sitekey={RECAPTCHA_SITE_KEY}
+                              onChange={(token) => setCaptchaToken(token)}
+                              onExpired={() => setCaptchaToken(null)}
+                              onErrored={() => setCaptchaToken(null)}
+                            />
+                          ) : (
+                            <p role="status" className="contact-config-notice">
+                              Contact verification is not configured for this environment. Please email me directly.
+                            </p>
+                          )}
                         </div>
                       </Col>
                       <Col xs={12}>
-                        <button type="submit" disabled={isSending || !captchaToken}>
+                        <button type="submit" disabled={isSending || !captchaToken || !RECAPTCHA_SITE_KEY}>
                           {isSending ? "Sending…" : "Send your message"} <ArrowUpRight size={17} />
                         </button>
                       </Col>

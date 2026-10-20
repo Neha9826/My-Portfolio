@@ -1,0 +1,109 @@
+/* Wide cinematic orbital horizon inspired by the supplied Telos reference recording. */
+.hero-horizon {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: paint;
+  opacity: .94;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 83%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 83%, transparent 100%);
+}
+.horizon-nebula {
+  position: absolute;
+  left: 50%;
+  bottom: -38%;
+  width: min(125vw, 1600px);
+  height: min(60vw, 700px);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 8%, rgba(43, 198, 225, .18), transparent 34%),
+    radial-gradient(ellipse at 50% 30%, rgba(80, 100, 210, .10), transparent 58%);
+  filter: blur(24px);
+}
+.horizon-arc {
+  position: absolute;
+  left: 50%;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.horizon-arc-outer {
+  bottom: -72%;
+  width: max(125vw, 1200px);
+  height: max(78vw, 690px);
+  border-top-color: rgba(105, 222, 247, .34);
+  box-shadow: 0 -10px 38px rgba(35, 196, 231, .08);
+}
+.horizon-arc-middle {
+  bottom: -76%;
+  width: max(113vw, 1080px);
+  height: max(72vw, 630px);
+  border-top: 2px solid rgba(97, 224, 247, .74);
+  box-shadow: 0 -2px 14px rgba(75, 214, 244, .34), 0 -16px 65px rgba(37, 174, 221, .15);
+}
+.horizon-arc-inner {
+  bottom: -81%;
+  width: max(98vw, 940px);
+  height: max(65vw, 560px);
+  border-top-color: rgba(151, 231, 255, .32);
+  box-shadow: 0 -1px 8px rgba(96, 215, 245, .24);
+}
+.horizon-core-glow {
+  position: absolute;
+  left: 50%;
+  bottom: -8%;
+  width: min(72vw, 900px);
+  height: 26%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(33, 183, 221, .17), transparent 68%);
+  filter: blur(26px);
+}
+.horizon-star-field { position: absolute; inset: 0; }
+.horizon-star {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: #d8f8ff;
+  opacity: .42;
+  box-shadow: 0 0 7px rgba(113, 222, 255, .65);
+  animation: horizon-twinkle 5s ease-in-out infinite alternate;
+}
+@keyframes horizon-twinkle {
+  from { opacity: .22; transform: scale(.75); }
+  to { opacity: .68; transform: scale(1.15); }
+}
+.hero-container { position: relative; z-index: 1; }
+.hero-art { position: relative; z-index: 1; }
+.hero-art .hero-portrait-frame { z-index: 2; }
+.hero-art .art-orbit,
+.hero-art .art-core,
+.hero-art .art-node,
+.hero-art .art-caption,
+.hero-art .art-coordinate { display: none !important; }
+@media (min-width: 992px) {
+  .hero-horizon { opacity: .98; }
+  .horizon-arc-outer { bottom: -78%; }
+  .horizon-arc-middle { bottom: -82%; }
+  .horizon-arc-inner { bottom: -87%; }
+}
+@media (max-width: 991px) {
+  .hero-horizon { opacity: .7; }
+  .horizon-arc-outer { bottom: -63%; }
+  .horizon-arc-middle { bottom: -67%; }
+  .horizon-arc-inner { bottom: -72%; }
+}
+@media (max-width: 575px) {
+  .hero-horizon { opacity: .48; }
+  .horizon-arc-outer { bottom: -48%; }
+  .horizon-arc-middle { bottom: -52%; }
+  .horizon-arc-inner { bottom: -57%; }
+  .horizon-star:nth-child(even) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .horizon-star { animation: none; }
+}
