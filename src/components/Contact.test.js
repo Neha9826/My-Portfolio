@@ -40,7 +40,7 @@ const fillRequiredFields = () => {
   fireEvent.change(screen.getByLabelText(/Email address/i), {
     target: { value: "ada@example.com" },
   });
-  fireEvent.change(screen.getByLabelText(/What’s on your mind\\?/i), {
+  fireEvent.change(screen.getByLabelText(/What’s on your mind\?/i), {
     target: { value: "I'd like to discuss a project." },
   });
 };
