@@ -1,5 +1,4 @@
 const fs = require("fs");
-const path = require("path");
 
 const bootstrapCssPath = require.resolve("bootstrap/dist/css/bootstrap.min.css");
 const css = fs.readFileSync(bootstrapCssPath, "utf8");
