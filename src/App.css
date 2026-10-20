@@ -380,7 +380,7 @@ section { scroll-margin-top: 80px; }
 .archos-cap-icon.mint { color: #6ce0b5; background: rgba(72,205,157,.08); }
 .archos-capabilities strong { display: block; margin: 2px 0 6px; color: #e4e8f2; font-size: 12px; line-height: 1.4; }
 .archos-capabilities p { width: auto; margin: 0 !important; color: #929db3 !important; font-size: 11px !important; line-height: 1.6 !important; text-align: left !important; }
-.more-projects-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: 78px 0 28px; padding-top: 30px; border-top: 1px solid var(--line); }
+.more-projects-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin: 78px 0 28px; padding-top: 30px; border-top: 1px solid var(--line); }
 .more-projects-heading .section-eyebrow { margin-bottom: 10px; }
 .more-projects-heading h3 { color: var(--text); font-size: clamp(28px,3.2vw,38px); font-weight: 700; letter-spacing: -1.4px; }
 .more-projects-heading h3 span { color: var(--ember); }
