@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+<title id="title">Docs Studio document workspace preview</title>
+<desc id="desc">A clean document workspace with a forest-green sidebar, an editorial headline, a document page, and a saved status.</desc>
+<defs>
+  <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffefa"/><stop offset="1" stop-color="#f4f4ed"/></linearGradient>
+  <linearGradient id="forest" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3e7055"/><stop offset="1" stop-color="#244a39"/></linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#25392d" flood-opacity=".12"/></filter>
+</defs>
+<rect width="960" height="560" rx="22" fill="url(#paper)"/>
+<rect x="0" y="0" width="195" height="560" fill="#fff" stroke="#e5e8df"/>
+<rect x="20" y="22" width="34" height="34" rx="11" fill="url(#forest)"/>
+<text x="37" y="46" fill="#fff" font-family="Georgia,serif" font-size="28" font-weight="700" text-anchor="middle">d</text>
+<text x="65" y="47" fill="#19261e" font-family="Arial,sans-serif" font-size="26" font-weight="700">draft<tspan fill="#d9825b">.</tspan></text>
+<rect x="16" y="83" width="163" height="39" rx="9" fill="url(#forest)"/>
+<path d="M30 102h12m-6-6v12" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+<text x="51" y="107" fill="#fff" font-family="Arial,sans-serif" font-size="12" font-weight="700">New document</text>
+<text x="24" y="154" fill="#8c958a" font-family="Arial,sans-serif" font-size="9" letter-spacing="2">WORKSPACE</text>
+<rect x="16" y="169" width="163" height="36" rx="8" fill="#edf2eb"/>
+<rect x="28" y="181" width="12" height="12" rx="2" fill="none" stroke="#326047" stroke-width="1.5"/>
+<path d="M31 184h6m-6 3h6m-6 3h6" stroke="#326047" stroke-width="1"/>
+<text x="50" y="191" fill="#315943" font-family="Arial,sans-serif" font-size="11" font-weight="700">All documents</text>
+<text x="24" y="229" fill="#647469" font-family="Arial,sans-serif" font-size="11">◷  My documents</text>
+<text x="24" y="264" fill="#647469" font-family="Arial,sans-serif" font-size="11">↗  Shared with me</text>
+<path d="M20 290H176" stroke="#e4e7df"/>
+<text x="24" y="316" fill="#9b9f95" font-family="Arial,sans-serif" font-size="9" letter-spacing="2">RECENT</text>
+<rect x="23" y="334" width="149" height="41" rx="5" fill="#fbfbf8"/>
+<path d="M33 344h10v15H33z" fill="#dce8dc"/><path d="M36 348h5m-5 3h5m-5 3h4" stroke="#548064"/>
+<text x="50" y="349" fill="#425246" font-family="Arial,sans-serif" font-size="9">Product notes</text>
+<text x="50" y="361" fill="#a0a69c" font-family="Arial,sans-serif" font-size="8">Edited recently</text>
+<rect x="195" y="0" width="765" height="59" fill="#fff" stroke="#e5e8df"/>
+<text x="226" y="35" fill="#89958a" font-family="Arial,sans-serif" font-size="11">Workspace</text>
+<text x="281" y="35" fill="#b5bcb3" font-family="Arial,sans-serif" font-size="12">/</text>
+<text x="301" y="35" fill="#34453a" font-family="Arial,sans-serif" font-size="11" font-weight="700">All documents</text>
+<circle cx="785" cy="29" r="4" fill="#79a77f"/>
+<text x="797" y="33" fill="#829084" font-family="Arial,sans-serif" font-size="10">All changes saved</text>
+<circle cx="883" cy="28" r="13" fill="#f1e4d8"/>
+<text x="883" y="32" fill="#805c45" font-family="Arial,sans-serif" font-size="9" font-weight="700" text-anchor="middle">NP</text>
+<text x="906" y="25" fill="#233127" font-family="Arial,sans-serif" font-size="9" font-weight="700">Neha</text>
+<text x="906" y="37" fill="#9a9e95" font-family="Arial,sans-serif" font-size="8">Workspace</text>
+<text x="232" y="116" fill="#718c79" font-family="Arial,sans-serif" font-size="9" letter-spacing="2.2">YOUR THINKING, IN ONE PLACE</text>
+<text x="232" y="165" fill="#202c23" font-family="Arial,sans-serif" font-size="35" font-weight="500">Good work starts</text>
+<text x="232" y="207" fill="#202c23" font-family="Arial,sans-serif" font-size="35" font-weight="500">with a <tspan font-family="Georgia,serif" font-style="italic" fill="#35634a">clear draft.</tspan></text>
+<text x="233" y="242" fill="#839084" font-family="Arial,sans-serif" font-size="12">A calmer space for your team's best thinking.</text>
+<text x="233" y="262" fill="#839084" font-family="Arial,sans-serif" font-size="12">Create, shape, and share ideas without the noise.</text>
+<rect x="233" y="284" width="150" height="42" rx="8" fill="url(#forest)" filter="url(#shadow)"/>
+<text x="249" y="309" fill="#fff" font-family="Arial,sans-serif" font-size="12" font-weight="700">＋ Create a document</text>
+<rect x="393" y="284" width="124" height="42" rx="8" fill="#fff" stroke="#dfe4dc"/>
+<text x="414" y="309" fill="#475d4c" font-family="Arial,sans-serif" font-size="11">↑ Import a file</text>
+<text x="233" y="345" fill="#a3aaa0" font-family="Arial,sans-serif" font-size="9">Import .txt or .md · Up to 1 MB</text>
+<g transform="rotate(-4 750 260)" filter="url(#shadow)">
+  <rect x="679" y="119" width="198" height="280" rx="8" fill="#eef0e8" stroke="#dfe4d9" transform="translate(22 -6) rotate(7 778 259)"/>
+  <rect x="656" y="112" width="205" height="294" rx="7" fill="#fff" stroke="#e2e6dc"/>
+  <text x="675" y="140" fill="#2e6046" font-family="Georgia,serif" font-size="22" font-weight="700">d.</text>
+  <text x="837" y="140" fill="#9ca79b" font-family="Arial,sans-serif" font-size="10">•••</text>
+  <text x="675" y="172" fill="#95a092" font-family="Arial,sans-serif" font-size="7" letter-spacing="1.7">A THOUGHT IN PROGRESS</text>
+  <text x="675" y="211" fill="#253329" font-family="Georgia,serif" font-size="26">Make room</text>
+  <text x="675" y="240" fill="#253329" font-family="Georgia,serif" font-size="26">for good</text>
+  <text x="675" y="269" fill="#253329" font-family="Georgia,serif" font-size="26">ideas.</text>
+  <rect x="675" y="288" width="157" height="5" rx="2.5" fill="#e5ebe1"/>
+  <rect x="675" y="305" width="165" height="6" rx="2.5" fill="#edf0e9"/>
+  <rect x="675" y="323" width="142" height="20" rx="3" fill="#e8eee5"/>
+  <rect x="675" y="354" width="108" height="5" rx="2.5" fill="#e5ebe1"/>
+  <rect x="675" y="371" width="130" height="5" rx="2.5" fill="#edf0e9"/>
+</g>
+<rect x="761" y="339" width="153" height="37" rx="10" fill="#fff" filter="url(#shadow)"/>
+<circle cx="781" cy="357" r="9" fill="#e0ecdd"/>
+<path d="M777 357l3 3 5-6" fill="none" stroke="#47714e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="797" y="361" fill="#758477" font-family="Arial,sans-serif" font-size="10">Ready to share</text>
+<text x="700" y="424" fill="#9a9f93" font-family="Georgia,serif" font-size="10" font-style="italic">A little clarity goes a long way.</text>
+<text x="232" y="510" fill="#a1a79b" font-family="Arial,sans-serif" font-size="9" letter-spacing="1.7">RICH EDITING  ·  VERSION HISTORY  ·  DOCUMENT AI</text>
+</svg>
