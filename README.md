@@ -85,6 +85,34 @@ git clone https://github.com/Neha9826/My-Portfolio.git
 cd My-Portfolio
 
 npm install
+```
+
+### Environment configuration
+
+The contact form uses these Create React App environment variables:
+
+- `REACT_APP_SERVICE_ID`
+- `REACT_APP_TEMPLATE_ID`
+- `REACT_APP_PUBLIC_KEY`
+- `REACT_APP_RECAPTCHA_SITE_KEY`
+
+Create a local override from the example file:
+
+```bash
+# macOS / Linux / Git Bash
+cp .env.example .env.local
+
+# Windows PowerShell alternative:
+# Copy-Item .env.example .env.local
+```
+
+Replace the example values in `.env.local` with the EmailJS service ID, template ID and public key from your EmailJS account, plus the reCAPTCHA v2 site key configured for your site. Ensure the EmailJS template uses the form field names `firstName`, `lastName`, `email`, `phone`, and `message`.
+
+Restart `npm start` after changing environment variables. These `REACT_APP_*` values are embedded in the client bundle during the build, so rebuild before deployment after changing them. They are client-side configuration values—not a place to store private server credentials. Do not commit `.env.local`.
+
+Start the development server:
+
+```bash
 npm start
 ```
 
@@ -96,9 +124,13 @@ npm run build
 
 ### Tests
 
+Run the complete test suite once (without watch mode):
+
 ```bash
-npm test
+npm test -- --watchAll=false
 ```
+
+The contact-form regression tests mock EmailJS and CAPTCHA, so they do not send real email or require a live CAPTCHA service.
 
 ## Engineering Highlights
 
