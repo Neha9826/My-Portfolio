@@ -1,8 +1,20 @@
 import { Col } from "react-bootstrap";
 import { ArrowUpRight } from "react-bootstrap-icons";
 
-export const ProjectCard = ({ title, description, imgUrl, source, index = 0, cardClassName = "" }) => {
-  const isComingSoon = !source || source === "#";
+export const ProjectCard = ({
+  title,
+  description,
+  imgUrl,
+  source,
+  demoUrl,
+  repoUrl,
+  index = 0,
+  cardClassName = "",
+}) => {
+  // Preserve the legacy `source` prop for existing portfolio cards.
+  const liveUrl = demoUrl || (source && source !== "#" ? source : null);
+  const codeUrl = repoUrl;
+  const isComingSoon = !liveUrl && !codeUrl;
   const number = String(index + 1).padStart(2, "0");
 
   return (
@@ -13,25 +25,46 @@ export const ProjectCard = ({ title, description, imgUrl, source, index = 0, car
           <span className="project-card-index" aria-hidden="true">CASE / {number}</span>
           <span className="project-card-image-grid" aria-hidden="true" />
           <span className="project-card-image-action" aria-hidden="true">
-            {isComingSoon ? "IN PROGRESS" : "EXPLORE PROJECT"} <ArrowUpRight />
+            {isComingSoon ? "IN PROGRESS" : liveUrl ? "OPEN LIVE DEMO" : "VIEW SOURCE"} <ArrowUpRight />
           </span>
         </div>
         <div className="project-card-content">
-          <div>
+          <div className="project-card-copy">
             <h3>{title}</h3>
             <p>{description}</p>
           </div>
           {isComingSoon ? (
             <span className="project-card-status">Coming soon</span>
+          ) : liveUrl && codeUrl ? (
+            <div className="project-card-actions">
+              <a
+                className="project-card-link project-card-link-primary"
+                href={liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open live demo of ${title}`}
+              >
+                Live demo <ArrowUpRight />
+              </a>
+              <a
+                className="project-card-link project-card-link-secondary"
+                href={codeUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`View ${title} source code on GitHub`}
+              >
+                GitHub <ArrowUpRight />
+              </a>
+            </div>
           ) : (
             <a
               className="project-card-link"
-              href={source}
+              href={liveUrl || codeUrl}
               target="_blank"
               rel="noreferrer"
-              aria-label={`Visit ${title}`}
+              aria-label={liveUrl ? `Visit ${title}` : `View ${title} source code on GitHub`}
             >
-              Visit project <ArrowUpRight />
+              {liveUrl ? "Visit project" : "View source"} <ArrowUpRight />
             </a>
           )}
         </div>
