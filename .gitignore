@@ -10,3 +10,7 @@ node_modules
 *.pem
 
 .vscode
+
+# Local environment overrides (do not commit credentials/config)
+.env.local
+.env.*.local
