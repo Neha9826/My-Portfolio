@@ -1,0 +1,464 @@
+.ai-engineering-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(78px, 9vw, 124px) 0;
+  border-top: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  background:
+    radial-gradient(ellipse at 82% 14%, rgba(111,88,176,.12), transparent 34%),
+    linear-gradient(180deg, #0a0b11 0%, #0e0f17 48%, #0a0b11 100%);
+}
+.ai-section-glow {
+  position: absolute;
+  z-index: -1;
+  top: 240px;
+  left: -140px;
+  width: 310px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255,107,69,.055);
+  filter: blur(80px);
+  pointer-events: none;
+}
+.ai-section-heading {
+  max-width: 790px;
+  margin-bottom: 44px;
+}
+.ai-section-heading h2 span,
+.ai-workflow-heading h3 span,
+.ai-project-proof-heading h3 span {
+  color: var(--ember-light, #ffb08a);
+}
+.ai-section-heading .ai-section-supporting-copy {
+  margin-top: 10px;
+  color: #888b98;
+  font-size: 13px;
+}
+.ai-capability-grid { position: relative; }
+.ai-capability-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 285px;
+  padding: 26px 26px 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.095);
+  border-radius: 7px;
+  background: linear-gradient(145deg, rgba(24,25,36,.88), rgba(13,14,20,.94));
+  transition: border-color .28s ease, transform .28s ease, background .28s ease;
+}
+.ai-capability-card::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 150px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(163,139,255,.075);
+  filter: blur(35px);
+  pointer-events: none;
+}
+.ai-capability-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,151,111,.35);
+  background: linear-gradient(145deg, rgba(29,27,39,.96), rgba(14,15,22,.98));
+}
+.ai-capability-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 23px;
+}
+.ai-capability-number {
+  color: #ffb08a;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+}
+.ai-capability-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 5px;
+  background: rgba(163,139,255,.07);
+  color: #b9a7ff;
+}
+.ai-capability-card h3 {
+  position: relative;
+  margin: 0 0 8px;
+  color: #f4f1eb;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -.45px;
+}
+.ai-capability-subtitle {
+  color: #c3aaff;
+  font-size: 10px;
+  letter-spacing: .45px;
+}
+.ai-capability-card > p {
+  position: relative;
+  margin: 17px 0 24px;
+  color: #a3a6b2;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.ai-capability-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: auto;
+}
+.ai-capability-tags span {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 9px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 3px;
+  background: rgba(255,255,255,.025);
+  color: #b4b5c0;
+  font-size: 9px;
+  letter-spacing: .2px;
+}
+.ai-workflow-heading {
+  max-width: 720px;
+  margin: clamp(64px, 8vw, 92px) 0 27px;
+}
+.ai-workflow-heading h3,
+.ai-project-proof-heading h3 {
+  margin: 0;
+  color: #f4f1eb;
+  font-size: clamp(27px, 3.2vw, 38px);
+  font-weight: 600;
+  letter-spacing: -1.3px;
+  line-height: 1.15;
+}
+.ai-workflow-heading > p {
+  max-width: 600px;
+  margin: 13px 0 0;
+  color: #a3a6b2;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.ai-workflow-shell {
+  display: grid;
+  grid-template-columns: minmax(215px, .72fr) minmax(0, 1.55fr);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  background: rgba(14,15,22,.8);
+  box-shadow: 0 28px 90px rgba(0,0,0,.16);
+}
+.ai-workflow-step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 23px 16px;
+  border-right: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.014);
+}
+.ai-workflow-step {
+  display: grid;
+  grid-template-columns: 27px minmax(0,1fr) 16px;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 15px 12px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: #b4b5c0;
+  text-align: left;
+  cursor: pointer;
+  transition: color .22s ease, border-color .22s ease, background .22s ease;
+}
+.ai-workflow-step:hover,
+.ai-workflow-step:focus-visible {
+  border-color: rgba(255,255,255,.12);
+  color: #f4f1eb;
+  outline: none;
+}
+.ai-workflow-step.is-active {
+  border-color: rgba(255,151,111,.24);
+  background: linear-gradient(100deg, rgba(255,107,69,.09), rgba(163,139,255,.07));
+  color: #f4f1eb;
+}
+.ai-workflow-step-index {
+  color: #8b8d9a;
+  font-size: 10px;
+  letter-spacing: .7px;
+}
+.ai-workflow-step.is-active .ai-workflow-step-index { color: #ffb08a; }
+.ai-workflow-step-label { font-size: 13px; font-weight: 500; }
+.ai-workflow-step-arrow { opacity: 0; color: #ffb08a; transition: opacity .2s ease, transform .2s ease; }
+.ai-workflow-step.is-active .ai-workflow-step-arrow { opacity: 1; transform: translateX(2px); }
+.ai-workflow-detail {
+  min-width: 0;
+  padding: clamp(24px, 4vw, 42px);
+  animation: ai-panel-enter .25s ease both;
+}
+@keyframes ai-panel-enter {
+  from { opacity: .65; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.ai-workflow-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  color: #ffb08a;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+}
+.ai-workflow-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #818492;
+  font-size: 8px;
+}
+.ai-workflow-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a5f3d2;
+  box-shadow: 0 0 9px rgba(165,243,210,.35);
+}
+.ai-workflow-detail h4 {
+  margin: 20px 0 9px;
+  color: #f4f1eb;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+.ai-workflow-description {
+  max-width: 590px;
+  margin: 0;
+  color: #a3a6b2;
+  font-size: 13px;
+  line-height: 1.85;
+}
+.ai-flow-visual {
+  margin-top: 27px;
+  padding: 17px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 6px;
+  background:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px),
+    rgba(7,8,13,.68);
+  background-size: 24px 24px;
+}
+.ai-flow-windowbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  color: #858897;
+  font-size: 8px;
+  letter-spacing: 1.1px;
+}
+.ai-flow-windowbar > svg { margin-left: auto; color: #b9a7ff; }
+.ai-flow-window-dots { display: inline-flex; gap: 4px; }
+.ai-flow-window-dots i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #777b88;
+}
+.ai-flow-window-dots i:first-child { background: #ff957b; }
+.ai-flow-window-dots i:nth-child(2) { background: #d8ba80; }
+.ai-flow-window-dots i:nth-child(3) { background: #89cdb1; }
+.ai-flow-nodes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  padding: 25px 0 18px;
+}
+.ai-flow-node-wrap { display: inline-flex; align-items: center; gap: 9px; }
+.ai-flow-node {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 39px;
+  padding: 10px 12px;
+  border: 1px solid rgba(185,167,255,.27);
+  border-radius: 4px;
+  background: rgba(163,139,255,.07);
+  color: #e1dafc;
+  font-size: 10px;
+  text-align: center;
+}
+.ai-flow-node.is-terminal {
+  border-color: rgba(255,151,111,.32);
+  background: rgba(255,107,69,.08);
+  color: #ffccba;
+}
+.ai-flow-connector { color: #ff9b77; font-size: 15px; }
+.ai-flow-summary {
+  margin: 0;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  color: #868997;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.ai-workflow-pagination {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-top: 21px;
+  color: #ffb08a;
+  font-size: 9px;
+  letter-spacing: 1.1px;
+}
+.ai-workflow-pagination-muted { color: #727582; }
+.ai-workflow-pagination-dots { display: flex; gap: 5px; }
+.ai-workflow-pagination-dots span {
+  width: 15px;
+  height: 3px;
+  border-radius: 2px;
+  background: #3b3b47;
+  transition: width .2s ease, background .2s ease;
+}
+.ai-workflow-pagination-dots span.is-active { width: 25px; background: #ff956e; }
+.ai-workflow-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: auto;
+  padding: 9px 0 9px 10px;
+  border: 0;
+  background: transparent;
+  color: #f4f1eb;
+  font-size: 11px;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+.ai-workflow-next svg { color: #ff956e; }
+.ai-workflow-next:hover { color: #ffb08a; }
+.ai-workflow-next:focus-visible { border-radius: 3px; outline: 2px solid #ff956e; outline-offset: 4px; }
+.ai-workflow-disclaimer {
+  margin: 10px 0 0;
+  color: #737684;
+  font-size: 10px;
+  text-align: right;
+}
+.ai-project-proof { margin-top: clamp(65px, 8vw, 90px); }
+.ai-project-proof-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 25px;
+}
+.ai-project-proof-heading .section-eyebrow { margin-bottom: 12px; }
+.ai-projects-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  padding-bottom: 5px;
+  color: #d7d5e0;
+  font-size: 12px;
+}
+.ai-projects-link svg { color: #ff956e; }
+.ai-projects-link:hover { color: #ffb08a; }
+.ai-project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 245px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,.095);
+  border-radius: 6px;
+  background: linear-gradient(145deg, rgba(20,21,30,.82), rgba(12,13,19,.9));
+  transition: transform .25s ease, border-color .25s ease;
+}
+.ai-project-card:hover { transform: translateY(-3px); border-color: rgba(185,167,255,.32); }
+.ai-project-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  color: #ffb08a;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+.ai-project-card-top svg { color: #9293a1; }
+.ai-project-card h4 {
+  margin: 0 0 9px;
+  color: #f4f1eb;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -.3px;
+  line-height: 1.3;
+}
+.ai-project-card > p {
+  margin: 0 0 18px;
+  color: #a3a6b2;
+  font-size: 12px;
+  line-height: 1.75;
+}
+.ai-project-card > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: #e1ded7;
+  font-size: 11px;
+}
+.ai-project-card > a svg { color: #ff956e; }
+.ai-project-card > a:hover { color: #ffb08a; }
+.ai-engineering-section a:focus-visible,
+.ai-engineering-section button:focus-visible {
+  outline: 2px solid #ff956e;
+  outline-offset: 4px;
+}
+@media (max-width: 767px) {
+  .ai-engineering-section { padding: 76px 0; }
+  .ai-capability-card { min-height: 0; padding: 23px; }
+  .ai-workflow-heading { margin-top: 62px; }
+  .ai-workflow-shell { grid-template-columns: 1fr; }
+  .ai-workflow-step-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 7px;
+    padding: 13px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .ai-workflow-step { grid-template-columns: 25px minmax(0,1fr) 14px; padding: 13px 9px; gap: 7px; }
+  .ai-workflow-step-label { font-size: 11px; }
+  .ai-workflow-detail { padding: 24px 17px; }
+  .ai-flow-visual { padding: 12px; }
+  .ai-flow-nodes { gap: 6px; }
+  .ai-flow-node-wrap { gap: 6px; }
+  .ai-flow-node { padding: 9px 8px; font-size: 9px; }
+  .ai-flow-connector { font-size: 12px; }
+  .ai-workflow-pagination { gap: 9px; }
+  .ai-workflow-pagination-dots { gap: 3px; }
+  .ai-workflow-pagination-dots span { width: 9px; }
+  .ai-workflow-pagination-dots span.is-active { width: 18px; }
+  .ai-project-proof-heading { align-items: flex-start; flex-direction: column; gap: 14px; }
+  .ai-projects-link { padding-bottom: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-capability-card, .ai-workflow-step, .ai-workflow-detail, .ai-workflow-pagination-dots span, .ai-project-card {
+    animation: none !important;
+    transition: none !important;
+  }
+  .ai-capability-card:hover, .ai-project-card:hover { transform: none; }
+}
