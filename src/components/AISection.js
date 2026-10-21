@@ -6,7 +6,7 @@ import {
   CodeSlash,
   Database,
   Layers,
-  Robot,
+  Gear,
 } from "react-bootstrap-icons";
 import "./AISection.css";
 
@@ -22,7 +22,7 @@ const capabilities = [
   },
   {
     number: "02",
-    icon: Robot,
+    icon: Gear,
     title: "AI that works with tools",
     subtitle: "LLMs · Tool calling · APIs",
     description:
