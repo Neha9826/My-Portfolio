@@ -17,12 +17,12 @@ describe("AISection", () => {
   test("lets visitors explore each stage in the illustrative workflow", () => {
     render(<AISection />);
 
-    const retrieveTab = screen.getByRole("tab", { name: /retrieve/i });
-    fireEvent.click(screen.getByRole("tab", { name: /respond/i }));
+    const retrieveTab = screen.getByRole("button", { name: /retrieve/i });
+    fireEvent.click(screen.getByRole("button", { name: /respond/i }));
 
-    expect(screen.getByRole("tabpanel")).toHaveTextContent(/return a grounded response/i);
+    expect(screen.getByRole("region", { name: /selected workflow stage/i })).toHaveTextContent(/return a grounded response/i);
     expect(screen.getByRole("tabpanel")).toHaveTextContent(/citations/i);
-    expect(screen.getByRole("tab", { name: /respond/i })).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByRole("tab", { name: /respond/i })).toHaveAttribute("aria-pressed", "true");
 
     fireEvent.click(retrieveTab);
     expect(screen.getByRole("tabpanel")).toHaveTextContent(/pgvector/i);
