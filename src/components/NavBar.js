@@ -31,6 +31,7 @@ export const NavBar = () => {
           <Nav className="ms-auto align-items-lg-center">
             <Nav.Link href="#home" className={activeLink === "home" ? "active navbar-link" : "navbar-link"} onClick={() => onUpdateActiveLink("home")}>Home</Nav.Link>
             <Nav.Link href="#skills" className={activeLink === "skills" ? "active navbar-link" : "navbar-link"} onClick={() => onUpdateActiveLink("skills")}>Expertise</Nav.Link>
+            <Nav.Link href="#ai-engineering" className={activeLink === "ai-engineering" ? "active navbar-link" : "navbar-link"} onClick={() => onUpdateActiveLink("ai-engineering")}>Applied AI</Nav.Link>
             <Nav.Link href="#project" className={activeLink === "projects" ? "active navbar-link" : "navbar-link"} onClick={() => onUpdateActiveLink("projects")}>Selected work</Nav.Link>
             <div className="nav-socials">
               <a aria-label="Email Neha" href="mailto:nehapattnayak123@gmail.com"><img src={navIcon1} alt="" /></a>
