@@ -109,7 +109,6 @@ const projectExamples = [
 export const AISection = () => {
   const [activeStep, setActiveStep] = useState(1);
   const selectedStep = workflowSteps[activeStep];
-  const activeTabId = `ai-workflow-tab-${activeStep}`;
 
   return (
     <section className="ai-engineering-section" id="ai-engineering">
@@ -170,19 +169,15 @@ export const AISection = () => {
         <div className="ai-workflow-shell">
           <div
             className="ai-workflow-step-list"
-            role="tablist"
+            role="group"
             aria-label="AI workflow steps"
-            aria-orientation="vertical"
           >
             {workflowSteps.map((step, index) => (
               <button
                 type="button"
                 className={activeStep === index ? "ai-workflow-step is-active" : "ai-workflow-step"}
                 id={`ai-workflow-tab-${index}`}
-                role="tab"
-                aria-selected={activeStep === index}
-                aria-controls="ai-workflow-panel"
-                tabIndex={activeStep === index ? 0 : -1}
+                aria-pressed={activeStep === index}
                 key={step.label}
                 onClick={() => setActiveStep(index)}
               >
@@ -196,8 +191,9 @@ export const AISection = () => {
           <div
             className="ai-workflow-detail"
             id="ai-workflow-panel"
-            role="tabpanel"
-            aria-labelledby={activeTabId}
+            role="region"
+            aria-label="Selected workflow stage"
+            aria-live="polite"
             key={activeStep}
           >
             <div className="ai-workflow-meta">
