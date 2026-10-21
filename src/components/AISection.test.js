@@ -21,10 +21,10 @@ describe("AISection", () => {
     fireEvent.click(screen.getByRole("button", { name: /respond/i }));
 
     expect(screen.getByRole("region", { name: /selected workflow stage/i })).toHaveTextContent(/return a grounded response/i);
-    expect(screen.getByRole("tabpanel")).toHaveTextContent(/citations/i);
-    expect(screen.getByRole("tab", { name: /respond/i })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("region", { name: /selected workflow stage/i })).toHaveTextContent(/citations/i);
+    expect(screen.getByRole("button", { name: /respond/i })).toHaveAttribute("aria-pressed", "true");
 
     fireEvent.click(retrieveTab);
-    expect(screen.getByRole("tabpanel")).toHaveTextContent(/pgvector/i);
+    expect(screen.getByRole("region", { name: /selected workflow stage/i })).toHaveTextContent(/pgvector/i);
   });
 });
