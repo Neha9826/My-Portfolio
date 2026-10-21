@@ -18,7 +18,8 @@ export const Banner = () => {
               <h1>I build <span className="hero-emphasis">bold ideas</span><br />into real software.</h1>
               <p className="hero-description">
                 Senior full-stack engineer and product builder working across thoughtful interfaces,
-                scalable systems, and AI-powered tools. I like the hard problems—and making the
+                scalable systems, and applied AI—from context-aware products and tool-connected
+                workflows to AI-assisted engineering. I like the hard problems—and making the
                 solutions feel effortless.
               </p>
               <div className="hero-actions">
