@@ -1,4 +1,4 @@
-import { fireEvent, render } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { Projects } from "./Projects";
 
 jest.mock("./ProjectCard", () => ({
@@ -15,6 +15,40 @@ describe("Arch-OS featured project", () => {
     expect(
       container.querySelector(".archos-node-db strong")
     ).toHaveTextContent("PostgreSQL");
+  });
+
+  test("shows the toolbar previews on click and dismisses them after a few seconds", () => {
+    jest.useFakeTimers();
+
+    try {
+      const { container } = render(<Projects />);
+
+      expect(container.querySelector(".archos-mini-panel")).not.toBeInTheDocument();
+      expect(container.querySelector(".archos-review-panel")).not.toBeInTheDocument();
+
+      fireEvent.click(screen.getByRole("button", { name: /AI Review/i }));
+      expect(
+        screen.getByRole("region", { name: /AI Architecture Review preview/i })
+      ).toBeInTheDocument();
+
+      fireEvent.click(screen.getByRole("button", { name: /Export Code/i }));
+      expect(
+        screen.queryByRole("region", { name: /AI Architecture Review preview/i })
+      ).not.toBeInTheDocument();
+      expect(
+        screen.getByRole("region", { name: /Generated Docker Compose preview/i })
+      ).toBeInTheDocument();
+
+      act(() => {
+        jest.advanceTimersByTime(4800);
+      });
+
+      expect(
+        screen.queryByRole("region", { name: /Generated Docker Compose preview/i })
+      ).not.toBeInTheDocument();
+    } finally {
+      jest.useRealTimers();
+    }
   });
 
   test("tilts toward the pointer direction and resets when the pointer leaves", () => {
