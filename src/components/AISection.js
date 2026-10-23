@@ -4,7 +4,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   CodeSlash,
-  Database,
   Layers,
   Gear,
 } from "react-bootstrap-icons";
@@ -13,7 +12,7 @@ import "./AISection.css";
 const capabilities = [
   {
     number: "01",
-    icon: Database,
+    icon: Layers,
     title: "Context-aware AI",
     subtitle: "RAG · Embeddings · pgvector",
     description:
