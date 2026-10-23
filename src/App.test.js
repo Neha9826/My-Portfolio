@@ -11,4 +11,15 @@ test('renders the portfolio shell and primary sections', () => {
   expect(screen.getByRole('link', { name: /applied ai/i })).toHaveAttribute('href', '#ai-engineering');
   expect(container.querySelector('#project')).toBeInTheDocument();
   expect(container.querySelector('#connect')).toBeInTheDocument();
+
+  const sectionHeadings = Array.from(container.querySelectorAll('section'))
+    .map((section) => section.querySelector('h2, h3')?.textContent.replace(/\\s+/g, ' ').trim())
+    .filter(Boolean);
+
+  expect(sectionHeadings.indexOf('Intelligence, engineered.')).toBeLessThan(
+    sectionHeadings.indexOf('Built across the stack.')
+  );
+  expect(sectionHeadings.indexOf('Built across the stack.')).toBeLessThan(
+    sectionHeadings.indexOf('From question to grounded answer.')
+  );
 });
