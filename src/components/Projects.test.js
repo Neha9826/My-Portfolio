@@ -33,11 +33,14 @@ describe("Arch-OS featured project", () => {
       toJSON: () => ({}),
     }));
 
-    fireEvent.pointerMove(card, {
-      clientX: 500,
-      clientY: 50,
-      pointerType: "mouse",
-    });
+    fireEvent(
+      card,
+      new MouseEvent("pointermove", {
+        bubbles: true,
+        clientX: 500,
+        clientY: 50,
+      })
+    );
 
     expect(card.style.getPropertyValue("--archos-tilt-x")).toBe("-3.50deg");
     expect(card.style.getPropertyValue("--archos-tilt-y")).toBe("4.50deg");
