@@ -81,19 +81,19 @@ const workflowSteps = [
 
 const projectExamples = [
   {
-    number: "B",
-    title: "Multi-Workspace Document Assistant",
-    description: "Workspace-scoped RAG, document citations, tool calling, and chat history.",
-    tags: ["RAG", "pgvector", "Groq"],
-    href: "https://github.com/Neha9826/Multi-Workspace-Document-Assistant",
-    linkLabel: "Explore project",
-  },
-  {
     number: "A",
     title: "Arch-OS",
     description: "An AI Architecture Reviewer alongside a visual system-design workspace.",
     tags: ["AI review", "System design"],
     href: "https://github.com/Neha9826/arch-os",
+    linkLabel: "Explore project",
+  },
+  {
+    number: "B",
+    title: "Multi-Workspace Document Assistant",
+    description: "Workspace-scoped RAG, document citations, tool calling, and chat history.",
+    tags: ["RAG", "pgvector", "Groq"],
+    href: "https://github.com/Neha9826/Multi-Workspace-Document-Assistant",
     linkLabel: "Explore project",
   },
   {
