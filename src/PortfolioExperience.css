@@ -1628,3 +1628,25 @@
     animation: none !important;
   }
 }
+
+
+/* Match the original Arch-OS canvas: a continuous dotted field inside only the Enterprise Workspace card. */
+.project .archos-visual {
+  background-color: #080d1b !important;
+  background-image:
+    radial-gradient(circle, rgba(112,143,205,.24) .8px, transparent .95px),
+    radial-gradient(ellipse at 52% 45%, rgba(34,67,135,.12), transparent 62%);
+  background-size: 22px 22px, auto;
+}
+.project .archos-visual .archos-windowbar {
+  background: rgba(13,20,39,.9);
+}
+.project .archos-visual .archos-canvas {
+  background:
+    radial-gradient(ellipse at 52% 45%, rgba(34,67,135,.1), transparent 62%),
+    transparent;
+}
+.project .archos-visual .archos-canvas-grid {
+  background-image: none;
+  opacity: 0;
+}
