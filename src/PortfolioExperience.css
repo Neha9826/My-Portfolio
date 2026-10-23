@@ -1502,3 +1502,129 @@
     animation: none !important;
   }
 }
+
+
+/* Arch-OS final diagram balance: restore the intended flow of API + Redis into PostgreSQL. */
+.project .archos-canvas { height: 430px; }
+.project .archos-node-api { top: 39%; left: 8%; }
+.project .archos-node-redis {
+  top: 39%;
+  right: 8%;
+  left: auto;
+  width: 32%;
+}
+.project .archos-node-db {
+  top: 69%;
+  right: auto;
+  left: 34%;
+  width: 32%;
+}
+@media (max-width: 1199px) {
+  .project .archos-canvas { height: 410px; }
+}
+@media (max-width: 767px) {
+  .project .archos-canvas { height: 390px; }
+  .project .archos-node-api { top: 39%; left: 4%; }
+  .project .archos-node-redis {
+    top: 39%;
+    right: 4%;
+    left: auto;
+    width: 36%;
+  }
+  .project .archos-node-db {
+    top: 69%;
+    right: auto;
+    left: 32%;
+    width: 36%;
+  }
+}
+@media (max-width: 420px) {
+  .project .archos-canvas { height: 390px; }
+}
+
+/* Each periodic shake gets a visible, color-matched background/border/glow pulse. */
+.project .archos-window-actions .archos-tool-button {
+  --archos-attention-bg: rgba(163,139,255,.22);
+  --archos-attention-border: rgba(190,155,255,.9);
+  --archos-attention-glow: rgba(163,139,255,.32);
+  animation: archos-tool-attention 9.2s ease-in-out infinite;
+}
+.project .archos-window-actions .archos-tool-button-review {
+  --archos-attention-bg: rgba(163,139,255,.24);
+  --archos-attention-border: rgba(199,164,255,.96);
+  --archos-attention-glow: rgba(163,139,255,.38);
+  animation-delay: -2.4s;
+}
+.project .archos-window-actions .archos-tool-button-export {
+  --archos-attention-bg: rgba(100,227,192,.2);
+  --archos-attention-border: rgba(100,227,192,.92);
+  --archos-attention-glow: rgba(100,227,192,.32);
+  animation-delay: -6.8s;
+}
+@keyframes archos-tool-attention {
+  0%, 85%, 92%, 100% {
+    transform: translate3d(0,0,0) rotate(0deg);
+    background-color: rgba(9,14,28,.5);
+    border-color: rgba(160,174,220,.13);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+  86% {
+    transform: translate3d(-1px,0,0) rotate(-1deg);
+    background-color: var(--archos-attention-bg);
+    border-color: var(--archos-attention-border);
+    box-shadow: 0 0 18px var(--archos-attention-glow);
+  }
+  87% {
+    transform: translate3d(2px,0,0) rotate(1deg);
+    background-color: var(--archos-attention-bg);
+    border-color: var(--archos-attention-border);
+    box-shadow: 0 0 22px var(--archos-attention-glow);
+  }
+  88% {
+    transform: translate3d(-2px,0,0) rotate(-1deg);
+    background-color: var(--archos-attention-bg);
+    border-color: var(--archos-attention-border);
+    box-shadow: 0 0 20px var(--archos-attention-glow);
+  }
+  89% {
+    transform: translate3d(1px,0,0) rotate(.5deg);
+    background-color: var(--archos-attention-bg);
+    border-color: var(--archos-attention-border);
+    box-shadow: 0 0 16px var(--archos-attention-glow);
+  }
+  90%, 91% {
+    transform: translate3d(0,0,0) rotate(0deg);
+    background-color: rgba(9,14,28,.5);
+    border-color: rgba(160,174,220,.13);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+}
+.project .archos-window-actions .archos-tool-button:hover,
+.project .archos-window-actions .archos-tool-button:focus-visible {
+  animation: none !important;
+  background-color: rgba(163,139,255,.2);
+  border-color: rgba(199,164,255,.8);
+  box-shadow: 0 0 18px rgba(163,139,255,.24);
+}
+.project .archos-window-actions .archos-tool-button-export:hover,
+.project .archos-window-actions .archos-tool-button-export:focus-visible {
+  background-color: rgba(100,227,192,.18);
+  border-color: rgba(100,227,192,.82);
+  box-shadow: 0 0 18px rgba(100,227,192,.22);
+}
+.project .archos-window-actions .archos-tool-button[aria-expanded="true"] {
+  animation: none !important;
+  background-color: rgba(163,139,255,.2);
+  border-color: rgba(199,164,255,.82);
+  box-shadow: 0 0 18px rgba(163,139,255,.24);
+}
+.project .archos-window-actions .archos-tool-button-export[aria-expanded="true"] {
+  background-color: rgba(100,227,192,.18);
+  border-color: rgba(100,227,192,.82);
+  box-shadow: 0 0 18px rgba(100,227,192,.22);
+}
+@media (prefers-reduced-motion: reduce) {
+  .project .archos-window-actions .archos-tool-button {
+    animation: none !important;
+  }
+}
