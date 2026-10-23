@@ -462,3 +462,48 @@
   }
   .ai-capability-card:hover, .ai-project-card:hover { transform: none; }
 }
+
+
+/* Match the Toolkit cards' translucent glass reveal on hover and focus. */
+.ai-capability-card,
+.ai-project-card {
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease,
+    backdrop-filter .3s ease,
+    -webkit-backdrop-filter .3s ease;
+}
+.ai-capability-card:hover,
+.ai-project-card:hover,
+.ai-capability-card:focus-within,
+.ai-project-card:focus-within {
+  background: linear-gradient(
+    135deg,
+    rgba(20,21,33,.08),
+    rgba(12,13,20,.05)
+  );
+  border-color: rgba(255,143,98,.55);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 18px 46px rgba(0,0,0,.16), 0 0 26px rgba(255,107,69,.06);
+}
+@media (max-width: 767px) {
+  .ai-capability-card:hover,
+  .ai-project-card:hover,
+  .ai-capability-card:focus-within,
+  .ai-project-card:focus-within {
+    background: linear-gradient(
+      135deg,
+      rgba(20,21,33,.18),
+      rgba(12,13,20,.12)
+    );
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-capability-card,
+  .ai-project-card {
+    transition: none !important;
+  }
+}
