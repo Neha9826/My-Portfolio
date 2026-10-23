@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Container, Row, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import RIA from "../assets/img/RIA.jpg";
@@ -11,6 +12,27 @@ import docsStudioPreview from "../assets/img/docs-studio-preview.webp";
 import { ArrowUpRight, Git, BoxSeam, Robot, CodeSlash, Layers } from "react-bootstrap-icons";
 
 export const Projects = () => {
+  const [activeArchosPanel, setActiveArchosPanel] = useState(null);
+  const archosPanelTimer = useRef(null);
+
+  const showArchosPanel = (panel) => {
+    if (archosPanelTimer.current) {
+      window.clearTimeout(archosPanelTimer.current);
+    }
+
+    setActiveArchosPanel(panel);
+    archosPanelTimer.current = window.setTimeout(() => {
+      setActiveArchosPanel(null);
+      archosPanelTimer.current = null;
+    }, 4800);
+  };
+
+  useEffect(() => () => {
+    if (archosPanelTimer.current) {
+      window.clearTimeout(archosPanelTimer.current);
+    }
+  }, []);
+
   const handleArchosPointerMove = (event) => {
     const card = event.currentTarget;
     const prefersReducedMotion =
@@ -143,7 +165,26 @@ export const Projects = () => {
           <div className="archos-visual" aria-label="Illustration of the Arch-OS architecture canvas">
             <div className="archos-windowbar">
               <div className="archos-brand"><span className="archos-brand-icon"><CodeSlash size={17} /></span><strong>arch-os</strong><span className="archos-workspace">Enterprise Workspace</span></div>
-              <div className="archos-window-actions"><span><Robot size={14} /> AI Review</span><span><CodeSlash size={14} /> Export Code</span></div>
+              <div className="archos-window-actions" aria-label="Arch-OS interactive tools">
+                <button
+                  type="button"
+                  className="archos-tool-button archos-tool-button-review"
+                  aria-controls="archos-review-panel"
+                  aria-expanded={activeArchosPanel === "review"}
+                  onClick={() => showArchosPanel("review")}
+                >
+                  <Robot size={14} /> AI Review
+                </button>
+                <button
+                  type="button"
+                  className="archos-tool-button archos-tool-button-export"
+                  aria-controls="archos-export-panel"
+                  aria-expanded={activeArchosPanel === "export"}
+                  onClick={() => showArchosPanel("export")}
+                >
+                  <CodeSlash size={14} /> Export Code
+                </button>
+              </div>
             </div>
             <div className="archos-canvas">
               <div className="archos-canvas-grid" />
@@ -158,15 +199,31 @@ export const Projects = () => {
               <div className="archos-node archos-node-api"><span className="archos-node-icon">⚙</span><span><small>SERVICE</small><strong>API Service</strong></span></div>
               <div className="archos-node archos-node-redis"><span className="archos-redis-dot" /><span><small>CACHE</small><strong>Redis Cache</strong></span></div>
               <div className="archos-node archos-node-db"><span className="archos-node-icon">▰</span><span><small>DATABASE</small><strong>PostgreSQL</strong></span></div>
-              <div className="archos-mini-panel">
-                <div><CodeSlash size={13} /><strong>Generated docker-compose.yml</strong><span>↗</span></div>
-                <code>services:<br />&nbsp; client_ui:<br />&nbsp;&nbsp; build: ./client_ui<br />&nbsp; api_service:<br />&nbsp;&nbsp; ports: ["8080:8080"]</code>
-              </div>
-              <div className="archos-review-panel">
-                <div><Robot size={15} /><strong>AI Architecture Review</strong></div>
-                <p>Review system design and explore improvement suggestions.</p>
-                <span className="archos-review-lines" /><span className="archos-review-lines short" />
-              </div>
+              {activeArchosPanel === "export" && (
+                <div
+                  className="archos-mini-panel is-visible"
+                  id="archos-export-panel"
+                  role="region"
+                  aria-label="Generated Docker Compose preview"
+                  aria-live="polite"
+                >
+                  <div><CodeSlash size={13} /><strong>Generated docker-compose.yml</strong><span>↗</span></div>
+                  <code>services:<br />&nbsp; client_ui:<br />&nbsp;&nbsp; build: ./client_ui<br />&nbsp; api_service:<br />&nbsp;&nbsp; ports: ["8080:8080"]</code>
+                </div>
+              )}
+              {activeArchosPanel === "review" && (
+                <div
+                  className="archos-review-panel is-visible"
+                  id="archos-review-panel"
+                  role="region"
+                  aria-label="AI Architecture Review preview"
+                  aria-live="polite"
+                >
+                  <div><Robot size={15} /><strong>AI Architecture Review</strong></div>
+                  <p>Review system design and explore improvement suggestions.</p>
+                  <span className="archos-review-lines" /><span className="archos-review-lines short" />
+                </div>
+              )}
               <span className="archos-canvas-label"><span /> VISUAL ARCHITECTURE CANVAS</span>
             </div>
           </div>
