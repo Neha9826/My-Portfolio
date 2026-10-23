@@ -1650,3 +1650,80 @@
   background-image: none;
   opacity: 0;
 }
+
+
+/* Image loading: reserve the final frame, show a lightweight placeholder, then fade in the image. */
+.hero-portrait-frame { isolation: isolate; }
+.hero-portrait-placeholder {
+  position: absolute;
+  z-index: 0;
+  inset: 7px;
+  overflow: hidden;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse at 70% 22%, rgba(185,167,255,.27), transparent 42%),
+    radial-gradient(ellipse at 25% 75%, rgba(255,143,98,.17), transparent 45%),
+    linear-gradient(145deg, #171b2a, #0c0e17 72%);
+}
+.hero-portrait-placeholder::after,
+.project-card-image-placeholder::after {
+  position: absolute;
+  inset: -45%;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgba(220,216,255,.12) 49%,
+    rgba(255,176,138,.1) 53%,
+    transparent 64%
+  );
+  transform: translateX(-55%);
+  animation: image-placeholder-shimmer 1.7s ease-in-out infinite;
+}
+.hero-portrait {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity .32s ease;
+}
+.hero-portrait.is-loaded { opacity: 1; }
+.hero-portrait-frame.is-image-loaded .hero-portrait-placeholder {
+  opacity: 0;
+  transition: opacity .32s ease;
+}
+.project-card-image-placeholder {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 72% 22%, rgba(185,167,255,.17), transparent 42%),
+    radial-gradient(ellipse at 24% 76%, rgba(255,143,98,.12), transparent 46%),
+    linear-gradient(145deg, #171b2a, #0c0e17 72%);
+}
+.project-card-image img {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity .35s ease, transform .7s cubic-bezier(.2,.75,.25,1), filter .45s ease;
+}
+.project-card-image img.is-loaded { opacity: 1; }
+.project-card-image.is-image-loaded .project-card-image-placeholder {
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+@keyframes image-placeholder-shimmer {
+  from { transform: translateX(-55%); }
+  to { transform: translateX(55%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-portrait-placeholder::after,
+  .project-card-image-placeholder::after { animation: none !important; }
+  .hero-portrait,
+  .project-card-image img,
+  .hero-portrait-frame.is-image-loaded .hero-portrait-placeholder,
+  .project-card-image.is-image-loaded .project-card-image-placeholder {
+    transition: none !important;
+  }
+}
