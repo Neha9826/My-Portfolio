@@ -1378,3 +1378,47 @@
   }
   .project .archos-feature::after { display: none; }
 }
+
+
+/* Final Arch-OS layout correction: keep infra nodes below the review panel and clear of export preview. */
+.project .archos-canvas { height: 430px; }
+.project .archos-node-redis {
+  top: 61%;
+  right: 8%;
+  left: auto;
+  width: 31%;
+}
+.project .archos-node-db {
+  top: 78%;
+  right: 8%;
+  left: auto;
+  width: 31%;
+}
+@media (max-width: 1199px) {
+  .project .archos-canvas { height: 410px; }
+}
+@media (max-width: 767px) {
+  .project .archos-canvas { height: 390px; }
+  .project .archos-node-redis {
+    top: 55%;
+    right: 4%;
+    left: auto;
+    width: 36%;
+  }
+  .project .archos-node-db {
+    top: 75%;
+    right: 4%;
+    left: auto;
+    width: 36%;
+  }
+}
+@media (max-width: 420px) {
+  .project .archos-canvas { height: 390px; }
+  .project .archos-node-redis { top: 55%; }
+  .project .archos-node-db { top: 75%; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .project .archos-feature.is-pointer-active {
+    cursor: grabbing;
+  }
+}
