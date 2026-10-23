@@ -1152,3 +1152,30 @@
     transform: translateX(-50%) !important;
   }
 }
+
+
+/* Give the new AI / Toolkit / AI-workflow sequence tighter, deliberate spacing. */
+.ai-engineering-section.ai-capabilities-section {
+  padding-bottom: clamp(48px, 5.5vw, 72px);
+  border-bottom: 0;
+}
+.ai-capabilities-section + .skill {
+  padding-top: clamp(52px, 6vw, 78px);
+  padding-bottom: clamp(48px, 5.5vw, 72px);
+}
+.skill + .ai-engineering-section.ai-workflow-section {
+  padding-top: clamp(52px, 6vw, 78px);
+}
+.ai-engineering-section.ai-workflow-section {
+  padding-bottom: clamp(52px, 6vw, 80px);
+}
+.ai-workflow-section + .project {
+  padding-top: clamp(58px, 7vw, 88px);
+}
+@media (max-width: 767px) {
+  .ai-engineering-section.ai-capabilities-section { padding-bottom: 46px; }
+  .ai-capabilities-section + .skill { padding-top: 50px; padding-bottom: 48px; }
+  .skill + .ai-engineering-section.ai-workflow-section { padding-top: 50px; }
+  .ai-engineering-section.ai-workflow-section { padding-bottom: 54px; }
+  .ai-workflow-section + .project { padding-top: 60px; }
+}
