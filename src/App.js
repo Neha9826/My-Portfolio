@@ -25,8 +25,9 @@ function App() {
     <div className="App">
       <NavBar />
       <Banner />
+      <AISection part="capabilities" />
       <Skills />
-      <AISection />
+      <AISection part="workflow" />
       <Projects />
       <About />
       <Contact />
