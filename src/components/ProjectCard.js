@@ -19,6 +19,7 @@ export const ProjectCard = ({
   const number = String(index + 1).padStart(2, "0");
   const imageRef = useRef(null);
   const [imageReadyToLoad, setImageReadyToLoad] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const image = imageRef.current;
@@ -46,13 +47,16 @@ export const ProjectCard = ({
   return (
     <Col className="proj-col" xs={12} sm={6} lg={4}>
       <article className={`project-card ${cardClassName}`.trim()}>
-        <div className="project-card-image">
+        <div className={imageLoaded ? "project-card-image is-image-loaded" : "project-card-image"}>
+          <span className="project-card-image-placeholder" aria-hidden="true" />
           <img
             ref={imageRef}
+            className={imageLoaded ? "is-loaded" : ""}
             src={imageReadyToLoad ? imgUrl : undefined}
             alt={title}
             loading="lazy"
             decoding="async"
+            onLoad={() => setImageLoaded(true)}
           />
           <span className="project-card-index" aria-hidden="true">CASE / {number}</span>
           <span className="project-card-image-grid" aria-hidden="true" />
