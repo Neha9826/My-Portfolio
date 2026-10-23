@@ -43,9 +43,18 @@ export const Banner = () => {
               <div className="art-orbit orbit-one" />
               <div className="art-orbit orbit-two" />
               <div className="art-orbit orbit-three" />
-              <div className="art-node node-top"><span className="node-dot" /><div><small>BUILD MODE</small><strong>ON</strong></div><Stars /></div>
-              <div className="art-node node-left"><span className="node-icon">{"</>"}</span><div><small>ENGINEERING</small><strong>Full-stack</strong></div></div>
-              <div className="art-node node-right"><span className="node-icon">✳</span><div><small>STUDIO</small><strong>Dev Engine AI</strong></div></div>
+              <div className="hero-node-orbit hero-node-orbit-build" aria-label="Build mode orbit">
+                <div className="art-node node-top"><span className="node-dot" /><div><small>BUILD MODE</small><strong>ON</strong></div><Stars /></div>
+              </div>
+              <div className="hero-node-orbit hero-node-orbit-fullstack" aria-label="Full-stack engineering orbit">
+                <div className="art-node node-left"><span className="node-icon">{"</>"}</span><div><small>ENGINEERING</small><strong>Full-stack</strong></div></div>
+              </div>
+              <div className="hero-node-orbit hero-node-orbit-studio" aria-label="Dev Engine AI studio orbit">
+                <div className="art-node node-right"><span className="node-icon">✳</span><div><small>STUDIO</small><strong>Dev Engine AI</strong></div></div>
+              </div>
+              <div className="hero-node-orbit hero-node-orbit-ai" aria-label="Applied AI workflow orbit">
+                <div className="art-node node-ai"><span className="node-icon">✦</span><div><small>APPLIED AI</small><strong>AI-driven workflow</strong></div><Stars /></div>
+              </div>
               <div className="art-caption"><span className="caption-line" /> SYSTEMS THINKING <span>×</span> CREATIVE BUILDING</div>
               <div className="art-coordinate">30°19' N<br />78°02' E</div>
             </div>
