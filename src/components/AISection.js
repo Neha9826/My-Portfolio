@@ -8,6 +8,7 @@ import {
   Gear,
 } from "react-bootstrap-icons";
 import "./AISection.css";
+import { SkillsVisual } from "./SkillsVisual";
 
 const capabilities = [
   {
@@ -114,6 +115,7 @@ export const AISection = ({ part = "all" } = {}) => {
       {(part === "all" || part === "capabilities") && (
         <section className="ai-engineering-section ai-capabilities-section" id="ai-engineering">
           <div className="ai-section-glow" aria-hidden="true" />
+          <SkillsVisual />
           <Container>
         <div className="section-heading ai-section-heading">
           <span className="section-eyebrow">APPLIED AI · PRODUCT ENGINEERING</span>
@@ -164,6 +166,7 @@ export const AISection = ({ part = "all" } = {}) => {
       {(part === "all" || part === "workflow") && (
         <section className="ai-engineering-section ai-workflow-section" aria-label="AI workflow and applied projects">
           <div className="ai-section-glow" aria-hidden="true" />
+          <SkillsVisual />
           <Container>
         <div className="ai-workflow-heading">
           <span className="section-eyebrow">INSIDE THE WORKFLOW</span>
