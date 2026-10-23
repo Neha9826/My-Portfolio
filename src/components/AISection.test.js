@@ -3,7 +3,7 @@ import { AISection } from "./AISection";
 
 describe("AISection", () => {
   test("renders the applied AI capability cards and project examples", () => {
-    render(<AISection />);
+    const { container } = render(<AISection />);
 
     expect(screen.getByRole("heading", { name: /intelligence, engineered/i })).toBeInTheDocument();
     expect(screen.getByText(/context-aware ai/i)).toBeInTheDocument();
@@ -20,6 +20,18 @@ describe("AISection", () => {
       name: /multi-workspace document assistant/i,
     }).closest(".ai-project-card");
     expect(documentAssistantCard.querySelector(".ai-project-card-top > span")).toHaveTextContent("B");
+
+    const projectCards = Array.from(
+      container.querySelectorAll(".ai-project-proof .ai-project-card")
+    );
+    expect(projectCards.map((card) => card.querySelector("h4").textContent)).toEqual([
+      "Arch-OS",
+      "Multi-Workspace Document Assistant",
+      "Docs Studio",
+    ]);
+    expect(
+      projectCards.map((card) => card.querySelector(".ai-project-card-top > span").textContent)
+    ).toEqual(["A", "B", "C"]);
   });
 
   test("lets visitors explore each stage in the illustrative workflow", () => {
