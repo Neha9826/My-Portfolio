@@ -42,7 +42,7 @@ export const Banner = () => {
                   src={heroPortrait}
                   alt="Neha Pattnayak, full-stack engineer and founder of Dev Engine AI"
                   loading="eager"
-                  fetchPriority="high"
+                  fetchpriority="high"
                   decoding="async"
                 />
                 <span className="hero-portrait-tag"><span /> BUILDER · FOUNDER</span>
