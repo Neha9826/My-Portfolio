@@ -105,14 +105,16 @@ const projectExamples = [
   },
 ];
 
-export const AISection = () => {
+export const AISection = ({ part = "all" } = {}) => {
   const [activeStep, setActiveStep] = useState(1);
   const selectedStep = workflowSteps[activeStep];
 
   return (
-    <section className="ai-engineering-section" id="ai-engineering">
-      <div className="ai-section-glow" aria-hidden="true" />
-      <Container>
+    <>
+      {(part === "all" || part === "capabilities") && (
+        <section className="ai-engineering-section ai-capabilities-section" id="ai-engineering">
+          <div className="ai-section-glow" aria-hidden="true" />
+          <Container>
         <div className="section-heading ai-section-heading">
           <span className="section-eyebrow">APPLIED AI · PRODUCT ENGINEERING</span>
           <h2>
@@ -156,6 +158,13 @@ export const AISection = () => {
           })}
         </Row>
 
+          </Container>
+        </section>
+      )}
+      {(part === "all" || part === "workflow") && (
+        <section className="ai-engineering-section ai-workflow-section" aria-label="AI workflow and applied projects">
+          <div className="ai-section-glow" aria-hidden="true" />
+          <Container>
         <div className="ai-workflow-heading">
           <span className="section-eyebrow">INSIDE THE WORKFLOW</span>
           <h3>From question to <span>grounded answer.</span></h3>
@@ -274,7 +283,9 @@ export const AISection = () => {
             ))}
           </Row>
         </div>
-      </Container>
-    </section>
+          </Container>
+        </section>
+      )}
+    </>
   );
 };
