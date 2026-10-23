@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Container, Row, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import RIA from "../assets/img/RIA.jpg";
@@ -11,11 +12,64 @@ import docsStudioPreview from "../assets/img/docs-studio-preview.webp";
 import { ArrowUpRight, Git, BoxSeam, Robot, CodeSlash, Layers } from "react-bootstrap-icons";
 
 export const Projects = () => {
+  const [activeArchosPanel, setActiveArchosPanel] = useState(null);
+  const archosPanelTimer = useRef(null);
+
+  const showArchosPanel = (panel) => {
+    if (archosPanelTimer.current) {
+      window.clearTimeout(archosPanelTimer.current);
+    }
+
+    setActiveArchosPanel(panel);
+    archosPanelTimer.current = window.setTimeout(() => {
+      setActiveArchosPanel(null);
+      archosPanelTimer.current = null;
+    }, 4800);
+  };
+
+  useEffect(() => () => {
+    if (archosPanelTimer.current) {
+      window.clearTimeout(archosPanelTimer.current);
+    }
+  }, []);
+
+  const handleArchosPointerMove = (event) => {
+    const card = event.currentTarget;
+    const prefersReducedMotion =
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+    if (event.pointerType === "touch" || prefersReducedMotion) return;
+
+    const bounds = card.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return;
+
+    const x = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+    const y = Math.max(0, Math.min(1, (event.clientY - bounds.top) / bounds.height));
+    const tiltX = ((0.5 - y) * 7).toFixed(2);
+    const tiltY = ((x - 0.5) * 9).toFixed(2);
+
+    card.style.setProperty("--archos-tilt-x", `${tiltX}deg`);
+    card.style.setProperty("--archos-tilt-y", `${tiltY}deg`);
+    card.style.setProperty("--archos-glow-x", `${(x * 100).toFixed(2)}%`);
+    card.style.setProperty("--archos-glow-y", `${(y * 100).toFixed(2)}%`);
+    card.classList.add("is-pointer-active");
+  };
+
+  const handleArchosPointerLeave = (event) => {
+    const card = event.currentTarget;
+    card.style.setProperty("--archos-tilt-x", "0deg");
+    card.style.setProperty("--archos-tilt-y", "0deg");
+    card.style.setProperty("--archos-glow-x", "50%");
+    card.style.setProperty("--archos-glow-y", "50%");
+    card.classList.remove("is-pointer-active");
+  };
+
   const projects = [
     {
       title: "Multi-Workspace Document Assistant",
       description: "Workspace-isolated document AI · RAG, citations, tool calling & persistent chat",
       imgUrl: documentAssistantPreview,
+      thumbnailUrl: "/image-thumbnails/multi-workspace-doc-assistant.webp",
       demoUrl: "https://multi-workspace-document-assistant-dev-engine-ai.vercel.app/",
       repoUrl: "https://github.com/Neha9826/Multi-Workspace-Document-Assistant",
       cardClassName: "document-assistant-card",
@@ -24,6 +78,7 @@ export const Projects = () => {
       title: "Docs Studio",
       description: "AI-assisted document workspace · rich editing, sharing, version history & export",
       imgUrl: docsStudioPreview,
+      thumbnailUrl: "/image-thumbnails/docs-studio-preview.webp",
       demoUrl: "https://doc-studio.onrender.com/",
       repoUrl: "https://github.com/Neha9826/Doc-Studio",
       cardClassName: "docs-studio-card",
@@ -32,36 +87,42 @@ export const Projects = () => {
       title: "RIA Catalyst",
       description: "Fintech market screener · UI architecture, GraphQL and gRPC integrations",
       imgUrl: RIA,
+      thumbnailUrl: "/image-thumbnails/RIA.webp",
       source: "https://app.riacatalyst.com/",
     },
     {
       title: "SoilnWater",
       description: "Multi-tenant commerce platform · product flows and backend integration",
       imgUrl: soilnwater,
+      thumbnailUrl: "/image-thumbnails/soilnwater_banner.webp",
       source: "https://soilnwater.in/",
     },
     {
       title: "Shivoham Retreat",
       description: "Hospitality website · responsive digital experience",
       imgUrl: shivoham_,
+      thumbnailUrl: "/image-thumbnails/shivoham_.webp",
       source: "https://shivohamretreat.com/",
     },
     {
       title: "Yoga Teacher Training Courses",
       description: "Education platform · course discovery and responsive UI",
       imgUrl: yttc,
+      thumbnailUrl: "/image-thumbnails/yogateacherstrainingcourses.webp",
       source: "https://yogateacherstrainingcourses.com/",
     },
     {
       title: "Yoga Bhawna Mission",
       description: "Mission-led organization · website and content experience",
       imgUrl: ybm,
+      thumbnailUrl: "/image-thumbnails/ybm.webp",
       source: "https://yogbhawnamission.com/",
     },
     {
       title: "SatvaDig",
       description: "Product in development · full-stack engineering",
       imgUrl: Satvadig,
+      thumbnailUrl: "/image-thumbnails/Satvadig_.webp",
       source: "#",
     },
   ];
@@ -78,7 +139,12 @@ export const Projects = () => {
           </p>
         </div>
 
-        <article className="archos-feature">
+        <article
+          className="archos-feature"
+          onPointerMove={handleArchosPointerMove}
+          onPointerLeave={handleArchosPointerLeave}
+          onPointerCancel={handleArchosPointerLeave}
+        >
           <div className="archos-copy">
             <span className="archos-eyebrow"><span /> FEATURED PROJECT · IN DEVELOPMENT</span>
             <h3>Arch-<span>OS</span></h3>
@@ -107,7 +173,26 @@ export const Projects = () => {
           <div className="archos-visual" aria-label="Illustration of the Arch-OS architecture canvas">
             <div className="archos-windowbar">
               <div className="archos-brand"><span className="archos-brand-icon"><CodeSlash size={17} /></span><strong>arch-os</strong><span className="archos-workspace">Enterprise Workspace</span></div>
-              <div className="archos-window-actions"><span><Robot size={14} /> AI Review</span><span><CodeSlash size={14} /> Export Code</span></div>
+              <div className="archos-window-actions" aria-label="Arch-OS interactive tools">
+                <button
+                  type="button"
+                  className="archos-tool-button archos-tool-button-review"
+                  aria-controls="archos-review-panel"
+                  aria-expanded={activeArchosPanel === "review"}
+                  onClick={() => showArchosPanel("review")}
+                >
+                  <Robot size={14} /> AI Review
+                </button>
+                <button
+                  type="button"
+                  className="archos-tool-button archos-tool-button-export"
+                  aria-controls="archos-export-panel"
+                  aria-expanded={activeArchosPanel === "export"}
+                  onClick={() => showArchosPanel("export")}
+                >
+                  <CodeSlash size={14} /> Export Code
+                </button>
+              </div>
             </div>
             <div className="archos-canvas">
               <div className="archos-canvas-grid" />
@@ -122,15 +207,31 @@ export const Projects = () => {
               <div className="archos-node archos-node-api"><span className="archos-node-icon">⚙</span><span><small>SERVICE</small><strong>API Service</strong></span></div>
               <div className="archos-node archos-node-redis"><span className="archos-redis-dot" /><span><small>CACHE</small><strong>Redis Cache</strong></span></div>
               <div className="archos-node archos-node-db"><span className="archos-node-icon">▰</span><span><small>DATABASE</small><strong>PostgreSQL</strong></span></div>
-              <div className="archos-mini-panel">
-                <div><CodeSlash size={13} /><strong>Generated docker-compose.yml</strong><span>↗</span></div>
-                <code>services:<br />&nbsp; client_ui:<br />&nbsp;&nbsp; build: ./client_ui<br />&nbsp; api_service:<br />&nbsp;&nbsp; ports: ["8080:8080"]</code>
-              </div>
-              <div className="archos-review-panel">
-                <div><Robot size={15} /><strong>AI Architecture Review</strong></div>
-                <p>Review system design and explore improvement suggestions.</p>
-                <span className="archos-review-lines" /><span className="archos-review-lines short" />
-              </div>
+              {activeArchosPanel === "export" && (
+                <div
+                  className="archos-mini-panel is-visible"
+                  id="archos-export-panel"
+                  role="region"
+                  aria-label="Generated Docker Compose preview"
+                  aria-live="polite"
+                >
+                  <div><CodeSlash size={13} /><strong>Generated docker-compose.yml</strong><span>↗</span></div>
+                  <code>services:<br />&nbsp; client_ui:<br />&nbsp;&nbsp; build: ./client_ui<br />&nbsp; api_service:<br />&nbsp;&nbsp; ports: ["8080:8080"]</code>
+                </div>
+              )}
+              {activeArchosPanel === "review" && (
+                <div
+                  className="archos-review-panel is-visible"
+                  id="archos-review-panel"
+                  role="region"
+                  aria-label="AI Architecture Review preview"
+                  aria-live="polite"
+                >
+                  <div><Robot size={15} /><strong>AI Architecture Review</strong></div>
+                  <p>Review system design and explore improvement suggestions.</p>
+                  <span className="archos-review-lines" /><span className="archos-review-lines short" />
+                </div>
+              )}
               <span className="archos-canvas-label"><span /> VISUAL ARCHITECTURE CANVAS</span>
             </div>
           </div>

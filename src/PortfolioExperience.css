@@ -1011,3 +1011,763 @@
 .project .docs-studio-card .project-card-image {
   aspect-ratio: 2.16 / 1;
 }
+
+
+/* Orbital hero labels: each capability follows its own planet-like path around the portrait. */
+.hero-art .hero-node-orbit {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+.hero-art .hero-node-orbit-build {
+  inset: 11% 9%;
+  animation: hero-planet-orbit 34s linear infinite;
+}
+.hero-art .hero-node-orbit-fullstack {
+  inset: 15% 8%;
+  animation: hero-planet-orbit 43s linear infinite reverse;
+}
+.hero-art .hero-node-orbit-studio {
+  inset: 12% 10%;
+  animation: hero-planet-orbit 51s linear infinite;
+}
+.hero-art .hero-node-orbit-ai {
+  inset: 14% 7%;
+  animation: hero-planet-orbit 39s linear infinite reverse;
+}
+.hero-art .hero-node-orbit .art-node {
+  top: 0;
+  left: 50%;
+  max-width: 48%;
+  pointer-events: auto;
+  animation: hero-planet-counterorbit 34s linear infinite;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+.hero-art .hero-node-orbit-fullstack .art-node {
+  animation-duration: 43s;
+  animation-name: hero-planet-clockwise;
+}
+.hero-art .hero-node-orbit-studio .art-node {
+  animation-duration: 51s;
+}
+.hero-art .hero-node-orbit-ai .art-node {
+  animation-duration: 39s;
+  animation-name: hero-planet-clockwise;
+}
+.hero-art .hero-node-orbit .art-node:hover {
+  border-color: rgba(255,176,138,.58) !important;
+}
+.hero-art .node-ai .node-icon {
+  color: #c9b9ff;
+  background: rgba(163,139,255,.16);
+  font-size: 19px;
+}
+@keyframes hero-planet-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes hero-planet-counterorbit {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(-360deg); }
+}
+@keyframes hero-planet-clockwise {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(360deg); }
+}
+@media (max-width: 767px) {
+  .hero-art .hero-node-orbit-build { inset: 13% 5%; }
+  .hero-art .hero-node-orbit-fullstack { inset: 17% 5%; }
+  .hero-art .hero-node-orbit-studio { inset: 14% 7%; }
+  .hero-art .hero-node-orbit-ai { inset: 16% 4%; }
+  .hero-art .hero-node-orbit .art-node {
+    max-width: 46%;
+    gap: 6px;
+    padding: 9px;
+  }
+  .hero-art .hero-node-orbit .art-node small { font-size: 6px; letter-spacing: .8px; }
+  .hero-art .hero-node-orbit .art-node strong { font-size: 9px; }
+  .hero-art .hero-node-orbit .art-node .node-icon { width: 25px; height: 25px; font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-art .hero-node-orbit,
+  .hero-art .hero-node-orbit .art-node {
+    animation: none !important;
+    will-change: auto;
+  }
+}
+
+
+/* Stagger planet positions so the four labels orbit as a coordinated, readable system. */
+.hero-art .hero-node-orbit-fullstack,
+.hero-art .hero-node-orbit-fullstack .art-node { animation-delay: -11s; }
+.hero-art .hero-node-orbit-studio,
+.hero-art .hero-node-orbit-studio .art-node { animation-delay: -22s; }
+.hero-art .hero-node-orbit-ai,
+.hero-art .hero-node-orbit-ai .art-node { animation-delay: -29s; }
+
+@media (max-width: 767px) {
+  .hero-art .hero-node-orbit-build { inset: 16% 18%; }
+  .hero-art .hero-node-orbit-fullstack { inset: 17% 19%; }
+  .hero-art .hero-node-orbit-studio { inset: 15% 17%; }
+  .hero-art .hero-node-orbit-ai { inset: 16% 20%; }
+  .hero-art .hero-node-orbit .art-node {
+    max-width: 36%;
+    gap: 5px;
+    padding: 7px;
+  }
+  .hero-art .hero-node-orbit .art-node small { font-size: 6px; letter-spacing: .55px; }
+  .hero-art .hero-node-orbit .art-node strong { font-size: 8px; }
+  .hero-art .hero-node-orbit .art-node .node-icon { width: 21px; height: 21px; font-size: 9px; }
+  .hero-art .hero-node-orbit .art-node svg { font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-art .hero-node-orbit,
+  .hero-art .hero-node-orbit .art-node {
+    animation: none !important;
+    will-change: auto;
+  }
+  .hero-art .hero-node-orbit-build .art-node {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) !important;
+  }
+  .hero-art .hero-node-orbit-fullstack .art-node {
+    top: 43%;
+    left: 0;
+    transform: none !important;
+  }
+  .hero-art .hero-node-orbit-studio .art-node {
+    top: 62%;
+    left: 100%;
+    transform: translateX(-100%) !important;
+  }
+  .hero-art .hero-node-orbit-ai .art-node {
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) !important;
+  }
+}
+
+
+/* Give the new AI / Toolkit / AI-workflow sequence tighter, deliberate spacing. */
+.ai-engineering-section.ai-capabilities-section {
+  padding-bottom: clamp(48px, 5.5vw, 72px);
+  border-bottom: 0;
+}
+.ai-capabilities-section + .skill {
+  padding-top: clamp(52px, 6vw, 78px);
+  padding-bottom: clamp(48px, 5.5vw, 72px);
+}
+.skill + .ai-engineering-section.ai-workflow-section {
+  padding-top: clamp(52px, 6vw, 78px);
+}
+.ai-engineering-section.ai-workflow-section {
+  padding-bottom: clamp(52px, 6vw, 80px);
+}
+.ai-workflow-section + .project {
+  padding-top: clamp(58px, 7vw, 88px);
+}
+@media (max-width: 767px) {
+  .ai-engineering-section.ai-capabilities-section { padding-bottom: 46px; }
+  .ai-capabilities-section + .skill { padding-top: 50px; padding-bottom: 48px; }
+  .skill + .ai-engineering-section.ai-workflow-section { padding-top: 50px; }
+  .ai-engineering-section.ai-workflow-section { padding-bottom: 54px; }
+  .ai-workflow-section + .project { padding-top: 60px; }
+}
+
+
+/* Refinement pass: widen orbit radii, pause the hovered planet, and unify section backdrops. */
+.hero-art .hero-node-orbit-build { inset: 1% -7%; }
+.hero-art .hero-node-orbit-fullstack { inset: 4% -10%; }
+.hero-art .hero-node-orbit-studio { inset: -2% -5%; }
+.hero-art .hero-node-orbit-ai { inset: -3% -8%; }
+
+/* Freeze both orbital motion and counter-rotation while a label is hovered or keyboard-focused. */
+.hero-art .hero-node-orbit:has(.art-node:hover),
+.hero-art .hero-node-orbit:focus-within,
+.hero-art .hero-node-orbit .art-node:hover,
+.hero-art .hero-node-orbit .art-node:focus-visible {
+  animation-play-state: paused !important;
+}
+
+/* Reuse the Toolkit's blueprint background for each AI feature section. */
+.ai-engineering-section.ai-capabilities-section,
+.ai-engineering-section.ai-workflow-section {
+  background-color: #0b0c12;
+  background-image:
+    linear-gradient(rgba(160,154,198,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160,154,198,.035) 1px, transparent 1px),
+    radial-gradient(ellipse at 78% 18%, rgba(94,116,176,.09), transparent 38%);
+  background-size: 48px 48px, 48px 48px, auto;
+}
+
+/* Reduce vertical whitespace through the AI -> Toolkit -> workflow sequence. */
+.ai-engineering-section.ai-capabilities-section {
+  padding-top: clamp(62px, 6vw, 82px);
+  padding-bottom: 34px;
+}
+.ai-capabilities-section + .skill {
+  padding-top: 38px;
+  padding-bottom: 36px;
+}
+.skill + .ai-engineering-section.ai-workflow-section {
+  padding-top: 38px;
+}
+.ai-engineering-section.ai-workflow-section {
+  padding-bottom: 44px;
+}
+.ai-workflow-section .ai-workflow-heading {
+  margin-top: 0;
+}
+.ai-workflow-section .ai-project-proof {
+  margin-top: clamp(42px, 5vw, 58px);
+}
+.ai-workflow-section + .project {
+  padding-top: 52px;
+}
+@media (max-width: 767px) {
+  .hero-art .hero-node-orbit-build { inset: 6% -3%; }
+  .hero-art .hero-node-orbit-fullstack { inset: 8% -5%; }
+  .hero-art .hero-node-orbit-studio { inset: 3% -2%; }
+  .hero-art .hero-node-orbit-ai { inset: 2% -4%; }
+
+  .ai-engineering-section.ai-capabilities-section {
+    padding-top: 58px;
+    padding-bottom: 28px;
+  }
+  .ai-capabilities-section + .skill {
+    padding-top: 32px;
+    padding-bottom: 28px;
+  }
+  .skill + .ai-engineering-section.ai-workflow-section {
+    padding-top: 32px;
+  }
+  .ai-engineering-section.ai-workflow-section {
+    padding-bottom: 34px;
+  }
+  .ai-workflow-section .ai-project-proof {
+    margin-top: 38px;
+  }
+  .ai-workflow-section + .project {
+    padding-top: 44px;
+  }
+}
+
+
+/* Reuse the Toolkit's animated constellation canvas behind both Applied AI sections. */
+.ai-engineering-section > .skills-network-canvas {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .9;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.ai-engineering-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep the same grid-and-glass visual language on both AI section surfaces. */
+.ai-engineering-section.ai-capabilities-section,
+.ai-engineering-section.ai-workflow-section {
+  background-color: #0b0c12;
+  background-image:
+    linear-gradient(rgba(160,154,198,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160,154,198,.035) 1px, transparent 1px),
+    radial-gradient(ellipse at 78% 18%, rgba(94,116,176,.09), transparent 38%);
+  background-size: 48px 48px, 48px 48px, auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-engineering-section > .skills-network-canvas { opacity: .5; }
+}
+
+
+/* Arch-OS canvas: keep the Redis and PostgreSQL nodes clear of the review/code overlays. */
+.project .archos-node-redis {
+  top: 54%;
+  right: 8%;
+  z-index: 3;
+}
+.project .archos-node-db {
+  top: 74%;
+  left: 61%;
+  width: 31%;
+  z-index: 3;
+}
+
+/* Cursor-directed interaction for the featured card: gentle 3D tilt plus a moving highlight. */
+.project .archos-feature {
+  transform: perspective(1600px)
+    rotateX(var(--archos-tilt-x, 0deg))
+    rotateY(var(--archos-tilt-y, 0deg));
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  transition:
+    transform .22s cubic-bezier(.2,.7,.2,1),
+    border-color .28s ease,
+    box-shadow .28s ease;
+  will-change: transform;
+}
+.project .archos-feature::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--archos-glow-x, 50%) var(--archos-glow-y, 50%),
+    rgba(163,139,255,.12),
+    transparent 36%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .24s ease;
+}
+.project .archos-feature > .archos-copy,
+.project .archos-feature > .archos-visual,
+.project .archos-feature > .archos-capabilities {
+  position: relative;
+  z-index: 1;
+}
+.project .archos-feature.is-pointer-active {
+  transition: border-color .28s ease, box-shadow .28s ease;
+  border-color: rgba(178,164,255,.34);
+  box-shadow: 0 32px 96px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.07);
+}
+.project .archos-feature.is-pointer-active::after { opacity: 1; }
+
+@media (max-width: 767px) {
+  .project .archos-node-redis {
+    top: 54%;
+    right: 4%;
+    width: 36%;
+  }
+  .project .archos-node-db {
+    top: 74%;
+    left: 60%;
+    width: 36%;
+  }
+  .project .archos-review-panel {
+    top: 21%;
+  }
+  .project .archos-feature {
+    transform: none !important;
+    transition: border-color .28s ease, box-shadow .28s ease;
+    will-change: auto;
+  }
+  .project .archos-feature::after { display: none; }
+}
+@media (max-width: 420px) {
+  .project .archos-canvas { height: 390px; }
+  .project .archos-node-redis { top: 54%; }
+  .project .archos-node-db { top: 74%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project .archos-feature {
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+  .project .archos-feature::after { display: none; }
+}
+
+
+/* Final Arch-OS layout correction: keep infra nodes below the review panel and clear of export preview. */
+.project .archos-canvas { height: 430px; }
+.project .archos-node-redis {
+  top: 61%;
+  right: 8%;
+  left: auto;
+  width: 31%;
+}
+.project .archos-node-db {
+  top: 78%;
+  right: 8%;
+  left: auto;
+  width: 31%;
+}
+@media (max-width: 1199px) {
+  .project .archos-canvas { height: 410px; }
+}
+@media (max-width: 767px) {
+  .project .archos-canvas { height: 390px; }
+  .project .archos-node-redis {
+    top: 55%;
+    right: 4%;
+    left: auto;
+    width: 36%;
+  }
+  .project .archos-node-db {
+    top: 75%;
+    right: 4%;
+    left: auto;
+    width: 36%;
+  }
+}
+@media (max-width: 420px) {
+  .project .archos-canvas { height: 390px; }
+  .project .archos-node-redis { top: 55%; }
+  .project .archos-node-db { top: 75%; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .project .archos-feature.is-pointer-active {
+    cursor: grabbing;
+  }
+}
+
+
+
+/* Arch-OS top-bar controls open temporary previews and use a restrained attention cue. */
+.project .archos-window-actions .archos-tool-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px 8px;
+  border: 1px solid rgba(160,174,220,.13);
+  border-radius: 4px;
+  color: #b9c8e6;
+  background: rgba(9,14,28,.5);
+  font: inherit;
+  font-size: 9px;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transform-origin: center;
+  animation: archos-tool-attention 9.2s ease-in-out infinite;
+  transition: color .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.project .archos-window-actions .archos-tool-button-review {
+  color: #d4a1ff;
+  animation-delay: -2.4s;
+}
+.project .archos-window-actions .archos-tool-button-export {
+  color: #64e3c0;
+  animation-delay: -6.8s;
+}
+.project .archos-window-actions .archos-tool-button:hover,
+.project .archos-window-actions .archos-tool-button:focus-visible,
+.project .archos-window-actions .archos-tool-button[aria-expanded="true"] {
+  border-color: rgba(163,139,255,.5);
+  background: rgba(125,99,214,.12);
+  box-shadow: 0 0 18px rgba(163,139,255,.1);
+  color: #f5efff;
+  animation-play-state: paused;
+}
+.project .archos-window-actions .archos-tool-button:focus-visible {
+  outline: 2px solid #b9a7ff;
+  outline-offset: 3px;
+}
+@keyframes archos-tool-attention {
+  0%, 86%, 100% { transform: translate3d(0,0,0) rotate(0deg); }
+  87% { transform: translate3d(-1px,0,0) rotate(-1deg); }
+  88% { transform: translate3d(2px,0,0) rotate(1deg); }
+  89% { transform: translate3d(-2px,0,0) rotate(-1deg); }
+  90% { transform: translate3d(1px,0,0) rotate(.5deg); }
+  91% { transform: translate3d(0,0,0) rotate(0deg); }
+}
+
+/* Panels start hidden in JSX, animate in when selected, and are dismissed by the short UI timer. */
+.project .archos-mini-panel.is-visible,
+.project .archos-review-panel.is-visible {
+  z-index: 4;
+  animation: archos-panel-arrive .22s ease-out both;
+}
+@keyframes archos-panel-arrive {
+  from { opacity: 0; translate: 0 6px; }
+  to { opacity: 1; translate: 0 0; }
+}
+.project .archos-window-actions { flex-wrap: wrap; }
+@media (max-width: 767px) {
+  .project .archos-window-actions .archos-tool-button {
+    min-height: 32px;
+    flex: 1 1 auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project .archos-window-actions .archos-tool-button {
+    animation: none !important;
+    transition: none !important;
+  }
+  .project .archos-mini-panel.is-visible,
+  .project .archos-review-panel.is-visible {
+    animation: none !important;
+  }
+}
+
+
+/* Arch-OS final diagram balance: restore the intended flow of API + Redis into PostgreSQL. */
+.project .archos-canvas { height: 430px; }
+.project .archos-node-api { top: 39%; left: 8%; }
+.project .archos-node-redis {
+  top: 39%;
+  right: 8%;
+  left: auto;
+  width: 32%;
+}
+.project .archos-node-db {
+  top: 69%;
+  right: auto;
+  left: 34%;
+  width: 32%;
+}
+@media (max-width: 1199px) {
+  .project .archos-canvas { height: 410px; }
+}
+@media (max-width: 767px) {
+  .project .archos-canvas { height: 390px; }
+  .project .archos-node-api { top: 39%; left: 4%; }
+  .project .archos-node-redis {
+    top: 39%;
+    right: 4%;
+    left: auto;
+    width: 36%;
+  }
+  .project .archos-node-db {
+    top: 69%;
+    right: auto;
+    left: 32%;
+    width: 36%;
+  }
+}
+@media (max-width: 420px) {
+  .project .archos-canvas { height: 390px; }
+}
+
+/* Each periodic shake gets a visible, color-matched background/border/glow pulse. */
+.project .archos-window-actions .archos-tool-button {
+  --archos-attention-bg: rgba(163,139,255,.22);
+  --archos-attention-border: rgba(190,155,255,.9);
+  --archos-attention-glow: rgba(163,139,255,.32);
+  animation: archos-tool-attention 9.2s ease-in-out infinite;
+}
+.project .archos-window-actions .archos-tool-button-review {
+  --archos-attention-bg: rgba(163,139,255,.24);
+  --archos-attention-border: rgba(199,164,255,.96);
+  --archos-attention-glow: rgba(163,139,255,.38);
+  animation-delay: -2.4s;
+}
+.project .archos-window-actions .archos-tool-button-export {
+  --archos-attention-bg: rgba(100,227,192,.2);
+  --archos-attention-border: rgba(100,227,192,.92);
+  --archos-attention-glow: rgba(100,227,192,.32);
+  animation-delay: -6.8s;
+}
+@keyframes archos-tool-attention {
+  0%, 85%, 92%, 100% {
+    transform: translate3d(0,0,0) rotate(0deg);
+    background-color: rgba(9,14,28,.5);
+    border-color: rgba(160,174,220,.13);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+  86% {
+    transform: translate3d(-1px,0,0) rotate(-1deg);
+    background-color: var(--archos-attention-bg);
+    border-color: var(--archos-attention-border);
+    box-shadow: 0 0 18px var(--archos-attention-glow);
+  }
+  87% {
+    transform: translate3d(2px,0,0) rotate(1deg);
+    background-color: var(--archos-attention-bg);
+    border-color: var(--archos-attention-border);
+    box-shadow: 0 0 22px var(--archos-attention-glow);
+  }
+  88% {
+    transform: translate3d(-2px,0,0) rotate(-1deg);
+    background-color: var(--archos-attention-bg);
+    border-color: var(--archos-attention-border);
+    box-shadow: 0 0 20px var(--archos-attention-glow);
+  }
+  89% {
+    transform: translate3d(1px,0,0) rotate(.5deg);
+    background-color: var(--archos-attention-bg);
+    border-color: var(--archos-attention-border);
+    box-shadow: 0 0 16px var(--archos-attention-glow);
+  }
+  90%, 91% {
+    transform: translate3d(0,0,0) rotate(0deg);
+    background-color: rgba(9,14,28,.5);
+    border-color: rgba(160,174,220,.13);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+}
+.project .archos-window-actions .archos-tool-button:hover,
+.project .archos-window-actions .archos-tool-button:focus-visible {
+  animation: none !important;
+  background-color: rgba(163,139,255,.2);
+  border-color: rgba(199,164,255,.8);
+  box-shadow: 0 0 18px rgba(163,139,255,.24);
+}
+.project .archos-window-actions .archos-tool-button-export:hover,
+.project .archos-window-actions .archos-tool-button-export:focus-visible {
+  background-color: rgba(100,227,192,.18);
+  border-color: rgba(100,227,192,.82);
+  box-shadow: 0 0 18px rgba(100,227,192,.22);
+}
+.project .archos-window-actions .archos-tool-button[aria-expanded="true"] {
+  animation: none !important;
+  background-color: rgba(163,139,255,.2);
+  border-color: rgba(199,164,255,.82);
+  box-shadow: 0 0 18px rgba(163,139,255,.24);
+}
+.project .archos-window-actions .archos-tool-button-export[aria-expanded="true"] {
+  background-color: rgba(100,227,192,.18);
+  border-color: rgba(100,227,192,.82);
+  box-shadow: 0 0 18px rgba(100,227,192,.22);
+}
+@media (prefers-reduced-motion: reduce) {
+  .project .archos-window-actions .archos-tool-button {
+    animation: none !important;
+  }
+}
+
+
+/* Match the original Arch-OS canvas: a continuous dotted field inside only the Enterprise Workspace card. */
+.project .archos-visual {
+  background-color: #080d1b !important;
+  background-image:
+    radial-gradient(circle, rgba(112,143,205,.24) .8px, transparent .95px),
+    radial-gradient(ellipse at 52% 45%, rgba(34,67,135,.12), transparent 62%);
+  background-size: 22px 22px, auto;
+}
+.project .archos-visual .archos-windowbar {
+  background: rgba(13,20,39,.9);
+}
+.project .archos-visual .archos-canvas {
+  background:
+    radial-gradient(ellipse at 52% 45%, rgba(34,67,135,.1), transparent 62%),
+    transparent;
+}
+.project .archos-visual .archos-canvas-grid {
+  background-image: none;
+  opacity: 0;
+}
+
+
+/* Image loading: reserve the final frame, show a lightweight placeholder, then fade in the image. */
+.hero-portrait-frame { isolation: isolate; }
+.hero-portrait-placeholder {
+  position: absolute;
+  z-index: 0;
+  inset: 7px;
+  overflow: hidden;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse at 70% 22%, rgba(185,167,255,.27), transparent 42%),
+    radial-gradient(ellipse at 25% 75%, rgba(255,143,98,.17), transparent 45%),
+    linear-gradient(145deg, #171b2a, #0c0e17 72%);
+}
+.hero-portrait-placeholder::after,
+.project-card-image-placeholder::after {
+  position: absolute;
+  inset: -45%;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgba(220,216,255,.12) 49%,
+    rgba(255,176,138,.1) 53%,
+    transparent 64%
+  );
+  transform: translateX(-55%);
+  animation: image-placeholder-shimmer 1.7s ease-in-out infinite;
+}
+.hero-portrait {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity .32s ease;
+}
+.hero-portrait.is-loaded { opacity: 1; }
+.hero-portrait-frame.is-image-loaded .hero-portrait-placeholder {
+  opacity: 0;
+  transition: opacity .32s ease;
+}
+.project-card-image-placeholder {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 72% 22%, rgba(185,167,255,.17), transparent 42%),
+    radial-gradient(ellipse at 24% 76%, rgba(255,143,98,.12), transparent 46%),
+    linear-gradient(145deg, #171b2a, #0c0e17 72%);
+}
+.project-card-image img {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity .35s ease, transform .7s cubic-bezier(.2,.75,.25,1), filter .45s ease;
+}
+.project-card-image img.is-loaded { opacity: 1; }
+.project-card-image.is-image-loaded .project-card-image-placeholder {
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+@keyframes image-placeholder-shimmer {
+  from { transform: translateX(-55%); }
+  to { transform: translateX(55%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-portrait-placeholder::after,
+  .project-card-image-placeholder::after { animation: none !important; }
+  .hero-portrait,
+  .project-card-image img,
+  .hero-portrait-frame.is-image-loaded .hero-portrait-placeholder,
+  .project-card-image.is-image-loaded .project-card-image-placeholder {
+    transition: none !important;
+  }
+}
+
+
+/* Real low-resolution WebP previews render first; the full originals fade over them once loaded. */
+.hero-portrait-preview {
+  position: absolute;
+  z-index: 1;
+  inset: 7px;
+  width: calc(100% - 14px);
+  height: calc(100% - 14px);
+  object-fit: cover;
+  object-position: center 24%;
+  border-radius: inherit;
+  filter: blur(7px) saturate(.92);
+  transform: scale(1.06);
+  pointer-events: none;
+  transition: opacity .32s ease;
+}
+.hero-portrait { z-index: 2; }
+.hero-portrait-frame.is-image-loaded .hero-portrait-preview { opacity: 0; }
+
+.project-card-image img.project-card-image-preview {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(6px) saturate(.9);
+  transform: scale(1.06);
+  opacity: 1;
+  transition: opacity .35s ease;
+  pointer-events: none;
+}
+.project-card-image.is-image-loaded img.project-card-image-preview { opacity: 0; }
+.project-card-image img.is-loaded {
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-portrait-preview,
+  .project-card-image img.project-card-image-preview { transition: none !important; }
+}

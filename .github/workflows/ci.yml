@@ -1,9 +1,9 @@
 name: CI
 on:
   push:
-    branches: [main]
+    branches: [main, feature/ai-engineering-only]
   pull_request:
-    branches: [main]
+    branches: [main, feature/liquid-glass-portfolio]
 jobs:
   quality:
     runs-on: ubuntu-latest

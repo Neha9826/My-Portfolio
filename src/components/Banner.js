@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowUpRight, ArrowDown, Stars } from "react-bootstrap-icons";
 import { SystemVisual } from "./SystemVisual";
 import heroPortrait from "../assets/img/NP_DP_2.png";
 
 export const Banner = () => {
+  const [portraitLoaded, setPortraitLoaded] = useState(false);
+  const [portraitPreviewFailed, setPortraitPreviewFailed] = useState(false);
+
   return (
     <section className="hero" id="home">
       <div className="hero-grid" aria-hidden="true" />
@@ -18,7 +22,8 @@ export const Banner = () => {
               <h1>I build <span className="hero-emphasis">bold ideas</span><br />into real software.</h1>
               <p className="hero-description">
                 Senior full-stack engineer and product builder working across thoughtful interfaces,
-                scalable systems, and AI-powered tools. I like the hard problems—and making the
+                scalable systems, and applied AI—from context-aware products and tool-connected
+                workflows to AI-assisted engineering. I like the hard problems—and making the
                 solutions feel effortless.
               </p>
               <div className="hero-actions">
@@ -35,22 +40,51 @@ export const Banner = () => {
           <Col lg={5}>
             <div className="hero-art" aria-label="Neha’s portrait surrounded by an interactive engineering systems globe">
               <SystemVisual />
-              <div className="hero-portrait-frame">
-                <img className="hero-portrait" src={heroPortrait} alt="Neha Pattnayak, full-stack engineer and founder of Dev Engine AI" />
+              <div className={portraitLoaded ? "hero-portrait-frame is-image-loaded" : "hero-portrait-frame"}>
+                <span className="hero-portrait-placeholder" aria-hidden="true" />
+                {!portraitPreviewFailed && (
+                  <img
+                    className="hero-portrait-preview"
+                    src="/image-thumbnails/NP_DP_2.webp"
+                    alt=""
+                    aria-hidden="true"
+                    loading="eager"
+                    decoding="async"
+                    onError={() => setPortraitPreviewFailed(true)}
+                  />
+                )}
+                <img
+                  className={portraitLoaded ? "hero-portrait is-loaded" : "hero-portrait"}
+                  src={heroPortrait}
+                  alt="Neha Pattnayak, full-stack engineer and founder of Dev Engine AI"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                  onLoad={() => setPortraitLoaded(true)}
+                />
                 <span className="hero-portrait-tag"><span /> BUILDER · FOUNDER</span>
               </div>
               <div className="art-orbit orbit-one" />
               <div className="art-orbit orbit-two" />
               <div className="art-orbit orbit-three" />
-              <div className="art-node node-top"><span className="node-dot" /><div><small>BUILD MODE</small><strong>ON</strong></div><Stars /></div>
-              <div className="art-node node-left"><span className="node-icon">{"</>"}</span><div><small>ENGINEERING</small><strong>Full-stack</strong></div></div>
-              <div className="art-node node-right"><span className="node-icon">✳</span><div><small>STUDIO</small><strong>Dev Engine AI</strong></div></div>
+              <div className="hero-node-orbit hero-node-orbit-build" aria-label="Build mode orbit">
+                <div className="art-node node-top"><span className="node-dot" /><div><small>BUILD MODE</small><strong>ON</strong></div><Stars /></div>
+              </div>
+              <div className="hero-node-orbit hero-node-orbit-fullstack" aria-label="Full-stack engineering orbit">
+                <div className="art-node node-left"><span className="node-icon">{"</>"}</span><div><small>ENGINEERING</small><strong>Full-stack</strong></div></div>
+              </div>
+              <div className="hero-node-orbit hero-node-orbit-studio" aria-label="Dev Engine AI studio orbit">
+                <div className="art-node node-right"><span className="node-icon">✳</span><div><small>STUDIO</small><strong>Dev Engine AI</strong></div></div>
+              </div>
+              <div className="hero-node-orbit hero-node-orbit-ai" aria-label="Applied AI workflow orbit">
+                <div className="art-node node-ai"><span className="node-icon">✦</span><div><small>APPLIED AI</small><strong>AI-driven workflow</strong></div><Stars /></div>
+              </div>
               <div className="art-caption"><span className="caption-line" /> SYSTEMS THINKING <span>×</span> CREATIVE BUILDING</div>
               <div className="art-coordinate">30°19' N<br />78°02' E</div>
             </div>
           </Col>
         </Row>
-        <a className="hero-scroll" href="#skills"><span>SCROLL TO EXPLORE</span><ArrowDown /></a>
+        <a className="hero-scroll" href="#ai-engineering"><span>SCROLL TO EXPLORE</span><ArrowDown /></a>
       </Container>
     </section>
   );

@@ -1,0 +1,54 @@
+import { fireEvent, render, screen } from "@testing-library/react";
+import { AISection } from "./AISection";
+
+describe("AISection", () => {
+  test("renders the applied AI capability cards and project examples", () => {
+    const { container } = render(<AISection />);
+
+    expect(screen.getByRole("heading", { name: /intelligence, engineered/i })).toBeInTheDocument();
+    expect(screen.getByText(/context-aware ai/i)).toBeInTheDocument();
+    expect(screen.getByText(/ai that works with tools/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /ai-assisted engineering/i })).toBeInTheDocument();
+    expect(screen.getByText(/multi-workspace document assistant/i)).toBeInTheDocument();
+    expect(screen.getByText(/arch-os/i)).toBeInTheDocument();
+    expect(screen.getByText(/docs studio/i)).toBeInTheDocument();
+
+    const archosCard = screen.getByRole("heading", { name: /arch-os/i }).closest(".ai-project-card");
+    expect(archosCard.querySelector(".ai-project-card-top > span")).toHaveTextContent("A");
+
+    const documentAssistantCard = screen.getByRole("heading", {
+      name: /multi-workspace document assistant/i,
+    }).closest(".ai-project-card");
+    expect(documentAssistantCard.querySelector(".ai-project-card-top > span")).toHaveTextContent("B");
+
+    const projectCards = Array.from(
+      container.querySelectorAll(".ai-project-proof .ai-project-card")
+    );
+    expect(projectCards.map((card) => card.querySelector("h4").textContent)).toEqual([
+      "Arch-OS",
+      "Multi-Workspace Document Assistant",
+      "Docs Studio",
+    ]);
+    expect(
+      projectCards.map((card) => card.querySelector(".ai-project-card-top > span").textContent)
+    ).toEqual(["A", "B", "C"]);
+  });
+
+  test("lets visitors explore each stage in the illustrative workflow", () => {
+    render(<AISection />);
+
+    const askTab = screen.getByRole("button", { name: /ask/i });
+    expect(askTab).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("region", { name: /selected workflow stage/i })).toHaveTextContent(/start with intent/i);
+
+    const retrieveTab = screen.getByRole("button", { name: /retrieve/i });
+    fireEvent.click(screen.getByRole("button", { name: /respond/i }));
+
+    expect(screen.getByRole("region", { name: /selected workflow stage/i })).toHaveTextContent(/return a grounded response/i);
+    expect(screen.getByRole("region", { name: /selected workflow stage/i })).toHaveTextContent(/citations/i);
+    expect(screen.getByRole("button", { name: /respond/i })).toHaveAttribute("aria-pressed", "true");
+
+    fireEvent.click(retrieveTab);
+    expect(screen.getByRole("region", { name: /selected workflow stage/i })).toHaveTextContent(/pgvector/i);
+  });
+});

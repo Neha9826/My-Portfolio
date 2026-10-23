@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Col } from "react-bootstrap";
 import { ArrowUpRight } from "react-bootstrap-icons";
 
@@ -5,6 +6,7 @@ export const ProjectCard = ({
   title,
   description,
   imgUrl,
+  thumbnailUrl,
   source,
   demoUrl,
   repoUrl,
@@ -16,12 +18,59 @@ export const ProjectCard = ({
   const codeUrl = repoUrl;
   const isComingSoon = !liveUrl && !codeUrl;
   const number = String(index + 1).padStart(2, "0");
+  const imageRef = useRef(null);
+  const [imageReadyToLoad, setImageReadyToLoad] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [thumbnailFailed, setThumbnailFailed] = useState(false);
+
+  useEffect(() => {
+    const image = imageRef.current;
+    if (!image || imageReadyToLoad) return undefined;
+
+    // Start image requests shortly before each card enters the viewport instead
+    // of allowing a browser's larger native lazy-load margin to fetch every
+    // thumbnail while the visitor is still at the top of the page.
+    if (typeof window.IntersectionObserver !== "function") {
+      setImageReadyToLoad(true);
+      return undefined;
+    }
+
+    const observer = new window.IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setImageReadyToLoad(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: "300px 0px" });
+
+    observer.observe(image);
+    return () => observer.disconnect();
+  }, [imageReadyToLoad]);
 
   return (
     <Col className="proj-col" xs={12} sm={6} lg={4}>
       <article className={`project-card ${cardClassName}`.trim()}>
-        <div className="project-card-image">
-          <img src={imgUrl} alt={title} loading="lazy" />
+        <div className={imageLoaded ? "project-card-image is-image-loaded" : "project-card-image"}>
+          <span className="project-card-image-placeholder" aria-hidden="true" />
+          {!thumbnailFailed && thumbnailUrl && imageReadyToLoad && (
+            <img
+              className="project-card-image-preview"
+              src={thumbnailUrl}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              onError={() => setThumbnailFailed(true)}
+            />
+          )}
+          <img
+            ref={imageRef}
+            className={imageLoaded ? "is-loaded" : ""}
+            src={imageReadyToLoad ? imgUrl : undefined}
+            alt={title}
+            loading="lazy"
+            decoding="async"
+            onLoad={() => setImageLoaded(true)}
+          />
           <span className="project-card-index" aria-hidden="true">CASE / {number}</span>
           <span className="project-card-image-grid" aria-hidden="true" />
           <span className="project-card-image-action" aria-hidden="true">
