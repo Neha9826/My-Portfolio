@@ -6,6 +6,7 @@ import heroPortrait from "../assets/img/NP_DP_2.png";
 
 export const Banner = () => {
   const [portraitLoaded, setPortraitLoaded] = useState(false);
+  const [portraitPreviewFailed, setPortraitPreviewFailed] = useState(false);
 
   return (
     <section className="hero" id="home">
@@ -41,6 +42,17 @@ export const Banner = () => {
               <SystemVisual />
               <div className={portraitLoaded ? "hero-portrait-frame is-image-loaded" : "hero-portrait-frame"}>
                 <span className="hero-portrait-placeholder" aria-hidden="true" />
+                {!portraitPreviewFailed && (
+                  <img
+                    className="hero-portrait-preview"
+                    src="/image-thumbnails/NP_DP_2.webp"
+                    alt=""
+                    aria-hidden="true"
+                    loading="eager"
+                    decoding="async"
+                    onError={() => setPortraitPreviewFailed(true)}
+                  />
+                )}
                 <img
                   className={portraitLoaded ? "hero-portrait is-loaded" : "hero-portrait"}
                   src={heroPortrait}
