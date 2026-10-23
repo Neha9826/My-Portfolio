@@ -1422,3 +1422,83 @@
     cursor: grabbing;
   }
 }
+
+
+
+/* Arch-OS top-bar controls open temporary previews and use a restrained attention cue. */
+.project .archos-window-actions .archos-tool-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px 8px;
+  border: 1px solid rgba(160,174,220,.13);
+  border-radius: 4px;
+  color: #b9c8e6;
+  background: rgba(9,14,28,.5);
+  font: inherit;
+  font-size: 9px;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transform-origin: center;
+  animation: archos-tool-attention 9.2s ease-in-out infinite;
+  transition: color .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.project .archos-window-actions .archos-tool-button-review {
+  color: #d4a1ff;
+  animation-delay: -2.4s;
+}
+.project .archos-window-actions .archos-tool-button-export {
+  color: #64e3c0;
+  animation-delay: -6.8s;
+}
+.project .archos-window-actions .archos-tool-button:hover,
+.project .archos-window-actions .archos-tool-button:focus-visible,
+.project .archos-window-actions .archos-tool-button[aria-expanded="true"] {
+  border-color: rgba(163,139,255,.5);
+  background: rgba(125,99,214,.12);
+  box-shadow: 0 0 18px rgba(163,139,255,.1);
+  color: #f5efff;
+  animation-play-state: paused;
+}
+.project .archos-window-actions .archos-tool-button:focus-visible {
+  outline: 2px solid #b9a7ff;
+  outline-offset: 3px;
+}
+@keyframes archos-tool-attention {
+  0%, 86%, 100% { transform: translate3d(0,0,0) rotate(0deg); }
+  87% { transform: translate3d(-1px,0,0) rotate(-1deg); }
+  88% { transform: translate3d(2px,0,0) rotate(1deg); }
+  89% { transform: translate3d(-2px,0,0) rotate(-1deg); }
+  90% { transform: translate3d(1px,0,0) rotate(.5deg); }
+  91% { transform: translate3d(0,0,0) rotate(0deg); }
+}
+
+/* Panels start hidden in JSX, animate in when selected, and are dismissed by the short UI timer. */
+.project .archos-mini-panel.is-visible,
+.project .archos-review-panel.is-visible {
+  z-index: 4;
+  animation: archos-panel-arrive .22s ease-out both;
+}
+@keyframes archos-panel-arrive {
+  from { opacity: 0; translate: 0 6px; }
+  to { opacity: 1; translate: 0 0; }
+}
+.project .archos-window-actions { flex-wrap: wrap; }
+@media (max-width: 767px) {
+  .project .archos-window-actions .archos-tool-button {
+    min-height: 32px;
+    flex: 1 1 auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project .archos-window-actions .archos-tool-button {
+    animation: none !important;
+    transition: none !important;
+  }
+  .project .archos-mini-panel.is-visible,
+  .project .archos-review-panel.is-visible {
+    animation: none !important;
+  }
+}
