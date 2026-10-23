@@ -81,7 +81,7 @@ const workflowSteps = [
 
 const projectExamples = [
   {
-    number: "A",
+    number: "B",
     title: "Multi-Workspace Document Assistant",
     description: "Workspace-scoped RAG, document citations, tool calling, and chat history.",
     tags: ["RAG", "pgvector", "Groq"],
@@ -89,7 +89,7 @@ const projectExamples = [
     linkLabel: "Explore project",
   },
   {
-    number: "B",
+    number: "A",
     title: "Arch-OS",
     description: "An AI Architecture Reviewer alongside a visual system-design workspace.",
     tags: ["AI review", "System design"],
@@ -107,7 +107,7 @@ const projectExamples = [
 ];
 
 export const AISection = ({ part = "all" } = {}) => {
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = useState(0);
   const selectedStep = workflowSteps[activeStep];
 
   return (
