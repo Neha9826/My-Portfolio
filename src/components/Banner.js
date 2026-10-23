@@ -60,7 +60,7 @@ export const Banner = () => {
             </div>
           </Col>
         </Row>
-        <a className="hero-scroll" href="#skills"><span>SCROLL TO EXPLORE</span><ArrowDown /></a>
+        <a className="hero-scroll" href="#ai-engineering"><span>SCROLL TO EXPLORE</span><ArrowDown /></a>
       </Container>
     </section>
   );
