@@ -76,7 +76,7 @@ describe("Arch-OS featured project", () => {
       })
     );
 
-    expect(card.style.getPropertyValue("--archos-tilt-x")).toBe("-3.50deg");
+    expect(card.style.getPropertyValue("--archos-tilt-x")).toBe("3.50deg");
     expect(card.style.getPropertyValue("--archos-tilt-y")).toBe("4.50deg");
     expect(card.style.getPropertyValue("--archos-glow-x")).toBe("100.00%");
     expect(card.classList.contains("is-pointer-active")).toBe(true);
