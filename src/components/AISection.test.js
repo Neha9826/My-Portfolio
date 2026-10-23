@@ -12,10 +12,22 @@ describe("AISection", () => {
     expect(screen.getByText(/multi-workspace document assistant/i)).toBeInTheDocument();
     expect(screen.getByText(/arch-os/i)).toBeInTheDocument();
     expect(screen.getByText(/docs studio/i)).toBeInTheDocument();
+
+    const archosCard = screen.getByRole("heading", { name: /arch-os/i }).closest(".ai-project-card");
+    expect(archosCard.querySelector(".ai-project-card-top > span")).toHaveTextContent("A");
+
+    const documentAssistantCard = screen.getByRole("heading", {
+      name: /multi-workspace document assistant/i,
+    }).closest(".ai-project-card");
+    expect(documentAssistantCard.querySelector(".ai-project-card-top > span")).toHaveTextContent("B");
   });
 
   test("lets visitors explore each stage in the illustrative workflow", () => {
     render(<AISection />);
+
+    const askTab = screen.getByRole("button", { name: /ask/i });
+    expect(askTab).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("region", { name: /selected workflow stage/i })).toHaveTextContent(/start with intent/i);
 
     const retrieveTab = screen.getByRole("button", { name: /retrieve/i });
     fireEvent.click(screen.getByRole("button", { name: /respond/i }));
