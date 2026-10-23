@@ -1098,3 +1098,57 @@
     will-change: auto;
   }
 }
+
+
+/* Stagger planet positions so the four labels orbit as a coordinated, readable system. */
+.hero-art .hero-node-orbit-fullstack,
+.hero-art .hero-node-orbit-fullstack .art-node { animation-delay: -11s; }
+.hero-art .hero-node-orbit-studio,
+.hero-art .hero-node-orbit-studio .art-node { animation-delay: -22s; }
+.hero-art .hero-node-orbit-ai,
+.hero-art .hero-node-orbit-ai .art-node { animation-delay: -29s; }
+
+@media (max-width: 767px) {
+  .hero-art .hero-node-orbit-build { inset: 16% 18%; }
+  .hero-art .hero-node-orbit-fullstack { inset: 17% 19%; }
+  .hero-art .hero-node-orbit-studio { inset: 15% 17%; }
+  .hero-art .hero-node-orbit-ai { inset: 16% 20%; }
+  .hero-art .hero-node-orbit .art-node {
+    max-width: 36%;
+    gap: 5px;
+    padding: 7px;
+  }
+  .hero-art .hero-node-orbit .art-node small { font-size: 6px; letter-spacing: .55px; }
+  .hero-art .hero-node-orbit .art-node strong { font-size: 8px; }
+  .hero-art .hero-node-orbit .art-node .node-icon { width: 21px; height: 21px; font-size: 9px; }
+  .hero-art .hero-node-orbit .art-node svg { font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-art .hero-node-orbit,
+  .hero-art .hero-node-orbit .art-node {
+    animation: none !important;
+    will-change: auto;
+  }
+  .hero-art .hero-node-orbit-build .art-node {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) !important;
+  }
+  .hero-art .hero-node-orbit-fullstack .art-node {
+    top: 43%;
+    left: 0;
+    transform: none !important;
+  }
+  .hero-art .hero-node-orbit-studio .art-node {
+    top: 62%;
+    left: 100%;
+    transform: translateX(-100%) !important;
+  }
+  .hero-art .hero-node-orbit-ai .art-node {
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) !important;
+  }
+}
