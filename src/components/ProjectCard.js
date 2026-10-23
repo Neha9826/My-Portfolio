@@ -6,6 +6,7 @@ export const ProjectCard = ({
   title,
   description,
   imgUrl,
+  thumbnailUrl,
   source,
   demoUrl,
   repoUrl,
@@ -20,6 +21,7 @@ export const ProjectCard = ({
   const imageRef = useRef(null);
   const [imageReadyToLoad, setImageReadyToLoad] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [thumbnailFailed, setThumbnailFailed] = useState(false);
 
   useEffect(() => {
     const image = imageRef.current;
@@ -49,6 +51,17 @@ export const ProjectCard = ({
       <article className={`project-card ${cardClassName}`.trim()}>
         <div className={imageLoaded ? "project-card-image is-image-loaded" : "project-card-image"}>
           <span className="project-card-image-placeholder" aria-hidden="true" />
+          {!thumbnailFailed && thumbnailUrl && imageReadyToLoad && (
+            <img
+              className="project-card-image-preview"
+              src={thumbnailUrl}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              onError={() => setThumbnailFailed(true)}
+            />
+          )}
           <img
             ref={imageRef}
             className={imageLoaded ? "is-loaded" : ""}
