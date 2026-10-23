@@ -17,11 +17,13 @@ describe("ProjectCard image loading", () => {
         />
       );
 
-      const preview = container.querySelector(".project-card-image-preview");
       const fullImage = screen.getByRole("img", { name: "Example project" });
 
       await waitFor(() => {
-        expect(preview).toHaveAttribute("src", "/image-thumbnails/example.webp");
+        expect(container.querySelector(".project-card-image-preview")).toHaveAttribute(
+          "src",
+          "/image-thumbnails/example.webp"
+        );
         expect(fullImage).toHaveAttribute("src", "/images/example-full.webp");
       });
 
