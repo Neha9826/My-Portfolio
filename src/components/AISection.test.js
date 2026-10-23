@@ -8,7 +8,7 @@ describe("AISection", () => {
     expect(screen.getByRole("heading", { name: /intelligence, engineered/i })).toBeInTheDocument();
     expect(screen.getByText(/context-aware ai/i)).toBeInTheDocument();
     expect(screen.getByText(/ai that works with tools/i)).toBeInTheDocument();
-    expect(screen.getByText(/ai-assisted engineering/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /ai-assisted engineering/i })).toBeInTheDocument();
     expect(screen.getByText(/multi-workspace document assistant/i)).toBeInTheDocument();
     expect(screen.getByText(/arch-os/i)).toBeInTheDocument();
     expect(screen.getByText(/docs studio/i)).toBeInTheDocument();
