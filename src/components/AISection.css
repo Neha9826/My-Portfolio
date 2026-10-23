@@ -507,3 +507,88 @@
     transition: none !important;
   }
 }
+
+
+/* Periodic interactive cue for the four workflow sidebar steps. */
+.ai-workflow-step {
+  position: relative;
+  transform-origin: center;
+  animation: ai-workflow-attention 9s ease-in-out infinite;
+  --workflow-pulse-bg: rgba(255,107,69,.2);
+  --workflow-pulse-border: rgba(255,151,111,.85);
+  --workflow-pulse-glow: rgba(255,107,69,.22);
+}
+.ai-workflow-step:nth-child(1) {
+  animation-delay: -1.2s;
+  --workflow-pulse-bg: rgba(255,107,69,.2);
+  --workflow-pulse-border: rgba(255,151,111,.85);
+  --workflow-pulse-glow: rgba(255,107,69,.22);
+}
+.ai-workflow-step:nth-child(2) {
+  animation-delay: -3.4s;
+  --workflow-pulse-bg: rgba(163,139,255,.22);
+  --workflow-pulse-border: rgba(190,164,255,.9);
+  --workflow-pulse-glow: rgba(163,139,255,.26);
+}
+.ai-workflow-step:nth-child(3) {
+  animation-delay: -5.6s;
+  --workflow-pulse-bg: rgba(100,227,192,.17);
+  --workflow-pulse-border: rgba(100,227,192,.88);
+  --workflow-pulse-glow: rgba(100,227,192,.2);
+}
+.ai-workflow-step:nth-child(4) {
+  animation-delay: -7.8s;
+  --workflow-pulse-bg: rgba(115,178,255,.19);
+  --workflow-pulse-border: rgba(115,178,255,.88);
+  --workflow-pulse-glow: rgba(115,178,255,.22);
+}
+@keyframes ai-workflow-attention {
+  0%, 84%, 93%, 100% {
+    transform: translate3d(0,0,0);
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+  85% {
+    transform: translate3d(-1px,0,0);
+    background-color: var(--workflow-pulse-bg);
+    border-color: var(--workflow-pulse-border);
+    box-shadow: 0 0 15px var(--workflow-pulse-glow);
+  }
+  86% {
+    transform: translate3d(2px,0,0);
+    background-color: var(--workflow-pulse-bg);
+    border-color: var(--workflow-pulse-border);
+    box-shadow: 0 0 20px var(--workflow-pulse-glow);
+  }
+  88% {
+    transform: translate3d(-2px,0,0);
+    background-color: var(--workflow-pulse-bg);
+    border-color: var(--workflow-pulse-border);
+    box-shadow: 0 0 17px var(--workflow-pulse-glow);
+  }
+  90% {
+    transform: translate3d(1px,0,0);
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+}
+.ai-workflow-step:hover,
+.ai-workflow-step:focus-visible,
+.ai-workflow-step.is-active {
+  animation-play-state: paused;
+}
+.ai-workflow-step:hover,
+.ai-workflow-step:focus-visible {
+  background-color: rgba(255,255,255,.035);
+}
+.ai-workflow-step.is-active {
+  background-color: rgba(255,107,69,.055);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-workflow-step {
+    animation: none !important;
+    transform: none !important;
+  }
+}
