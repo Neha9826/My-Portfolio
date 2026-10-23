@@ -1179,3 +1179,81 @@
   .ai-engineering-section.ai-workflow-section { padding-bottom: 54px; }
   .ai-workflow-section + .project { padding-top: 60px; }
 }
+
+
+/* Refinement pass: widen orbit radii, pause the hovered planet, and unify section backdrops. */
+.hero-art .hero-node-orbit-build { inset: 1% -7%; }
+.hero-art .hero-node-orbit-fullstack { inset: 4% -10%; }
+.hero-art .hero-node-orbit-studio { inset: -2% -5%; }
+.hero-art .hero-node-orbit-ai { inset: -3% -8%; }
+
+/* Freeze both orbital motion and counter-rotation while a label is hovered or keyboard-focused. */
+.hero-art .hero-node-orbit:has(.art-node:hover),
+.hero-art .hero-node-orbit:focus-within,
+.hero-art .hero-node-orbit .art-node:hover,
+.hero-art .hero-node-orbit .art-node:focus-visible {
+  animation-play-state: paused !important;
+}
+
+/* Reuse the Toolkit's blueprint background for each AI feature section. */
+.ai-engineering-section.ai-capabilities-section,
+.ai-engineering-section.ai-workflow-section {
+  background-color: #0b0c12;
+  background-image:
+    linear-gradient(rgba(160,154,198,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160,154,198,.035) 1px, transparent 1px),
+    radial-gradient(ellipse at 78% 18%, rgba(94,116,176,.09), transparent 38%);
+  background-size: 48px 48px, 48px 48px, auto;
+}
+
+/* Reduce vertical whitespace through the AI -> Toolkit -> workflow sequence. */
+.ai-engineering-section.ai-capabilities-section {
+  padding-top: clamp(62px, 6vw, 82px);
+  padding-bottom: 34px;
+}
+.ai-capabilities-section + .skill {
+  padding-top: 38px;
+  padding-bottom: 36px;
+}
+.skill + .ai-engineering-section.ai-workflow-section {
+  padding-top: 38px;
+}
+.ai-engineering-section.ai-workflow-section {
+  padding-bottom: 44px;
+}
+.ai-workflow-section .ai-workflow-heading {
+  margin-top: 0;
+}
+.ai-workflow-section .ai-project-proof {
+  margin-top: clamp(42px, 5vw, 58px);
+}
+.ai-workflow-section + .project {
+  padding-top: 52px;
+}
+@media (max-width: 767px) {
+  .hero-art .hero-node-orbit-build { inset: 6% -3%; }
+  .hero-art .hero-node-orbit-fullstack { inset: 8% -5%; }
+  .hero-art .hero-node-orbit-studio { inset: 3% -2%; }
+  .hero-art .hero-node-orbit-ai { inset: 2% -4%; }
+
+  .ai-engineering-section.ai-capabilities-section {
+    padding-top: 58px;
+    padding-bottom: 28px;
+  }
+  .ai-capabilities-section + .skill {
+    padding-top: 32px;
+    padding-bottom: 28px;
+  }
+  .skill + .ai-engineering-section.ai-workflow-section {
+    padding-top: 32px;
+  }
+  .ai-engineering-section.ai-workflow-section {
+    padding-bottom: 34px;
+  }
+  .ai-workflow-section .ai-project-proof {
+    margin-top: 38px;
+  }
+  .ai-workflow-section + .project {
+    padding-top: 44px;
+  }
+}
