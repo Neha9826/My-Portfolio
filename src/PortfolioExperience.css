@@ -1011,3 +1011,90 @@
 .project .docs-studio-card .project-card-image {
   aspect-ratio: 2.16 / 1;
 }
+
+
+/* Orbital hero labels: each capability follows its own planet-like path around the portrait. */
+.hero-art .hero-node-orbit {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+.hero-art .hero-node-orbit-build {
+  inset: 11% 9%;
+  animation: hero-planet-orbit 34s linear infinite;
+}
+.hero-art .hero-node-orbit-fullstack {
+  inset: 15% 8%;
+  animation: hero-planet-orbit 43s linear infinite reverse;
+}
+.hero-art .hero-node-orbit-studio {
+  inset: 12% 10%;
+  animation: hero-planet-orbit 51s linear infinite;
+}
+.hero-art .hero-node-orbit-ai {
+  inset: 14% 7%;
+  animation: hero-planet-orbit 39s linear infinite reverse;
+}
+.hero-art .hero-node-orbit .art-node {
+  top: 0;
+  left: 50%;
+  max-width: 48%;
+  pointer-events: auto;
+  animation: hero-planet-counterorbit 34s linear infinite;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+.hero-art .hero-node-orbit-fullstack .art-node {
+  animation-duration: 43s;
+  animation-name: hero-planet-clockwise;
+}
+.hero-art .hero-node-orbit-studio .art-node {
+  animation-duration: 51s;
+}
+.hero-art .hero-node-orbit-ai .art-node {
+  animation-duration: 39s;
+  animation-name: hero-planet-clockwise;
+}
+.hero-art .hero-node-orbit .art-node:hover {
+  border-color: rgba(255,176,138,.58) !important;
+}
+.hero-art .node-ai .node-icon {
+  color: #c9b9ff;
+  background: rgba(163,139,255,.16);
+  font-size: 19px;
+}
+@keyframes hero-planet-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes hero-planet-counterorbit {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(-360deg); }
+}
+@keyframes hero-planet-clockwise {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(360deg); }
+}
+@media (max-width: 767px) {
+  .hero-art .hero-node-orbit-build { inset: 13% 5%; }
+  .hero-art .hero-node-orbit-fullstack { inset: 17% 5%; }
+  .hero-art .hero-node-orbit-studio { inset: 14% 7%; }
+  .hero-art .hero-node-orbit-ai { inset: 16% 4%; }
+  .hero-art .hero-node-orbit .art-node {
+    max-width: 46%;
+    gap: 6px;
+    padding: 9px;
+  }
+  .hero-art .hero-node-orbit .art-node small { font-size: 6px; letter-spacing: .8px; }
+  .hero-art .hero-node-orbit .art-node strong { font-size: 9px; }
+  .hero-art .hero-node-orbit .art-node .node-icon { width: 25px; height: 25px; font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-art .hero-node-orbit,
+  .hero-art .hero-node-orbit .art-node {
+    animation: none !important;
+    will-change: auto;
+  }
+}
