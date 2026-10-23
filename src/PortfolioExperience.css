@@ -1257,3 +1257,34 @@
     padding-top: 44px;
   }
 }
+
+
+/* Reuse the Toolkit's animated constellation canvas behind both Applied AI sections. */
+.ai-engineering-section > .skills-network-canvas {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .9;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.ai-engineering-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep the same grid-and-glass visual language on both AI section surfaces. */
+.ai-engineering-section.ai-capabilities-section,
+.ai-engineering-section.ai-workflow-section {
+  background-color: #0b0c12;
+  background-image:
+    linear-gradient(rgba(160,154,198,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160,154,198,.035) 1px, transparent 1px),
+    radial-gradient(ellipse at 78% 18%, rgba(94,116,176,.09), transparent 38%);
+  background-size: 48px 48px, 48px 48px, auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-engineering-section > .skills-network-canvas { opacity: .5; }
+}
