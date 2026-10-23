@@ -13,7 +13,7 @@ test('renders the portfolio shell and primary sections', () => {
   expect(container.querySelector('#connect')).toBeInTheDocument();
 
   const sectionHeadings = Array.from(container.querySelectorAll('section'))
-    .map((section) => section.querySelector('h2, h3')?.textContent.replace(/\\s+/g, ' ').trim())
+    .map((section) => section.querySelector('h2, h3')?.textContent.replace(/\s+/g, ' ').trim())
     .filter(Boolean);
 
   expect(sectionHeadings.indexOf('Intelligence, engineered.')).toBeLessThan(
