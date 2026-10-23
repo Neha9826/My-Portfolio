@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowUpRight, ArrowDown, Stars } from "react-bootstrap-icons";
 import { SystemVisual } from "./SystemVisual";
 import heroPortrait from "../assets/img/NP_DP_2.png";
 
 export const Banner = () => {
+  const [portraitLoaded, setPortraitLoaded] = useState(false);
+
   return (
     <section className="hero" id="home">
       <div className="hero-grid" aria-hidden="true" />
@@ -36,14 +39,16 @@ export const Banner = () => {
           <Col lg={5}>
             <div className="hero-art" aria-label="Neha’s portrait surrounded by an interactive engineering systems globe">
               <SystemVisual />
-              <div className="hero-portrait-frame">
+              <div className={portraitLoaded ? "hero-portrait-frame is-image-loaded" : "hero-portrait-frame"}>
+                <span className="hero-portrait-placeholder" aria-hidden="true" />
                 <img
-                  className="hero-portrait"
+                  className={portraitLoaded ? "hero-portrait is-loaded" : "hero-portrait"}
                   src={heroPortrait}
                   alt="Neha Pattnayak, full-stack engineer and founder of Dev Engine AI"
                   loading="eager"
                   fetchpriority="high"
                   decoding="async"
+                  onLoad={() => setPortraitLoaded(true)}
                 />
                 <span className="hero-portrait-tag"><span /> BUILDER · FOUNDER</span>
               </div>
