@@ -37,7 +37,13 @@ export const Banner = () => {
             <div className="hero-art" aria-label="Neha’s portrait surrounded by an interactive engineering systems globe">
               <SystemVisual />
               <div className="hero-portrait-frame">
-                <img className="hero-portrait" src={heroPortrait} alt="Neha Pattnayak, full-stack engineer and founder of Dev Engine AI" />
+                <img
+                  className="hero-portrait"
+                  src={heroPortrait}
+                  alt="Neha Pattnayak, full-stack engineer and founder of Dev Engine AI"
+                  loading="eager"
+                  decoding="async"
+                />
                 <span className="hero-portrait-tag"><span /> BUILDER · FOUNDER</span>
               </div>
               <div className="art-orbit orbit-one" />
