@@ -11,6 +11,37 @@ import docsStudioPreview from "../assets/img/docs-studio-preview.webp";
 import { ArrowUpRight, Git, BoxSeam, Robot, CodeSlash, Layers } from "react-bootstrap-icons";
 
 export const Projects = () => {
+  const handleArchosPointerMove = (event) => {
+    const card = event.currentTarget;
+    const prefersReducedMotion =
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+    if (event.pointerType === "touch" || prefersReducedMotion) return;
+
+    const bounds = card.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return;
+
+    const x = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+    const y = Math.max(0, Math.min(1, (event.clientY - bounds.top) / bounds.height));
+    const tiltX = ((0.5 - y) * 7).toFixed(2);
+    const tiltY = ((x - 0.5) * 9).toFixed(2);
+
+    card.style.setProperty("--archos-tilt-x", `${tiltX}deg`);
+    card.style.setProperty("--archos-tilt-y", `${tiltY}deg`);
+    card.style.setProperty("--archos-glow-x", `${(x * 100).toFixed(2)}%`);
+    card.style.setProperty("--archos-glow-y", `${(y * 100).toFixed(2)}%`);
+    card.classList.add("is-pointer-active");
+  };
+
+  const handleArchosPointerLeave = (event) => {
+    const card = event.currentTarget;
+    card.style.setProperty("--archos-tilt-x", "0deg");
+    card.style.setProperty("--archos-tilt-y", "0deg");
+    card.style.setProperty("--archos-glow-x", "50%");
+    card.style.setProperty("--archos-glow-y", "50%");
+    card.classList.remove("is-pointer-active");
+  };
+
   const projects = [
     {
       title: "Multi-Workspace Document Assistant",
@@ -78,7 +109,12 @@ export const Projects = () => {
           </p>
         </div>
 
-        <article className="archos-feature">
+        <article
+          className="archos-feature"
+          onPointerMove={handleArchosPointerMove}
+          onPointerLeave={handleArchosPointerLeave}
+          onPointerCancel={handleArchosPointerLeave}
+        >
           <div className="archos-copy">
             <span className="archos-eyebrow"><span /> FEATURED PROJECT · IN DEVELOPMENT</span>
             <h3>Arch-<span>OS</span></h3>
