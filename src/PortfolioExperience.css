@@ -1288,3 +1288,93 @@
 @media (prefers-reduced-motion: reduce) {
   .ai-engineering-section > .skills-network-canvas { opacity: .5; }
 }
+
+
+/* Arch-OS canvas: keep the Redis and PostgreSQL nodes clear of the review/code overlays. */
+.project .archos-node-redis {
+  top: 54%;
+  right: 8%;
+  z-index: 3;
+}
+.project .archos-node-db {
+  top: 74%;
+  left: 61%;
+  width: 31%;
+  z-index: 3;
+}
+
+/* Cursor-directed interaction for the featured card: gentle 3D tilt plus a moving highlight. */
+.project .archos-feature {
+  transform: perspective(1600px)
+    rotateX(var(--archos-tilt-x, 0deg))
+    rotateY(var(--archos-tilt-y, 0deg));
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  transition:
+    transform .22s cubic-bezier(.2,.7,.2,1),
+    border-color .28s ease,
+    box-shadow .28s ease;
+  will-change: transform;
+}
+.project .archos-feature::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--archos-glow-x, 50%) var(--archos-glow-y, 50%),
+    rgba(163,139,255,.12),
+    transparent 36%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .24s ease;
+}
+.project .archos-feature > .archos-copy,
+.project .archos-feature > .archos-visual,
+.project .archos-feature > .archos-capabilities {
+  position: relative;
+  z-index: 1;
+}
+.project .archos-feature.is-pointer-active {
+  transition: border-color .28s ease, box-shadow .28s ease;
+  border-color: rgba(178,164,255,.34);
+  box-shadow: 0 32px 96px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.07);
+}
+.project .archos-feature.is-pointer-active::after { opacity: 1; }
+
+@media (max-width: 767px) {
+  .project .archos-node-redis {
+    top: 54%;
+    right: 4%;
+    width: 36%;
+  }
+  .project .archos-node-db {
+    top: 74%;
+    left: 60%;
+    width: 36%;
+  }
+  .project .archos-review-panel {
+    top: 21%;
+  }
+  .project .archos-feature {
+    transform: none !important;
+    transition: border-color .28s ease, box-shadow .28s ease;
+    will-change: auto;
+  }
+  .project .archos-feature::after { display: none; }
+}
+@media (max-width: 420px) {
+  .project .archos-canvas { height: 390px; }
+  .project .archos-node-redis { top: 54%; }
+  .project .archos-node-db { top: 74%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project .archos-feature {
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+  .project .archos-feature::after { display: none; }
+}
